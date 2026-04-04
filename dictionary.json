@@ -10,10 +10,15 @@
       "gloss": "system",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "⬡",
+      "unicode_char": "𐀂",
       "handwritten_char": null,
       "definition": "Holistic, relational, directional whole. Edges matter most. Flow, emergence, behaviour.",
-      "encapsulates": ["network", "organism", "economy", "node graph (edge-oriented)"],
+      "encapsulates": [
+        "network",
+        "organism",
+        "economy",
+        "node graph (edge-oriented)"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -22,10 +27,15 @@
       "gloss": "structure",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "⬢",
+      "unicode_char": "𐀅",
       "handwritten_char": null,
       "definition": "Organisational arrangement: levels, order, layout, relative positions. Can be subset of a system; systems can emerge from it.",
-      "encapsulates": ["hierarchy", "schema", "architecture", "skeleton"],
+      "encapsulates": [
+        "hierarchy",
+        "schema",
+        "architecture",
+        "skeleton"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -34,10 +44,16 @@
       "gloss": "form",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "◈",
+      "unicode_char": "𐀇",
       "handwritten_char": null,
       "definition": "External, observable, material expression. Shape, medium, bounds, reach.",
-      "encapsulates": ["shape", "surface", "medium", "representation", "substrate"],
+      "encapsulates": [
+        "shape",
+        "surface",
+        "medium",
+        "representation",
+        "substrate"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -46,10 +62,16 @@
       "gloss": "group",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "⊂",
+      "unicode_char": "𐀈",
       "handwritten_char": null,
       "definition": "Lateral category or taxonomy. Things belonging together at the same level.",
-      "encapsulates": ["category", "class", "set", "cluster", "taxon"],
+      "encapsulates": [
+        "category",
+        "class",
+        "set",
+        "cluster",
+        "taxon"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -58,10 +80,16 @@
       "gloss": "layer",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "≡",
+      "unicode_char": "𐀉",
       "handwritten_char": null,
       "definition": "Vertical level within a hierarchy. Position relative to above and below.",
-      "encapsulates": ["tier", "level", "stratum", "rank", "abstraction level"],
+      "encapsulates": [
+        "tier",
+        "level",
+        "stratum",
+        "rank",
+        "abstraction level"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -70,10 +98,14 @@
       "gloss": "grain",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "∷",
+      "unicode_char": "𐀊",
       "handwritten_char": null,
       "definition": "Granularity or cardinality of composition. Size and number of components relative to the whole.",
-      "encapsulates": ["granularity", "monolithic vs modular", "fine vs coarse"],
+      "encapsulates": [
+        "granularity",
+        "monolithic vs modular",
+        "fine vs coarse"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -82,10 +114,17 @@
       "gloss": "self",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "◎",
+      "unicode_char": "𐀋",
       "handwritten_char": null,
       "definition": "The thing-in-itself. Undivided, prior to relation, its own reference point.",
-      "encapsulates": ["identity", "the monolith", "Ding an sich", "this", "autonym", "wholeness"],
+      "encapsulates": [
+        "identity",
+        "the monolith",
+        "Ding an sich",
+        "this",
+        "autonym",
+        "wholeness"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -94,10 +133,19 @@
       "gloss": "field",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "⟴",
+      "unicode_char": "𐀍",
       "handwritten_char": null,
       "definition": "A substrate of positions, each with measurable properties, related by adjacency or distance. Neutral — no position inherently marked. Parallel to /system/ (edge-oriented) and /group/ (lateral category) but specifically continuous/discrete spatial distribution.",
-      "encapsulates": ["heightmap", " vector field", " tensor", " probability density", " grid", " matrix", " chessboard",  "surface of table"],
+      "encapsulates": [
+        "heightmap",
+        " vector field",
+        " tensor",
+        " probability density",
+        " grid",
+        " matrix",
+        " chessboard",
+        "surface of table"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -106,10 +154,20 @@
       "gloss": "figure",
       "type": "first-class",
       "category": "structure",
-      "unicode_char": "⟁",
+      "unicode_char": "𐀎",
       "handwritten_char": null,
       "definition": "Asymmetric contrast within a substrate, where one region is distinguished from the ground by a local difference. Structural property of the substrate, independent of observer.",
-      "encapsulates": ["focal point", " emphasis", " outlier", " spike", " mode", " anomaly", " leverage point", " salient feature", " local maximum/minimum"],
+      "encapsulates": [
+        "focal point",
+        " emphasis",
+        " outlier",
+        " spike",
+        " mode",
+        " anomaly",
+        " leverage point",
+        " salient feature",
+        " local maximum/minimum"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -118,10 +176,16 @@
       "gloss": "process",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "→",
+      "unicode_char": "𐀏",
       "handwritten_char": null,
       "definition": "Transformation extended through time. Steps visible and ordered.",
-      "encapsulates": ["algorithm", "recipe", "procedure", "workflow", "protocol"],
+      "encapsulates": [
+        "algorithm",
+        "recipe",
+        "procedure",
+        "workflow",
+        "protocol"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -130,10 +194,16 @@
       "gloss": "function",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "λ",
+      "unicode_char": "𐀐",
       "handwritten_char": null,
       "definition": "Input → transformation → output. Steps hidden; only mapping matters.",
-      "encapsulates": ["mapping", "rule", "operation", "f(x)", "transform"],
+      "encapsulates": [
+        "mapping",
+        "rule",
+        "operation",
+        "f(x)",
+        "transform"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -142,10 +212,17 @@
       "gloss": "change",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "△",
+      "unicode_char": "𐀑",
       "handwritten_char": null,
       "definition": "Transformation where the before/after contrast is the point.",
-      "encapsulates": ["transition", "shift", "delta", "mutation", "becoming", "化"],
+      "encapsulates": [
+        "transition",
+        "shift",
+        "delta",
+        "mutation",
+        "becoming",
+        "化"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -154,10 +231,15 @@
       "gloss": "map",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "⇌",
+      "unicode_char": "𐀒",
       "handwritten_char": null,
       "definition": "Transforming while preserving structure. Isomorphism performed, not merely observed.",
-      "encapsulates": ["bijection", "morphism", "projection", "encoding"],
+      "encapsulates": [
+        "bijection",
+        "morphism",
+        "projection",
+        "encoding"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -166,10 +248,15 @@
       "gloss": "resolve",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "⊙",
+      "unicode_char": "𐀓",
       "handwritten_char": null,
       "definition": "A system settling into equilibrium.",
-      "encapsulates": ["convergence", "equilibrium", "crystallise", "precipitate"],
+      "encapsulates": [
+        "convergence",
+        "equilibrium",
+        "crystallise",
+        "precipitate"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -178,10 +265,15 @@
       "gloss": "increase",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "↑",
+      "unicode_char": "𐀔",
       "handwritten_char": null,
       "definition": "Growing in magnitude, intensity, or quantity.",
-      "encapsulates": ["amplify", "intensify", "grow", "expand"],
+      "encapsulates": [
+        "amplify",
+        "intensify",
+        "grow",
+        "expand"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -190,10 +282,16 @@
       "gloss": "decrease",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "↓",
+      "unicode_char": "𐀕",
       "handwritten_char": null,
       "definition": "Shrinking in magnitude, intensity, or quantity.",
-      "encapsulates": ["diminish", "attenuate", "friction", "drag", "reduce"],
+      "encapsulates": [
+        "diminish",
+        "attenuate",
+        "friction",
+        "drag",
+        "reduce"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -202,10 +300,15 @@
       "gloss": "exhaust",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "∅→",
+      "unicode_char": "𐀖",
       "handwritten_char": null,
       "definition": "Fully traversing or completing. Covering every element, leaving nothing out.",
-      "encapsulates": ["complete", "flesh out", "saturate", "terminate"],
+      "encapsulates": [
+        "complete",
+        "flesh out",
+        "saturate",
+        "terminate"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -214,10 +317,16 @@
       "gloss": "recurse",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "↺",
+      "unicode_char": "𐀗",
       "handwritten_char": null,
       "definition": "A process defined in terms of smaller instances of itself, converging toward a base.",
-      "encapsulates": ["recursion", "induction", "factorial", "bottom-up", "self-similar growth"],
+      "encapsulates": [
+        "recursion",
+        "induction",
+        "factorial",
+        "bottom-up",
+        "self-similar growth"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -226,10 +335,16 @@
       "gloss": "corecurse",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "↻",
+      "unicode_char": "𐀘",
       "handwritten_char": null,
       "definition": "A process generating output from an initial state, potentially unbounded.",
-      "encapsulates": ["corecursion", "deduction", "fractal", "stream", "top-down"],
+      "encapsulates": [
+        "corecursion",
+        "deduction",
+        "fractal",
+        "stream",
+        "top-down"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -238,10 +353,14 @@
       "gloss": "interpolate",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "⋯",
+      "unicode_char": "𐀙",
       "handwritten_char": null,
       "definition": "Estimating a value within a known range, between existing data points.",
-      "encapsulates": ["interpolation", "filling gaps", "inferring within bounds"],
+      "encapsulates": [
+        "interpolation",
+        "filling gaps",
+        "inferring within bounds"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -250,10 +369,15 @@
       "gloss": "extrapolate",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "⇢",
+      "unicode_char": "𐀚",
       "handwritten_char": null,
       "definition": "Projecting a value beyond a known range, outside existing data.",
-      "encapsulates": ["extrapolation", "prediction", "forecasting", "extending a trend"],
+      "encapsulates": [
+        "extrapolation",
+        "prediction",
+        "forecasting",
+        "extending a trend"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -262,10 +386,14 @@
       "gloss": "trace",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "↩",
+      "unicode_char": "𐀛",
       "handwritten_char": null,
       "definition": "Following a path backward from effect toward origin. Retrospective reconstruction.",
-      "encapsulates": ["reverse engineering", "archaeology", "provenance"],
+      "encapsulates": [
+        "reverse engineering",
+        "archaeology",
+        "provenance"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -274,10 +402,19 @@
       "gloss": "begin",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "⊢",
+      "unicode_char": "𐀜",
       "handwritten_char": null,
       "definition": "The threshold moment of coming into existence or starting.",
-      "encapsulates": ["create", "initiate", "birth", "instantiate", "spawn", "genesis", "onset", "trigger"],
+      "encapsulates": [
+        "create",
+        "initiate",
+        "birth",
+        "instantiate",
+        "spawn",
+        "genesis",
+        "onset",
+        "trigger"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -286,10 +423,17 @@
       "gloss": "end",
       "type": "first-class",
       "category": "transformation",
-      "unicode_char": "⊣",
+      "unicode_char": "𐀝",
       "handwritten_char": null,
       "definition": "The threshold moment of going out of existence or stopping.",
-      "encapsulates": ["destroy", "terminate", "death", "delete", "cease", "collapse into non-existence"],
+      "encapsulates": [
+        "destroy",
+        "terminate",
+        "death",
+        "delete",
+        "cease",
+        "collapse into non-existence"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -298,10 +442,18 @@
       "gloss": "path",
       "type": "first-class",
       "category": "relational",
-      "unicode_char": "⟿",
+      "unicode_char": "𐀞",
       "handwritten_char": null,
       "definition": "A structure that constrains and directs movement along a defined route.",
-      "encapsulates": ["road", "pipe", "channel", "tract", "axon", "argument structure", "narrative arc"],
+      "encapsulates": [
+        "road",
+        "pipe",
+        "channel",
+        "tract",
+        "axon",
+        "argument structure",
+        "narrative arc"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -310,10 +462,16 @@
       "gloss": "congruent",
       "type": "first-class",
       "category": "relational",
-      "unicode_char": "≅",
+      "unicode_char": "𐀟",
       "handwritten_char": null,
       "definition": "Observation that two things share the same underlying structure. Isomorphism seen, not performed.",
-      "encapsulates": ["isomorphism", "analogy", "resonance", "correspondence", "archetype"],
+      "encapsulates": [
+        "isomorphism",
+        "analogy",
+        "resonance",
+        "correspondence",
+        "archetype"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -322,10 +480,15 @@
       "gloss": "compose",
       "type": "first-class",
       "category": "relational",
-      "unicode_char": "∘",
+      "unicode_char": "𐀠",
       "handwritten_char": null,
       "definition": "Two or more things orthogonal and stackable — compatible without interference.",
-      "encapsulates": ["orthogonal", "modular", "composable", "independent"],
+      "encapsulates": [
+        "orthogonal",
+        "modular",
+        "composable",
+        "independent"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -334,10 +497,15 @@
       "gloss": "depend",
       "type": "first-class",
       "category": "relational",
-      "unicode_char": "⊸",
+      "unicode_char": "𐀡",
       "handwritten_char": null,
       "definition": "Asymmetric, directional relationship. One thing requires or is downstream of another.",
-      "encapsulates": ["dependency", "prerequisite", "requires", "downstream"],
+      "encapsulates": [
+        "dependency",
+        "prerequisite",
+        "requires",
+        "downstream"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -346,10 +514,15 @@
       "gloss": "cause",
       "type": "first-class",
       "category": "relational",
-      "unicode_char": "⇒",
+      "unicode_char": "𐀢",
       "handwritten_char": null,
       "definition": "x produces y, directionality clear. Explicit causal arrow.",
-      "encapsulates": ["produces", "generates", "results in", "drives"],
+      "encapsulates": [
+        "produces",
+        "generates",
+        "results in",
+        "drives"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -358,10 +531,14 @@
       "gloss": "same",
       "type": "first-class",
       "category": "relational",
-      "unicode_char": "=",
+      "unicode_char": "𐀣",
       "handwritten_char": null,
       "definition": "Equality, identity, equivalence of value or state.",
-      "encapsulates": ["equals", "identical", "equivalent"],
+      "encapsulates": [
+        "equals",
+        "identical",
+        "equivalent"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -370,10 +547,15 @@
       "gloss": "link",
       "type": "first-class",
       "category": "relational",
-      "unicode_char": "⟷",
+      "unicode_char": "𐀤",
       "handwritten_char": null,
       "definition": "A relationship exists between two things, type unspecified. Unmarked relational primitive.",
-      "encapsulates": ["connected", "related", "associated", "tied to"],
+      "encapsulates": [
+        "connected",
+        "related",
+        "associated",
+        "tied to"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -382,10 +564,15 @@
       "gloss": "prescribe",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "⊤",
+      "unicode_char": "𐀥",
       "handwritten_char": null,
       "definition": "A constraint or rule defined by prior design or external authority.",
-      "encapsulates": ["hard-coded", "conventional", "rule-governed", "stipulated"],
+      "encapsulates": [
+        "hard-coded",
+        "conventional",
+        "rule-governed",
+        "stipulated"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -394,10 +581,15 @@
       "gloss": "pattern",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "∿",
+      "unicode_char": "𐀦",
       "handwritten_char": null,
       "definition": "Naturally occurring regularity. Nobody made it; it repeats.",
-      "encapsulates": ["regularity", "recurrence", "motif", "signal"],
+      "encapsulates": [
+        "regularity",
+        "recurrence",
+        "motif",
+        "signal"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -406,10 +598,16 @@
       "gloss": "model",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "⊡",
+      "unicode_char": "𐀨",
       "handwritten_char": null,
       "definition": "Constructed simplification or imitation made to represent something else.",
-      "encapsulates": ["simulation", "analogy", "approximation", "theory", "map-of-territory"],
+      "encapsulates": [
+        "simulation",
+        "analogy",
+        "approximation",
+        "theory",
+        "map-of-territory"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -418,10 +616,15 @@
       "gloss": "idea",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "○",
+      "unicode_char": "𐀩",
       "handwritten_char": null,
       "definition": "Catch-all for a concept whose shape is unclear or not yet distilled.",
-      "encapsulates": ["concept", "notion", "thought", "gestalt"],
+      "encapsulates": [
+        "concept",
+        "notion",
+        "thought",
+        "gestalt"
+      ],
       "composition": null,
       "notes": "Placeholder primitive — use when no other primitive fits"
     },
@@ -430,10 +633,15 @@
       "gloss": "meaning",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "⟦⟧",
+      "unicode_char": "𐀪",
       "handwritten_char": null,
       "definition": "Semantic content or significance. What something points to or implies.",
-      "encapsulates": ["semantics", "significance", "interpretation", "denotation"],
+      "encapsulates": [
+        "semantics",
+        "significance",
+        "interpretation",
+        "denotation"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -442,10 +650,15 @@
       "gloss": "reference",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "⌖",
+      "unicode_char": "𐀫",
       "handwritten_char": null,
       "definition": "The chosen anchor from which all relationships are measured. Necessarily chosen, not inherent.",
-      "encapsulates": ["reference frame", "coordinate system", "standpoint", "call site"],
+      "encapsulates": [
+        "reference frame",
+        "coordinate system",
+        "standpoint",
+        "call site"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -454,10 +667,16 @@
       "gloss": "origin",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "✦",
+      "unicode_char": "𐀬",
       "handwritten_char": null,
       "definition": "The zero-point within a reference frame. Where measurement or existence begins.",
-      "encapsulates": ["zero", "starting condition", "root", "axiom", "seed"],
+      "encapsulates": [
+        "zero",
+        "starting condition",
+        "root",
+        "axiom",
+        "seed"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -466,10 +685,15 @@
       "gloss": "scope",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "⌐",
+      "unicode_char": "𐀭",
       "handwritten_char": null,
       "definition": "The boundary of what is visible or applicable from within a reference frame.",
-      "encapsulates": ["namespace", "context", "jurisdiction", "domain of applicability"],
+      "encapsulates": [
+        "namespace",
+        "context",
+        "jurisdiction",
+        "domain of applicability"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -478,10 +702,15 @@
       "gloss": "valence",
       "type": "first-class",
       "category": "affect",
-      "unicode_char": "±",
+      "unicode_char": "𐀮",
       "handwritten_char": null,
       "definition": "The felt quality of goodness or badness of a state. The hedonic dimension.",
-      "encapsulates": ["pleasant", "unpleasant", "hedonic tone", "feeling good or bad"],
+      "encapsulates": [
+        "pleasant",
+        "unpleasant",
+        "hedonic tone",
+        "feeling good or bad"
+      ],
       "composition": null,
       "notes": "One of two axes of the circumplex model of affect. Not a judgment — a raw felt quality."
     },
@@ -490,10 +719,17 @@
       "gloss": "arousal",
       "type": "first-class",
       "category": "affect",
-      "unicode_char": "⚡",
+      "unicode_char": "𐀯",
       "handwritten_char": null,
       "definition": "The felt quality of activation or energy level of a state. The energetic dimension.",
-      "encapsulates": ["activated", "deactivated", "energised", "calm", "alert", "lethargic"],
+      "encapsulates": [
+        "activated",
+        "deactivated",
+        "energised",
+        "calm",
+        "alert",
+        "lethargic"
+      ],
       "composition": null,
       "notes": "One of two axes of the circumplex model of affect."
     },
@@ -502,10 +738,16 @@
       "gloss": "attention",
       "type": "first-class",
       "category": "epistemic",
-      "unicode_char": "◉",
+      "unicode_char": "𐀰",
       "handwritten_char": null,
       "definition": "The directed orientation of a reference frame toward a target. Making something the current origin of reference.",
-      "encapsulates": ["focus", "salience", "directed awareness", "spotlight", "transformer attention"],
+      "encapsulates": [
+        "focus",
+        "salience",
+        "directed awareness",
+        "spotlight",
+        "transformer attention"
+      ],
       "composition": null,
       "notes": "Applies equally to cognitive attention, ML attention mechanisms, and social attention."
     },
@@ -514,10 +756,15 @@
       "gloss": "time",
       "type": "first-class",
       "category": "dimension",
-      "unicode_char": "τ",
+      "unicode_char": "𐀱",
       "handwritten_char": null,
       "definition": "The axis along which events are ordered and intervals are measured.",
-      "encapsulates": ["clock time", "temporal axis", "duration", "sequence"],
+      "encapsulates": [
+        "clock time",
+        "temporal axis",
+        "duration",
+        "sequence"
+      ],
       "composition": null,
       "notes": "Felt time = /time/ + /interoception/. Clock time = /time/ + /dimension/."
     },
@@ -526,10 +773,16 @@
       "gloss": "above",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⋀",
+      "unicode_char": "𐀲",
       "handwritten_char": null,
       "definition": "Higher in position, rank, abstraction, or power.",
-      "encapsulates": ["higher", "superior", "upstream", "north", "over"],
+      "encapsulates": [
+        "higher",
+        "superior",
+        "upstream",
+        "north",
+        "over"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -538,10 +791,16 @@
       "gloss": "below",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⋁",
+      "unicode_char": "𐀳",
       "handwritten_char": null,
       "definition": "Lower in position, rank, abstraction, or power.",
-      "encapsulates": ["lower", "inferior", "downstream", "south", "under"],
+      "encapsulates": [
+        "lower",
+        "inferior",
+        "downstream",
+        "south",
+        "under"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -550,10 +809,15 @@
       "gloss": "lateral",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "↔",
+      "unicode_char": "𐀴",
       "handwritten_char": null,
       "definition": "Same level, sideways relationship. Peer, sibling.",
-      "encapsulates": ["sideways", "peer", "east/west", "horizontal (social)"],
+      "encapsulates": [
+        "sideways",
+        "peer",
+        "east/west",
+        "horizontal (social)"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -562,10 +826,14 @@
       "gloss": "toward",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "→",
+      "unicode_char": "𐀵",
       "handwritten_char": null,
       "definition": "Movement or orientation in a direction.",
-      "encapsulates": ["approaching", "converging", "directed at"],
+      "encapsulates": [
+        "approaching",
+        "converging",
+        "directed at"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -574,10 +842,14 @@
       "gloss": "away",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "←",
+      "unicode_char": "𐀶",
       "handwritten_char": null,
       "definition": "Movement or orientation away from something.",
-      "encapsulates": ["diverging", "receding", "directed from"],
+      "encapsulates": [
+        "diverging",
+        "receding",
+        "directed from"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -586,10 +858,15 @@
       "gloss": "inside",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "∈",
+      "unicode_char": "𐀷",
       "handwritten_char": null,
       "definition": "Fully contained within. State of containment.",
-      "encapsulates": ["within", "internal", "embedded", "encased"],
+      "encapsulates": [
+        "within",
+        "internal",
+        "embedded",
+        "encased"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -598,10 +875,15 @@
       "gloss": "outside",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "∉",
+      "unicode_char": "𐀸",
       "handwritten_char": null,
       "definition": "Beyond the boundary of. State of exclusion.",
-      "encapsulates": ["external", "exterior", "beyond", "excluded from"],
+      "encapsulates": [
+        "external",
+        "exterior",
+        "beyond",
+        "excluded from"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -610,10 +892,15 @@
       "gloss": "contains",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "∋",
+      "unicode_char": "𐀹",
       "handwritten_char": null,
       "definition": "Active containment relation. x contains y.",
-      "encapsulates": ["holds", "encompasses", "wraps", "includes"],
+      "encapsulates": [
+        "holds",
+        "encompasses",
+        "wraps",
+        "includes"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -622,10 +909,15 @@
       "gloss": "surface",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "∂",
+      "unicode_char": "𐀺",
       "handwritten_char": null,
       "definition": "On the boundary itself. Neither inside nor outside.",
-      "encapsulates": ["membrane", "interface", "threshold", "skin"],
+      "encapsulates": [
+        "membrane",
+        "interface",
+        "threshold",
+        "skin"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -634,10 +926,15 @@
       "gloss": "around",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⊃",
+      "unicode_char": "𐀼",
       "handwritten_char": null,
       "definition": "Surrounding without containing.",
-      "encapsulates": ["surrounding", "encircling", "orbiting", "ambient"],
+      "encapsulates": [
+        "surrounding",
+        "encircling",
+        "orbiting",
+        "ambient"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -646,10 +943,15 @@
       "gloss": "centre",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⊕",
+      "unicode_char": "𐀽",
       "handwritten_char": null,
       "definition": "The middle, the core, the focal point.",
-      "encapsulates": ["nucleus", "hub", "axis of rotation", "core"],
+      "encapsulates": [
+        "nucleus",
+        "hub",
+        "axis of rotation",
+        "core"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -658,10 +960,16 @@
       "gloss": "edge",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⊣",
+      "unicode_char": "𐀿",
       "handwritten_char": null,
       "definition": "The boundary, the margin, the limit of a thing.",
-      "encapsulates": ["periphery", "border", "threshold", "limit", "cortex"],
+      "encapsulates": [
+        "periphery",
+        "border",
+        "threshold",
+        "limit",
+        "cortex"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -670,10 +978,14 @@
       "gloss": "between",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⋈",
+      "unicode_char": "𐁀",
       "handwritten_char": null,
       "definition": "The mediating space between two things.",
-      "encapsulates": ["intermediate", "interstitial", "transitional"],
+      "encapsulates": [
+        "intermediate",
+        "interstitial",
+        "transitional"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -682,10 +994,14 @@
       "gloss": "next-to",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "∥",
+      "unicode_char": "𐁁",
       "handwritten_char": null,
       "definition": "Adjacent, no containment or contact implied.",
-      "encapsulates": ["beside", "neighbouring", "adjacent"],
+      "encapsulates": [
+        "beside",
+        "neighbouring",
+        "adjacent"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -694,10 +1010,14 @@
       "gloss": "overlap",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⋂",
+      "unicode_char": "𐁂",
       "handwritten_char": null,
       "definition": "Partial shared occupancy.",
-      "encapsulates": ["intersect", "interlock", "Venn intersection"],
+      "encapsulates": [
+        "intersect",
+        "interlock",
+        "Venn intersection"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -706,10 +1026,13 @@
       "gloss": "parallel",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "∥",
+      "unicode_char": "𐁃",
       "handwritten_char": null,
       "definition": "Same direction, no intersection.",
-      "encapsulates": ["non-interfering paths", "co-directional"],
+      "encapsulates": [
+        "non-interfering paths",
+        "co-directional"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -718,10 +1041,13 @@
       "gloss": "perpendicular",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⊥",
+      "unicode_char": "𐁄",
       "handwritten_char": null,
       "definition": "Orthogonal intersection at a right angle.",
-      "encapsulates": ["at right angles", "orthogonal (geometric)"],
+      "encapsulates": [
+        "at right angles",
+        "orthogonal (geometric)"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -730,10 +1056,13 @@
       "gloss": "tangent",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "⌒",
+      "unicode_char": "𐁅",
       "handwritten_char": null,
       "definition": "Touches at exactly one point without crossing.",
-      "encapsulates": ["grazes", "just-touching"],
+      "encapsulates": [
+        "grazes",
+        "just-touching"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -742,10 +1071,14 @@
       "gloss": "dimension",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "ℝ",
+      "unicode_char": "𐁆",
       "handwritten_char": null,
       "definition": "A degree of freedom or axis of variation.",
-      "encapsulates": ["axis", "degree of freedom", "parameter space"],
+      "encapsulates": [
+        "axis",
+        "degree of freedom",
+        "parameter space"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -754,10 +1087,15 @@
       "gloss": "order",
       "type": "first-class",
       "category": "spatial",
-      "unicode_char": "ⁿ",
+      "unicode_char": "𐁇",
       "handwritten_char": null,
       "definition": "How many steps removed from the origin, and in what direction.",
-      "encapsulates": ["first-order", "second-order", "derivative", "degree of removal"],
+      "encapsulates": [
+        "first-order",
+        "second-order",
+        "derivative",
+        "degree of removal"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -766,10 +1104,15 @@
       "gloss": "before",
       "type": "first-class",
       "category": "state",
-      "unicode_char": "≺",
+      "unicode_char": "𐁈",
       "handwritten_char": null,
       "definition": "Precedes on a sequence, spatial or temporal.",
-      "encapsulates": ["prior", "preceding", "earlier", "upstream in sequence"],
+      "encapsulates": [
+        "prior",
+        "preceding",
+        "earlier",
+        "upstream in sequence"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -778,10 +1121,15 @@
       "gloss": "after",
       "type": "first-class",
       "category": "state",
-      "unicode_char": "≻",
+      "unicode_char": "𐁉",
       "handwritten_char": null,
       "definition": "Follows on a sequence, spatial or temporal.",
-      "encapsulates": ["following", "subsequent", "later", "trailing"],
+      "encapsulates": [
+        "following",
+        "subsequent",
+        "later",
+        "trailing"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -790,10 +1138,16 @@
       "gloss": "state",
       "type": "first-class",
       "category": "state",
-      "unicode_char": "□",
+      "unicode_char": "𐁊",
       "handwritten_char": null,
       "definition": "Current configuration. No causal ordering implied.",
-      "encapsulates": ["condition", "snapshot", "configuration", "mode", "status"],
+      "encapsulates": [
+        "condition",
+        "snapshot",
+        "configuration",
+        "mode",
+        "status"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -802,10 +1156,16 @@
       "gloss": "effect",
       "type": "first-class",
       "category": "state",
-      "unicode_char": "⟹",
+      "unicode_char": "𐁋",
       "handwritten_char": null,
       "definition": "Causally downstream state. Necessarily ordered relative to a cause.",
-      "encapsulates": ["result", "output", "outcome", "consequence", "return value"],
+      "encapsulates": [
+        "result",
+        "output",
+        "outcome",
+        "consequence",
+        "return value"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -814,10 +1174,16 @@
       "gloss": "interval",
       "type": "first-class",
       "category": "state",
-      "unicode_char": "⌂",
+      "unicode_char": "𐁌",
       "handwritten_char": null,
       "definition": "A bounded span between two defined points on a sequence. The span itself is the object of interest.",
-      "encapsulates": ["duration", "period", "gap", "window", "timeout"],
+      "encapsulates": [
+        "duration",
+        "period",
+        "gap",
+        "window",
+        "timeout"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -826,10 +1192,16 @@
       "gloss": "motion",
       "type": "first-class",
       "category": "force",
-      "unicode_char": "⇀",
+      "unicode_char": "𐁍",
       "handwritten_char": null,
       "definition": "Movement in a direction.",
-      "encapsulates": ["movement", "travel", "flow", "displacement", "trajectory"],
+      "encapsulates": [
+        "movement",
+        "travel",
+        "flow",
+        "displacement",
+        "trajectory"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -838,10 +1210,15 @@
       "gloss": "continue",
       "type": "first-class",
       "category": "force",
-      "unicode_char": "⟶",
+      "unicode_char": "𐁐",
       "handwritten_char": null,
       "definition": "Persistence of current state or motion. Resistance to change.",
-      "encapsulates": ["inertia", "momentum", "persist", "sustain"],
+      "encapsulates": [
+        "inertia",
+        "momentum",
+        "persist",
+        "sustain"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -850,10 +1227,16 @@
       "gloss": "rotate",
       "type": "first-class",
       "category": "force",
-      "unicode_char": "↻",
+      "unicode_char": "𐁑",
       "handwritten_char": null,
       "definition": "Movement around an axis.",
-      "encapsulates": ["spin", "orbit", "turn", "revolve", "circulate"],
+      "encapsulates": [
+        "spin",
+        "orbit",
+        "turn",
+        "revolve",
+        "circulate"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -865,7 +1248,12 @@
       "unicode_char": "✓",
       "handwritten_char": null,
       "definition": "Actually obtains. Genuine, not an artefact.",
-      "encapsulates": ["genuine", "physical", "actual", "not illusory"],
+      "encapsulates": [
+        "genuine",
+        "physical",
+        "actual",
+        "not illusory"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -877,7 +1265,11 @@
       "unicode_char": "✗",
       "handwritten_char": null,
       "definition": "Apparent but not actual. Epiphenomenal, artefact of something else.",
-      "encapsulates": ["illusory", "apparent", "epiphenomenal"],
+      "encapsulates": [
+        "illusory",
+        "apparent",
+        "epiphenomenal"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -889,7 +1281,12 @@
       "unicode_char": "⊛",
       "handwritten_char": null,
       "definition": "Produced by deliberate agency.",
-      "encapsulates": ["deliberate", "wilful", "designed", "on purpose"],
+      "encapsulates": [
+        "deliberate",
+        "wilful",
+        "designed",
+        "on purpose"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -901,7 +1298,12 @@
       "unicode_char": "⬤",
       "handwritten_char": null,
       "definition": "Inherent, built-in, not separable from the thing itself.",
-      "encapsulates": ["inherent", "embedded", "essential", "constitutive"],
+      "encapsulates": [
+        "inherent",
+        "embedded",
+        "essential",
+        "constitutive"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -913,7 +1315,12 @@
       "unicode_char": "○",
       "handwritten_char": null,
       "definition": "Added from outside. Separable.",
-      "encapsulates": ["external", "added", "non-essential", "separable"],
+      "encapsulates": [
+        "external",
+        "added",
+        "non-essential",
+        "separable"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -925,7 +1332,11 @@
       "unicode_char": "↟",
       "handwritten_char": null,
       "definition": "Arising from below. Self-organised, not designed.",
-      "encapsulates": ["self-organised", "bottom-up", "undesigned"],
+      "encapsulates": [
+        "self-organised",
+        "bottom-up",
+        "undesigned"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -937,7 +1348,12 @@
       "unicode_char": "↡",
       "handwritten_char": null,
       "definition": "Defined from above. Hard-coded, stipulated by external authority.",
-      "encapsulates": ["hard-coded", "top-down", "stipulated", "conventional"],
+      "encapsulates": [
+        "hard-coded",
+        "top-down",
+        "stipulated",
+        "conventional"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -949,7 +1365,11 @@
       "unicode_char": "‖",
       "handwritten_char": null,
       "definition": "No gap. Directly adjacent, without intermediary.",
-      "encapsulates": ["directly", "right next to", "without intermediary"],
+      "encapsulates": [
+        "directly",
+        "right next to",
+        "without intermediary"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -961,7 +1381,11 @@
       "unicode_char": "·",
       "handwritten_char": null,
       "definition": "Near but not immediate.",
-      "encapsulates": ["close", "nearby", "neighbouring"],
+      "encapsulates": [
+        "close",
+        "nearby",
+        "neighbouring"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -973,7 +1397,12 @@
       "unicode_char": "…",
       "handwritten_char": null,
       "definition": "At a distance. Remote, indirect.",
-      "encapsulates": ["far", "remote", "indirect", "removed"],
+      "encapsulates": [
+        "far",
+        "remote",
+        "indirect",
+        "removed"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -985,7 +1414,12 @@
       "unicode_char": "‼",
       "handwritten_char": null,
       "definition": "High intensity or magnitude.",
-      "encapsulates": ["very", "greatly", "highly", "strongly"],
+      "encapsulates": [
+        "very",
+        "greatly",
+        "highly",
+        "strongly"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -997,7 +1431,12 @@
       "unicode_char": "¿",
       "handwritten_char": null,
       "definition": "Low intensity or magnitude.",
-      "encapsulates": ["slightly", "weakly", "marginally", "barely"],
+      "encapsulates": [
+        "slightly",
+        "weakly",
+        "marginally",
+        "barely"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1009,7 +1448,12 @@
       "unicode_char": "■",
       "handwritten_char": null,
       "definition": "Complete, exhaustive, leaving nothing out.",
-      "encapsulates": ["fully", "entirely", "completely", "exhaustively"],
+      "encapsulates": [
+        "fully",
+        "entirely",
+        "completely",
+        "exhaustively"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1021,7 +1465,11 @@
       "unicode_char": "▪",
       "handwritten_char": null,
       "definition": "Incomplete. Some but not all.",
-      "encapsulates": ["partially", "somewhat", "in part"],
+      "encapsulates": [
+        "partially",
+        "somewhat",
+        "in part"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1033,7 +1481,11 @@
       "unicode_char": "¹",
       "handwritten_char": null,
       "definition": "Idempotent. Applying more than once has no additional effect.",
-      "encapsulates": ["idempotent", "settled", "stable under repetition"],
+      "encapsulates": [
+        "idempotent",
+        "settled",
+        "stable under repetition"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1045,7 +1497,11 @@
       "unicode_char": "∞",
       "handwritten_char": null,
       "definition": "Iterative. Accumulates change on each application.",
-      "encapsulates": ["iterative", "repeated", "accumulating"],
+      "encapsulates": [
+        "iterative",
+        "repeated",
+        "accumulating"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1057,7 +1513,11 @@
       "unicode_char": "△",
       "handwritten_char": null,
       "definition": "Direction toward higher rank, layer, abstraction, or power.",
-      "encapsulates": ["upward", "ascending", "increasing in rank"],
+      "encapsulates": [
+        "upward",
+        "ascending",
+        "increasing in rank"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1069,7 +1529,11 @@
       "unicode_char": "▽",
       "handwritten_char": null,
       "definition": "Direction toward lower rank, layer, or concreteness.",
-      "encapsulates": ["downward", "descending", "decreasing in rank"],
+      "encapsulates": [
+        "downward",
+        "descending",
+        "decreasing in rank"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1081,7 +1545,10 @@
       "unicode_char": "◁",
       "handwritten_char": null,
       "definition": "Direction toward inside or centre.",
-      "encapsulates": ["inward", "centripetal"],
+      "encapsulates": [
+        "inward",
+        "centripetal"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1093,7 +1560,10 @@
       "unicode_char": "▷",
       "handwritten_char": null,
       "definition": "Direction toward outside or edge.",
-      "encapsulates": ["outward", "centrifugal"],
+      "encapsulates": [
+        "outward",
+        "centrifugal"
+      ],
       "composition": null,
       "notes": "Second-class: usable inline or as superscript modifier"
     },
@@ -1102,10 +1572,14 @@
       "gloss": "lit",
       "type": "first-class",
       "category": "meta",
-      "unicode_char": "\"",
+      "unicode_char": "𐁒",
       "handwritten_char": null,
       "definition": "What follows is meant explicitly, directly, outright.",
-      "encapsulates": ["literally", "explicitly", "verbatim"],
+      "encapsulates": [
+        "literally",
+        "explicitly",
+        "verbatim"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1114,10 +1588,14 @@
       "gloss": "fig",
       "type": "first-class",
       "category": "meta",
-      "unicode_char": "~",
+      "unicode_char": "𐁓",
       "handwritten_char": null,
       "definition": "What follows is figurative or approximate.",
-      "encapsulates": ["figuratively", "metaphorically", "so to speak"],
+      "encapsulates": [
+        "figuratively",
+        "metaphorically",
+        "so to speak"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1126,10 +1604,13 @@
       "gloss": "etc",
       "type": "first-class",
       "category": "meta",
-      "unicode_char": "⋯",
+      "unicode_char": "𐁔",
       "handwritten_char": null,
       "definition": "The list continues on the same principle.",
-      "encapsulates": ["et cetera", "and so on"],
+      "encapsulates": [
+        "et cetera",
+        "and so on"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1138,10 +1619,14 @@
       "gloss": "-do",
       "type": "modifier",
       "category": "grammatical",
-      "unicode_char": null,
+      "unicode_char": "𐠀",
       "handwritten_char": null,
       "definition": "Verbal / eventive. Converts head to an action or process.",
-      "encapsulates": ["-ing", "to X", "performing X"],
+      "encapsulates": [
+        "-ing",
+        "to X",
+        "performing X"
+      ],
       "composition": null,
       "notes": "Grammatical modifier — no standalone meaning. Written as superscript."
     },
@@ -1150,10 +1635,14 @@
       "gloss": "-be",
       "type": "modifier",
       "category": "grammatical",
-      "unicode_char": null,
+      "unicode_char": "𐠁",
       "handwritten_char": null,
       "definition": "Stative / adjectival. Converts head to a property or description.",
-      "encapsulates": ["-like", "being X", "characterised by X"],
+      "encapsulates": [
+        "-like",
+        "being X",
+        "characterised by X"
+      ],
       "composition": null,
       "notes": "Grammatical modifier — no standalone meaning."
     },
@@ -1162,10 +1651,14 @@
       "gloss": "-thing",
       "type": "modifier",
       "category": "grammatical",
-      "unicode_char": null,
+      "unicode_char": "𐠂",
       "handwritten_char": null,
       "definition": "Nominal / agentive. Converts head to a thing or agent.",
-      "encapsulates": ["-er", "-ness", "a thing that X's"],
+      "encapsulates": [
+        "-er",
+        "-ness",
+        "a thing that X's"
+      ],
       "composition": null,
       "notes": "Grammatical modifier — no standalone meaning."
     },
@@ -1174,10 +1667,15 @@
       "gloss": "-become",
       "type": "modifier",
       "category": "grammatical",
-      "unicode_char": null,
+      "unicode_char": "𐠃",
       "handwritten_char": null,
       "definition": "Inchoative / causative. To become X, or to make into X.",
-      "encapsulates": ["-ify", "-ise", "化", "to make into X"],
+      "encapsulates": [
+        "-ify",
+        "-ise",
+        "化",
+        "to make into X"
+      ],
       "composition": null,
       "notes": "Grammatical modifier — no standalone meaning."
     },
@@ -1186,10 +1684,14 @@
       "gloss": "-concept",
       "type": "modifier",
       "category": "grammatical",
-      "unicode_char": null,
+      "unicode_char": "𐠄",
       "handwritten_char": null,
       "definition": "Reification. Treats a dynamic or operational concept as a first-class object of thought.",
-      "encapsulates": ["X as a thing", "the idea of X", "X-ness as a domain"],
+      "encapsulates": [
+        "X as a thing",
+        "the idea of X",
+        "X-ness as a domain"
+      ],
       "composition": null,
       "notes": "Grammatical modifier — no standalone meaning."
     },
@@ -1198,10 +1700,15 @@
       "gloss": "-of",
       "type": "modifier",
       "category": "grammatical",
-      "unicode_char": null,
+      "unicode_char": "𐠅",
       "handwritten_char": null,
       "definition": "Genitive / sub-property. x belongs to, derives from, or is an attribute of y.",
-      "encapsulates": ["belonging to", "property of", "attribute of", "derived from"],
+      "encapsulates": [
+        "belonging to",
+        "property of",
+        "attribute of",
+        "derived from"
+      ],
       "composition": null,
       "notes": "Grammatical modifier — no standalone meaning."
     },
@@ -1210,10 +1717,15 @@
       "gloss": "-not",
       "type": "modifier",
       "category": "logical",
-      "unicode_char": null,
+      "unicode_char": "𐠈",
       "handwritten_char": null,
       "definition": "Negation. Inverts whatever it stacks on.",
-      "encapsulates": ["not", "non-", "un-", "absence of"],
+      "encapsulates": [
+        "not",
+        "non-",
+        "un-",
+        "absence of"
+      ],
       "composition": null,
       "notes": "Logical modifier."
     },
@@ -1222,10 +1734,14 @@
       "gloss": "-exclude",
       "type": "modifier",
       "category": "logical",
-      "unicode_char": null,
+      "unicode_char": "𐠉",
       "handwritten_char": null,
       "definition": "Exclusion. Actively does not include or permit.",
-      "encapsulates": ["excludes", "bars", "incompatible with"],
+      "encapsulates": [
+        "excludes",
+        "bars",
+        "incompatible with"
+      ],
       "composition": null,
       "notes": "(-not)(-exclude) = does not exclude = compatible"
     },
@@ -1234,10 +1750,15 @@
       "gloss": "-mutual",
       "type": "modifier",
       "category": "logical",
-      "unicode_char": null,
+      "unicode_char": "𐠊",
       "handwritten_char": null,
       "definition": "Reciprocal / bidirectional. Symmetrical; every member both gives and receives.",
-      "encapsulates": ["each other", "bidirectional", "symmetrical", "mutual"],
+      "encapsulates": [
+        "each other",
+        "bidirectional",
+        "symmetrical",
+        "mutual"
+      ],
       "composition": null,
       "notes": "/cause (-mutual)/ = feedback loop"
     },
@@ -1246,10 +1767,15 @@
       "gloss": "-self",
       "type": "modifier",
       "category": "logical",
-      "unicode_char": null,
+      "unicode_char": "𐠋",
       "handwritten_char": null,
       "definition": "Reflexive. Acting on or referring back to itself.",
-      "encapsulates": ["himself", "itself", "themselves", "self-referential"],
+      "encapsulates": [
+        "himself",
+        "itself",
+        "themselves",
+        "self-referential"
+      ],
       "composition": null,
       "notes": "Derives from /self/ primitive"
     },
@@ -1258,10 +1784,15 @@
       "gloss": "-ever",
       "type": "modifier",
       "category": "aspectual",
-      "unicode_char": null,
+      "unicode_char": "𐠌",
       "handwritten_char": null,
       "definition": "Experiential aspect. At some point, at least once, at unspecified time.",
-      "encapsulates": ["has ever", "at least once", "experientially", "过"],
+      "encapsulates": [
+        "has ever",
+        "at least once",
+        "experientially",
+        "过"
+      ],
       "composition": null,
       "notes": "From Mandarin 过 (experiential aspect)"
     },
@@ -1270,10 +1801,14 @@
       "gloss": "-witnessed",
       "type": "modifier",
       "category": "evidential",
-      "unicode_char": null,
+      "unicode_char": "𐠍",
       "handwritten_char": null,
       "definition": "Evidentiality — direct. I observed this myself.",
-      "encapsulates": ["I saw it", "directly observed", "first-hand"],
+      "encapsulates": [
+        "I saw it",
+        "directly observed",
+        "first-hand"
+      ],
       "composition": null,
       "notes": "Evidential modifier"
     },
@@ -1282,10 +1817,14 @@
       "gloss": "-inferred",
       "type": "modifier",
       "category": "evidential",
-      "unicode_char": null,
+      "unicode_char": "𐠎",
       "handwritten_char": null,
       "definition": "Evidentiality — inferential. I concluded this from evidence.",
-      "encapsulates": ["I deduced", "from evidence", "inferred"],
+      "encapsulates": [
+        "I deduced",
+        "from evidence",
+        "inferred"
+      ],
       "composition": null,
       "notes": "Evidential modifier"
     },
@@ -1294,10 +1833,15 @@
       "gloss": "-reported",
       "type": "modifier",
       "category": "evidential",
-      "unicode_char": null,
+      "unicode_char": "𐠏",
       "handwritten_char": null,
       "definition": "Evidentiality — hearsay. I was told this, or I read this.",
-      "encapsulates": ["apparently", "reportedly", "I was told", "according to"],
+      "encapsulates": [
+        "apparently",
+        "reportedly",
+        "I was told",
+        "according to"
+      ],
       "composition": null,
       "notes": "Evidential modifier"
     },
@@ -1306,10 +1850,14 @@
       "gloss": "-remembered",
       "type": "modifier",
       "category": "evidential",
-      "unicode_char": null,
+      "unicode_char": "𐠐",
       "handwritten_char": null,
       "definition": "Evidentiality — memory. This is from memory, possibly unreliable.",
-      "encapsulates": ["I think I remember", "from memory", "possibly unreliable"],
+      "encapsulates": [
+        "I think I remember",
+        "from memory",
+        "possibly unreliable"
+      ],
       "composition": null,
       "notes": "Evidential modifier"
     },
@@ -1318,10 +1866,15 @@
       "gloss": "-unexpected",
       "type": "modifier",
       "category": "mirative",
-      "unicode_char": null,
+      "unicode_char": "𐠑",
       "handwritten_char": null,
       "definition": "Mirativity. This contradicts my model or expectation.",
-      "encapsulates": ["surprisingly", "contrary to expectation", "unexpectedly", "!"],
+      "encapsulates": [
+        "surprisingly",
+        "contrary to expectation",
+        "unexpectedly",
+        "!"
+      ],
       "composition": null,
       "notes": "Mirative modifier — marks moments where evidence contradicts the model"
     },
@@ -1330,10 +1883,14 @@
       "gloss": "and",
       "type": "marker",
       "category": "continuation",
-      "unicode_char": null,
+      "unicode_char": "𐄇",
       "handwritten_char": null,
       "definition": "Neutral continuation.",
-      "encapsulates": ["and", "also", "furthermore"],
+      "encapsulates": [
+        "and",
+        "also",
+        "furthermore"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1342,10 +1899,14 @@
       "gloss": "plus",
       "type": "marker",
       "category": "continuation",
-      "unicode_char": null,
+      "unicode_char": "𐄈",
       "handwritten_char": null,
       "definition": "Additive continuation.",
-      "encapsulates": ["in addition", "moreover", "on top of that"],
+      "encapsulates": [
+        "in addition",
+        "moreover",
+        "on top of that"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1354,10 +1915,15 @@
       "gloss": "but",
       "type": "marker",
       "category": "continuation",
-      "unicode_char": null,
+      "unicode_char": "𐄉",
       "handwritten_char": null,
       "definition": "Contrastive continuation.",
-      "encapsulates": ["but", "however", "on the other hand", "yet"],
+      "encapsulates": [
+        "but",
+        "however",
+        "on the other hand",
+        "yet"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1366,10 +1932,15 @@
       "gloss": "then",
       "type": "marker",
       "category": "continuation",
-      "unicode_char": null,
+      "unicode_char": "𐄊",
       "handwritten_char": null,
       "definition": "Hypotactic consequence. What follows results from what preceded.",
-      "encapsulates": ["therefore", "thus", "consequently", "so"],
+      "encapsulates": [
+        "therefore",
+        "thus",
+        "consequently",
+        "so"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1378,10 +1949,14 @@
       "gloss": "vs",
       "type": "marker",
       "category": "continuation",
-      "unicode_char": null,
+      "unicode_char": "𐄋",
       "handwritten_char": null,
       "definition": "Comparison. Evaluate these two things relative to each other.",
-      "encapsulates": ["versus", "compared to", "as opposed to"],
+      "encapsulates": [
+        "versus",
+        "compared to",
+        "as opposed to"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1390,10 +1965,14 @@
       "gloss": "think",
       "type": "marker",
       "category": "epistemic",
-      "unicode_char": null,
+      "unicode_char": "𐄌",
       "handwritten_char": null,
       "definition": "Analytical / epistemic stance. What follows is reasoned.",
-      "encapsulates": ["I think", "I reason", "analytically"],
+      "encapsulates": [
+        "I think",
+        "I reason",
+        "analytically"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1402,10 +1981,14 @@
       "gloss": "feel",
       "type": "marker",
       "category": "epistemic",
-      "unicode_char": null,
+      "unicode_char": "𐄍",
       "handwritten_char": null,
       "definition": "Intuitive / preference stance. What follows is felt or preferred.",
-      "encapsulates": ["I feel", "intuitively", "I prefer"],
+      "encapsulates": [
+        "I feel",
+        "intuitively",
+        "I prefer"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1414,10 +1997,14 @@
       "gloss": "near",
       "type": "marker",
       "category": "epistemic",
-      "unicode_char": null,
+      "unicode_char": "𐄎",
       "handwritten_char": null,
       "definition": "Approximation. What follows is a bucket, analogy, or rough grouping.",
-      "encapsulates": ["approximately", "something like", "in the vicinity of"],
+      "encapsulates": [
+        "approximately",
+        "something like",
+        "in the vicinity of"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1426,10 +2013,14 @@
       "gloss": "relate",
       "type": "marker",
       "category": "epistemic",
-      "unicode_char": null,
+      "unicode_char": "𐄏",
       "handwritten_char": null,
       "definition": "Conceptual relationship, type unspecified. A connection exists.",
-      "encapsulates": ["related to", "in connection with", "cf."],
+      "encapsulates": [
+        "related to",
+        "in connection with",
+        "cf."
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1438,10 +2029,15 @@
       "gloss": "example",
       "type": "marker",
       "category": "epistemic",
-      "unicode_char": null,
+      "unicode_char": "𐄐",
       "handwritten_char": null,
       "definition": "What follows is a specific instance of the preceding shape.",
-      "encapsulates": ["for example", "e.g.", "such as", "for instance"],
+      "encapsulates": [
+        "for example",
+        "e.g.",
+        "such as",
+        "for instance"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1450,10 +2046,14 @@
       "gloss": "if",
       "type": "marker",
       "category": "hypotactic",
-      "unicode_char": null,
+      "unicode_char": "𐄑",
       "handwritten_char": null,
       "definition": "Conditional framing.",
-      "encapsulates": ["if", "when (definite)", "given that"],
+      "encapsulates": [
+        "if",
+        "when (definite)",
+        "given that"
+      ],
       "composition": null,
       "notes": "(if)(-partial) = hypothetical / counterfactual"
     },
@@ -1462,10 +2062,14 @@
       "gloss": "when",
       "type": "marker",
       "category": "hypotactic",
-      "unicode_char": null,
+      "unicode_char": "𐄒",
       "handwritten_char": null,
       "definition": "Temporal framing. Simultaneous with.",
-      "encapsulates": ["when", "while", "at the same time as"],
+      "encapsulates": [
+        "when",
+        "while",
+        "at the same time as"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1474,10 +2078,14 @@
       "gloss": "cause",
       "type": "marker",
       "category": "hypotactic",
-      "unicode_char": null,
+      "unicode_char": "𐄓",
       "handwritten_char": null,
       "definition": "Causal framing. What follows is because of what preceded.",
-      "encapsulates": ["because", "since", "due to"],
+      "encapsulates": [
+        "because",
+        "since",
+        "due to"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1486,10 +2094,13 @@
       "gloss": "same-agent",
       "type": "marker",
       "category": "hypotactic",
-      "unicode_char": null,
+      "unicode_char": "𐄔",
       "handwritten_char": null,
       "definition": "Switch reference. The subject of what follows is the same entity as before.",
-      "encapsulates": ["(same subject continues)", "switch reference — same"],
+      "encapsulates": [
+        "(same subject continues)",
+        "switch reference — same"
+      ],
       "composition": null,
       "notes": "From Papuan/Navajo switch reference systems"
     },
@@ -1498,10 +2109,13 @@
       "gloss": "new-agent",
       "type": "marker",
       "category": "hypotactic",
-      "unicode_char": null,
+      "unicode_char": "𐄕",
       "handwritten_char": null,
       "definition": "Switch reference. The subject of what follows is a different entity.",
-      "encapsulates": ["(new subject)", "switch reference — different"],
+      "encapsulates": [
+        "(new subject)",
+        "switch reference — different"
+      ],
       "composition": null,
       "notes": "From Papuan/Navajo switch reference systems"
     },
@@ -1510,10 +2124,14 @@
       "gloss": "now",
       "type": "marker",
       "category": "temporal",
-      "unicode_char": null,
+      "unicode_char": "𐄖",
       "handwritten_char": null,
       "definition": "Temporal anchor — present.",
-      "encapsulates": ["now", "currently", "at this moment"],
+      "encapsulates": [
+        "now",
+        "currently",
+        "at this moment"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1522,10 +2140,14 @@
       "gloss": "past",
       "type": "marker",
       "category": "temporal",
-      "unicode_char": null,
+      "unicode_char": "𐄗",
       "handwritten_char": null,
       "definition": "Temporal anchor — prior to now.",
-      "encapsulates": ["in the past", "previously", "formerly"],
+      "encapsulates": [
+        "in the past",
+        "previously",
+        "formerly"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1534,10 +2156,14 @@
       "gloss": "future",
       "type": "marker",
       "category": "temporal",
-      "unicode_char": null,
+      "unicode_char": "𐄘",
       "handwritten_char": null,
       "definition": "Temporal anchor — after now.",
-      "encapsulates": ["in the future", "eventually", "will"],
+      "encapsulates": [
+        "in the future",
+        "eventually",
+        "will"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1546,10 +2172,14 @@
       "gloss": "i",
       "type": "first-class",
       "category": "pronoun",
-      "unicode_char": "𝚤",
+      "unicode_char": "𐁕",
       "handwritten_char": null,
       "definition": "First person. The speaker, the origin of the utterance.",
-      "encapsulates": ["I", "me", "my (with -of)"],
+      "encapsulates": [
+        "I",
+        "me",
+        "my (with -of)"
+      ],
       "composition": null,
       "notes": "Gender, number, possession via superscript modifiers"
     },
@@ -1558,10 +2188,13 @@
       "gloss": "you",
       "type": "first-class",
       "category": "pronoun",
-      "unicode_char": "υ",
+      "unicode_char": "𐁖",
       "handwritten_char": null,
       "definition": "Second person. The addressee.",
-      "encapsulates": ["you", "your (with -of)"],
+      "encapsulates": [
+        "you",
+        "your (with -of)"
+      ],
       "composition": null,
       "notes": ""
     },
@@ -1570,10 +2203,16 @@
       "gloss": "they",
       "type": "first-class",
       "category": "pronoun",
-      "unicode_char": "θ",
+      "unicode_char": "𐁗",
       "handwritten_char": null,
       "definition": "Third person. Neither speaker nor addressee. Gender-neutral by default.",
-      "encapsulates": ["he", "she", "they", "it", "them"],
+      "encapsulates": [
+        "he",
+        "she",
+        "they",
+        "it",
+        "them"
+      ],
       "composition": null,
       "notes": "Gender added via /male/, /female/, /other/ as superscript. Number via /group/ superscript."
     },
@@ -1585,7 +2224,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Deliberate movement to a higher layer. Elevation, upcasting, generalisation.",
-      "encapsulates": ["elevation", "upcasting", "generalisation", "abstraction"],
+      "encapsulates": [
+        "elevation",
+        "upcasting",
+        "generalisation",
+        "abstraction"
+      ],
       "composition": "/layer (-up)/ (-intentional)/",
       "notes": ""
     },
@@ -1597,7 +2241,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Deliberate movement to a lower layer. Downcasting, specialisation, concretisation.",
-      "encapsulates": ["specialisation", "downcasting", "concretisation", "degradation"],
+      "encapsulates": [
+        "specialisation",
+        "downcasting",
+        "concretisation",
+        "degradation"
+      ],
       "composition": "/layer (-down)/ (-intentional)/",
       "notes": ""
     },
@@ -1609,7 +2258,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Bidirectional causation. x causes y and y causes x.",
-      "encapsulates": ["dialectic", "chicken-and-egg", "bidirectional causation", "mutual constitution"],
+      "encapsulates": [
+        "dialectic",
+        "chicken-and-egg",
+        "bidirectional causation",
+        "mutual constitution"
+      ],
       "composition": "/cause (-mutual)/",
       "notes": "Formerly /dialectic/ — demoted to compound"
     },
@@ -1621,7 +2275,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Same object, same reference. Identity rather than equivalence.",
-      "encapsulates": ["identity", "same object", "is", "==="],
+      "encapsulates": [
+        "identity",
+        "same object",
+        "is",
+        "==="
+      ],
       "composition": "/self/ + /same/",
       "notes": ""
     },
@@ -1633,7 +2292,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Same value, same configuration. Structural equality.",
-      "encapsulates": ["structural equality", "equivalent content", "=="],
+      "encapsulates": [
+        "structural equality",
+        "equivalent content",
+        "=="
+      ],
       "composition": "/same (-of)/ + /state/",
       "notes": ""
     },
@@ -1645,7 +2308,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Deliberately empty. Designed absence.",
-      "encapsulates": ["null", "None", "nil", "intentional empty"],
+      "encapsulates": [
+        "null",
+        "None",
+        "nil",
+        "intentional empty"
+      ],
       "composition": "/state (-not)/ + /intentional/",
       "notes": ""
     },
@@ -1657,7 +2325,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Unset, undesigned absence. Not null — never assigned.",
-      "encapsulates": ["undefined", "unset", "unassigned"],
+      "encapsulates": [
+        "undefined",
+        "unset",
+        "unassigned"
+      ],
       "composition": "/state (-not)/ + /emergent/",
       "notes": ""
     },
@@ -1669,7 +2341,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A state outside the system's designed range. An unexpected state.",
-      "encapsulates": ["exception", "error", "edge case", "out of bounds"],
+      "encapsulates": [
+        "exception",
+        "error",
+        "edge case",
+        "out of bounds"
+      ],
       "composition": "/state/ + /outside/ + /scope (-of)/ + /system/",
       "notes": ""
     },
@@ -1681,7 +2358,13 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A system taking itself as its own reference frame.",
-      "encapsulates": ["self-reference", "this", "standpoint awareness", "Hofstadter", "metacognition"],
+      "encapsulates": [
+        "self-reference",
+        "this",
+        "standpoint awareness",
+        "Hofstadter",
+        "metacognition"
+      ],
       "composition": "/self/ + /reference/",
       "notes": ""
     },
@@ -1693,7 +2376,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Self-starting, self-organising. Causes its own beginning.",
-      "encapsulates": ["bootstrapping", "self-organisation", "ex nihilo", "autocatalysis"],
+      "encapsulates": [
+        "bootstrapping",
+        "self-organisation",
+        "ex nihilo",
+        "autocatalysis"
+      ],
       "composition": "/self/ + /cause/",
       "notes": ""
     },
@@ -1705,7 +2393,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The containing structure of a causal history, traced backward to origin.",
-      "encapsulates": ["aetiology", "etiology", "causal history", "provenance"],
+      "encapsulates": [
+        "aetiology",
+        "etiology",
+        "causal history",
+        "provenance"
+      ],
       "composition": "/trace/ + /cause/ + /path (-concept)/",
       "notes": ""
     },
@@ -1717,7 +2410,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A model used as a reference frame for interpretation.",
-      "encapsulates": ["theoretical lens", "paradigm", "interpretive frame", "methodology"],
+      "encapsulates": [
+        "theoretical lens",
+        "paradigm",
+        "interpretive frame",
+        "methodology"
+      ],
       "composition": "/reference/ + /model/",
       "notes": ""
     },
@@ -1729,7 +2427,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A function with no side effects. Output depends only on input.",
-      "encapsulates": ["pure function", "referentially transparent", "no side effects"],
+      "encapsulates": [
+        "pure function",
+        "referentially transparent",
+        "no side effects"
+      ],
       "composition": "/function/ + /cause (-not)/ + /extrinsic/",
       "notes": ""
     },
@@ -1741,7 +2443,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "An effect produced outside the function's scope.",
-      "encapsulates": ["side effect", "mutation", "IO", "observable effect"],
+      "encapsulates": [
+        "side effect",
+        "mutation",
+        "IO",
+        "observable effect"
+      ],
       "composition": "/effect/ + /extrinsic (-of)/ + /function/",
       "notes": ""
     },
@@ -1753,7 +2460,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Internal state hidden within its own scope.",
-      "encapsulates": ["encapsulation", "information hiding", "private state"],
+      "encapsulates": [
+        "encapsulation",
+        "information hiding",
+        "private state"
+      ],
       "composition": "/scope/ + /intrinsic/ + /contains/",
       "notes": ""
     },
@@ -1765,7 +2476,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A convention that solidified from use rather than design.",
-      "encapsulates": ["desire path", "worn groove", "emergent convention", "habit"],
+      "encapsulates": [
+        "desire path",
+        "worn groove",
+        "emergent convention",
+        "habit"
+      ],
       "composition": "/path (-become)/ + /emergent/",
       "notes": ""
     },
@@ -1777,7 +2493,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A self-containing recursive structure. A system that contains itself.",
-      "encapsulates": ["strange loop", "Hofstadter", "self-reference", "Gödel"],
+      "encapsulates": [
+        "strange loop",
+        "Hofstadter",
+        "self-reference",
+        "Gödel"
+      ],
       "composition": "/recurse/ + /self/ + /contains/",
       "notes": ""
     },
@@ -1789,7 +2510,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A deliberately false representation of a state.",
-      "encapsulates": ["lie", "deception", "deliberate misrepresentation", "falsehood"],
+      "encapsulates": [
+        "lie",
+        "deception",
+        "deliberate misrepresentation",
+        "falsehood"
+      ],
       "composition": "/state/ + /fake/ + /intentional/",
       "notes": ""
     },
@@ -1801,7 +2527,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A false perception without deliberate agency. Honest false state.",
-      "encapsulates": ["hallucination", "illusion", "confabulation", "honest error"],
+      "encapsulates": [
+        "hallucination",
+        "illusion",
+        "confabulation",
+        "honest error"
+      ],
       "composition": "/state/ + /fake/ + /intentional (-not)/",
       "notes": "Applies to both clinical hallucination and LLM confabulation"
     },
@@ -1813,7 +2544,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Self-starting creation. Something that begins itself.",
-      "encapsulates": ["bootstrap", "ex nihilo", "autocreation", "self-starting"],
+      "encapsulates": [
+        "bootstrap",
+        "ex nihilo",
+        "autocreation",
+        "self-starting"
+      ],
       "composition": "/begin/ + /self/",
       "notes": ""
     },
@@ -1825,7 +2561,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "Self-termination. Programmed or deliberate self-destruction.",
-      "encapsulates": ["apoptosis", "self-termination", "garbage collection", "programmed death"],
+      "encapsulates": [
+        "apoptosis",
+        "self-termination",
+        "garbage collection",
+        "programmed death"
+      ],
       "composition": "/end/ + /self/",
       "notes": ""
     },
@@ -1837,7 +2578,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A complete bounded existence from creation to destruction.",
-      "encapsulates": ["lifecycle", "lifespan", "arc", "bounded existence"],
+      "encapsulates": [
+        "lifecycle",
+        "lifespan",
+        "arc",
+        "bounded existence"
+      ],
       "composition": "/begin/ + /end/",
       "notes": ""
     },
@@ -1849,7 +2595,23 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The complement of /figure/ within a /field/ or /system/. The undifferentiated substrate against which /figure/ stands out.",
-      "encapsulates": ["ground (Gestalt)", " background", " vacuum state", " ground state", " zero field", " background radiation", " solvent", " catalyst support", " matrix", " extracellular matrix", " soil", " culture medium", " biofilm substrate", " baseline neural activity", " resting state"],
+      "encapsulates": [
+        "ground (Gestalt)",
+        " background",
+        " vacuum state",
+        " ground state",
+        " zero field",
+        " background radiation",
+        " solvent",
+        " catalyst support",
+        " matrix",
+        " extracellular matrix",
+        " soil",
+        " culture medium",
+        " biofilm substrate",
+        " baseline neural activity",
+        " resting state"
+      ],
       "composition": "/field/ + /figure (-exclude)/",
       "notes": ""
     },
@@ -1861,7 +2623,13 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A situated viewpoint. A reference frame with an origin and a scope.",
-      "encapsulates": ["viewpoint", "standpoint", "opinion", "take", "angle"],
+      "encapsulates": [
+        "viewpoint",
+        "standpoint",
+        "opinion",
+        "take",
+        "angle"
+      ],
       "composition": "/reference/ + /origin/ + /scope/",
       "notes": "Promoted to vocab due to frequency"
     },
@@ -1873,7 +2641,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A dimension whose value can change.",
-      "encapsulates": ["variable", "var", "quantity", "unknown"],
+      "encapsulates": [
+        "variable",
+        "var",
+        "quantity",
+        "unknown"
+      ],
       "composition": "/state (-concept)/ + /dimension/",
       "notes": ""
     },
@@ -1885,7 +2658,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A dimension set from outside, governing behaviour.",
-      "encapsulates": ["parameter", "param", "argument (formal)", "knob"],
+      "encapsulates": [
+        "parameter",
+        "param",
+        "argument (formal)",
+        "knob"
+      ],
       "composition": "/prescribed (-concept)/ + /dimension/",
       "notes": ""
     },
@@ -1897,7 +2675,12 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A function mapping a state onto a quantitative dimension.",
-      "encapsulates": ["measure", "metric", "measurement", "reading"],
+      "encapsulates": [
+        "measure",
+        "metric",
+        "measurement",
+        "reading"
+      ],
       "composition": "/function/ + /state/ + /dimension/",
       "notes": ""
     },
@@ -1909,7 +2692,14 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "A depression that is intrinsically below and surrounded.",
-      "encapsulates": ["basin", "sink", "caldera", "well", "anatomical cistern", "attractor basin"],
+      "encapsulates": [
+        "basin",
+        "sink",
+        "caldera",
+        "well",
+        "anatomical cistern",
+        "attractor basin"
+      ],
       "composition": "/below/ + /intrinsic/ + /around/",
       "notes": ""
     },
@@ -1921,7 +2711,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The visual sense.",
-      "encapsulates": ["vision", "sight", "visual perception"],
+      "encapsulates": [
+        "vision",
+        "sight",
+        "visual perception"
+      ],
       "composition": null,
       "notes": "Core sensory vocabulary"
     },
@@ -1933,7 +2727,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The auditory sense.",
-      "encapsulates": ["hearing", "sound", "auditory perception"],
+      "encapsulates": [
+        "hearing",
+        "sound",
+        "auditory perception"
+      ],
       "composition": null,
       "notes": "Core sensory vocabulary"
     },
@@ -1945,7 +2743,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The tactile sense.",
-      "encapsulates": ["touch", "feel", "tactile perception"],
+      "encapsulates": [
+        "touch",
+        "feel",
+        "tactile perception"
+      ],
       "composition": null,
       "notes": "Core sensory vocabulary"
     },
@@ -1957,7 +2759,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The gustatory sense.",
-      "encapsulates": ["taste", "flavour", "gustatory perception"],
+      "encapsulates": [
+        "taste",
+        "flavour",
+        "gustatory perception"
+      ],
       "composition": null,
       "notes": "Core sensory vocabulary"
     },
@@ -1969,7 +2775,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The olfactory sense.",
-      "encapsulates": ["smell", "scent", "olfactory perception"],
+      "encapsulates": [
+        "smell",
+        "scent",
+        "olfactory perception"
+      ],
       "composition": null,
       "notes": "Core sensory vocabulary"
     },
@@ -1981,7 +2791,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The sense of body position and movement in space.",
-      "encapsulates": ["proprioception", "kinaesthesia", "body sense"],
+      "encapsulates": [
+        "proprioception",
+        "kinaesthesia",
+        "body sense"
+      ],
       "composition": null,
       "notes": "Core sensory vocabulary"
     },
@@ -1993,7 +2807,11 @@
       "unicode_char": null,
       "handwritten_char": null,
       "definition": "The sense of internal body state.",
-      "encapsulates": ["interoception", "internal sense", "visceral sense"],
+      "encapsulates": [
+        "interoception",
+        "internal sense",
+        "visceral sense"
+      ],
       "composition": null,
       "notes": "Core sensory vocabulary. /time/ + /interoception/ = felt time."
     }
