@@ -1,0 +1,1716 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,400;0,600;1,400&family=JetBrains+Mono:wght@400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
+<style>
+  /* ── Reset & Base ── */
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1814;
+    --ink-2: #3d3a35;
+    --ink-3: #6b6760;
+    --ink-4: #9a9790;
+    --paper: #f5f2ec;
+    --paper-2: #eceae3;
+    --paper-3: #e2dfd7;
+    --rule: #d4d0c8;
+    --rule-2: #c5c1b8;
+    --accent: #8b4513;
+    --accent-2: #a0522d;
+    --accent-light: #f0e6dc;
+
+    --c-first: #2c4a3e;
+    --c-first-bg: #e8f0ed;
+    --c-second: #3a3060;
+    --c-second-bg: #eceaf5;
+    --c-modifier: #5c3a00;
+    --c-modifier-bg: #f5ead8;
+    --c-compound: #1a3a5c;
+    --c-compound-bg: #ddeaf5;
+    --c-marker: #4a1a40;
+    --c-marker-bg: #f0e0ee;
+    --c-vocab: #2d4a1a;
+    --c-vocab-bg: #e5f0da;
+
+    --font-body: 'Instrument Sans', sans-serif;
+    --font-serif: 'Noto Serif', serif;
+    --font-mono: 'JetBrains Mono', monospace;
+
+    --radius: 4px;
+    --radius-lg: 8px;
+    --shadow: 0 1px 3px rgba(0,0,0,0.08), 0 1px 2px rgba(0,0,0,0.06);
+    --shadow-lg: 0 4px 16px rgba(0,0,0,0.10), 0 2px 6px rgba(0,0,0,0.06);
+    --transition: 150ms ease;
+  }
+
+  html { font-size: 15px; }
+  body {
+    font-family: var(--font-body);
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* ── Layout ── */
+  .app { display: flex; flex-direction: column; height: 100vh; overflow: hidden; }
+
+  .header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    height: 52px;
+    flex-shrink: 0;
+    border-bottom: 2px solid var(--accent);
+    position: relative;
+    z-index: 100;
+  }
+
+  .header-title {
+    font-family: var(--font-serif);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    color: var(--paper);
+    white-space: nowrap;
+    font-style: italic;
+  }
+
+  .header-title span {
+    color: var(--accent-2);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  .header-controls {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex: 1;
+  }
+
+  .search-wrap {
+    flex: 1;
+    max-width: 400px;
+    position: relative;
+  }
+
+  .search-wrap input {
+    width: 100%;
+    padding: 0.4rem 0.75rem 0.4rem 2.25rem;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    color: var(--paper);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    outline: none;
+    transition: border-color var(--transition), background var(--transition);
+  }
+
+  .search-wrap input::placeholder { color: rgba(255,255,255,0.4); }
+  .search-wrap input:focus {
+    border-color: var(--accent-2);
+    background: rgba(255,255,255,0.12);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: 0.6rem;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.4;
+    font-size: 0.85rem;
+    pointer-events: none;
+  }
+
+  .mode-toggle {
+    display: flex;
+    background: rgba(255,255,255,0.08);
+    border: 1px solid rgba(255,255,255,0.15);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+
+  .mode-btn {
+    padding: 0.35rem 0.85rem;
+    background: none;
+    border: none;
+    color: rgba(255,255,255,0.5);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: color var(--transition), background var(--transition);
+    white-space: nowrap;
+  }
+
+  .mode-btn.active {
+    background: var(--accent);
+    color: white;
+  }
+
+  .mode-btn:hover:not(.active) { color: rgba(255,255,255,0.8); }
+
+  .header-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    margin-left: auto;
+  }
+
+  .btn {
+    padding: 0.35rem 0.85rem;
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all var(--transition);
+    border: none;
+    font-weight: 500;
+  }
+
+  .btn-ghost {
+    background: rgba(255,255,255,0.08);
+    color: rgba(255,255,255,0.7);
+    border: 1px solid rgba(255,255,255,0.15);
+  }
+
+  .btn-ghost:hover { background: rgba(255,255,255,0.14); color: white; }
+
+  .btn-primary {
+    background: var(--accent);
+    color: white;
+  }
+
+  .btn-primary:hover { background: var(--accent-2); }
+  .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; }
+
+  .status-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #4caf50;
+    flex-shrink: 0;
+  }
+
+  .status-dot.dirty { background: #ff9800; }
+  .status-dot.error { background: #f44336; }
+  .status-dot.loading { background: #2196f3; animation: pulse 1s infinite; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.3; }
+  }
+
+  /* ── Toolbar ── */
+  .toolbar {
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    padding: 0.5rem 1.5rem;
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-shrink: 0;
+    flex-wrap: wrap;
+  }
+
+  .filter-group {
+    display: flex;
+    gap: 0.35rem;
+    flex-wrap: wrap;
+  }
+
+  .filter-chip {
+    padding: 0.2rem 0.65rem;
+    border-radius: 99px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    cursor: pointer;
+    border: 1.5px solid transparent;
+    transition: all var(--transition);
+    background: var(--paper-3);
+    color: var(--ink-3);
+    border-color: var(--rule);
+  }
+
+  .filter-chip.active { border-color: currentColor; }
+  .filter-chip[data-type="first-class"].active { background: var(--c-first-bg); color: var(--c-first); }
+  .filter-chip[data-type="second-class"].active { background: var(--c-second-bg); color: var(--c-second); }
+  .filter-chip[data-type="modifier"].active { background: var(--c-modifier-bg); color: var(--c-modifier); }
+  .filter-chip[data-type="compound"].active { background: var(--c-compound-bg); color: var(--c-compound); }
+  .filter-chip[data-type="marker"].active { background: var(--c-marker-bg); color: var(--c-marker); }
+  .filter-chip[data-type="vocab"].active { background: var(--c-vocab-bg); color: var(--c-vocab); }
+  .filter-chip[data-type="all"].active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .toolbar-sep { width: 1px; height: 20px; background: var(--rule-2); flex-shrink: 0; }
+
+  .view-toggle {
+    display: flex;
+    gap: 0.35rem;
+    margin-left: auto;
+  }
+
+  .view-btn {
+    padding: 0.2rem 0.6rem;
+    border-radius: var(--radius);
+    background: none;
+    border: 1px solid var(--rule);
+    color: var(--ink-3);
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all var(--transition);
+  }
+
+  .view-btn.active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+
+  .count-label {
+    font-size: 0.75rem;
+    color: var(--ink-4);
+  }
+
+  /* ── Main content ── */
+  .main { display: flex; flex: 1; overflow: hidden; }
+
+  /* ── Dictionary view ── */
+  .dict-view { flex: 1; overflow-y: auto; padding: 1.5rem; }
+
+  /* ── Card view ── */
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+    gap: 1rem;
+  }
+
+  .entry-card {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    padding: 1rem 1.125rem;
+    box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: box-shadow var(--transition), border-color var(--transition);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .entry-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    border-radius: var(--radius) 0 0 var(--radius);
+  }
+
+  .entry-card[data-type="first-class"]::before { background: var(--c-first); }
+  .entry-card[data-type="second-class"]::before { background: var(--c-second); }
+  .entry-card[data-type="modifier"]::before { background: var(--c-modifier); }
+  .entry-card[data-type="compound"]::before { background: var(--c-compound); }
+  .entry-card[data-type="marker"]::before { background: var(--c-marker); }
+  .entry-card[data-type="vocab"]::before { background: var(--c-vocab); }
+
+  .entry-card:hover { box-shadow: var(--shadow-lg); border-color: var(--rule-2); }
+  .entry-card.expanded { border-color: var(--accent); }
+
+  .card-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .card-glyph {
+    width: 36px;
+    height: 36px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.1rem;
+    flex-shrink: 0;
+    font-family: var(--font-mono);
+    color: var(--ink-2);
+  }
+
+  .card-glyph.empty { color: var(--ink-4); font-size: 0.7rem; }
+
+  .card-meta { flex: 1; min-width: 0; }
+
+  .card-gloss {
+    font-family: var(--font-mono);
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--ink);
+    line-height: 1.3;
+  }
+
+  .card-badges {
+    display: flex;
+    gap: 0.3rem;
+    flex-wrap: wrap;
+    margin-top: 0.25rem;
+  }
+
+  .badge {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.1rem 0.45rem;
+    border-radius: 99px;
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.02em;
+  }
+
+  .badge-type[data-type="first-class"] { background: var(--c-first-bg); color: var(--c-first); }
+  .badge-type[data-type="second-class"] { background: var(--c-second-bg); color: var(--c-second); }
+  .badge-type[data-type="modifier"] { background: var(--c-modifier-bg); color: var(--c-modifier); }
+  .badge-type[data-type="compound"] { background: var(--c-compound-bg); color: var(--c-compound); }
+  .badge-type[data-type="marker"] { background: var(--c-marker-bg); color: var(--c-marker); }
+  .badge-type[data-type="vocab"] { background: var(--c-vocab-bg); color: var(--c-vocab); }
+
+  .badge-cat {
+    background: var(--paper-3);
+    color: var(--ink-3);
+  }
+
+  .card-definition {
+    font-size: 0.85rem;
+    color: var(--ink-2);
+    line-height: 1.5;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  .card-expanded {
+    display: none;
+    margin-top: 0.875rem;
+    padding-top: 0.875rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .entry-card.expanded .card-expanded { display: block; }
+  .entry-card.expanded .card-definition { -webkit-line-clamp: unset; overflow: visible; }
+
+  .field-row {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 0.25rem 0.75rem;
+    margin-bottom: 0.4rem;
+    font-size: 0.82rem;
+    align-items: baseline;
+  }
+
+  .field-label {
+    color: var(--ink-4);
+    font-weight: 500;
+    font-size: 0.72rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding-top: 0.1rem;
+  }
+
+  .field-value {
+    color: var(--ink-2);
+  }
+
+  .field-value.mono { font-family: var(--font-mono); font-size: 0.8rem; color: var(--accent); }
+
+  .tags-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+  }
+
+  .tag {
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: 99px;
+    padding: 0.1rem 0.5rem;
+    font-size: 0.75rem;
+    color: var(--ink-3);
+  }
+
+  .card-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.875rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .btn-sm {
+    padding: 0.25rem 0.65rem;
+    font-size: 0.78rem;
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-family: var(--font-body);
+    font-weight: 500;
+    border: 1px solid var(--rule);
+    background: var(--paper-2);
+    color: var(--ink-2);
+    transition: all var(--transition);
+  }
+
+  .btn-sm:hover { background: var(--paper-3); border-color: var(--rule-2); }
+  .btn-sm.danger { color: #b91c1c; border-color: #fca5a5; background: #fef2f2; }
+  .btn-sm.danger:hover { background: #fee2e2; }
+  .btn-sm.accent { color: white; background: var(--accent); border-color: var(--accent); }
+  .btn-sm.accent:hover { background: var(--accent-2); }
+
+  /* ── Table view ── */
+  .table-wrap { overflow-x: auto; }
+
+  .dict-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.83rem;
+  }
+
+  .dict-table th {
+    text-align: left;
+    padding: 0.5rem 0.875rem;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+    color: var(--ink-4);
+    border-bottom: 2px solid var(--rule);
+    background: var(--paper-2);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    white-space: nowrap;
+    cursor: pointer;
+    user-select: none;
+  }
+
+  .dict-table th:hover { color: var(--ink-2); }
+
+  .dict-table th .sort-arrow {
+    display: inline-block;
+    margin-left: 0.25rem;
+    opacity: 0.3;
+    font-size: 0.65rem;
+  }
+
+  .dict-table th.sort-asc .sort-arrow::after { content: '▲'; opacity: 1; }
+  .dict-table th.sort-desc .sort-arrow::after { content: '▼'; opacity: 1; }
+
+  .dict-table td {
+    padding: 0.55rem 0.875rem;
+    border-bottom: 1px solid var(--rule);
+    vertical-align: middle;
+  }
+
+  .dict-table tr:hover td { background: var(--paper-2); }
+  .dict-table tr.expanded td { background: var(--accent-light); }
+
+  .dict-table .col-glyph { width: 48px; text-align: center; }
+  .dict-table .col-gloss { width: 160px; font-family: var(--font-mono); font-weight: 500; font-size: 0.82rem; }
+  .dict-table .col-type { width: 110px; }
+  .dict-table .col-cat { width: 110px; }
+  .dict-table .col-unicode { width: 72px; text-align: center; font-family: var(--font-mono); }
+  .dict-table .col-def { min-width: 200px; color: var(--ink-2); }
+
+  .table-glyph {
+    width: 28px;
+    height: 28px;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 0.9rem;
+  }
+
+  /* ── Edit panel (slide-in) ── */
+  .edit-overlay {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.3);
+    z-index: 200;
+    backdrop-filter: blur(2px);
+  }
+
+  .edit-overlay.open { display: flex; justify-content: flex-end; }
+
+  .edit-panel {
+    width: min(480px, 100vw);
+    height: 100%;
+    background: var(--paper);
+    border-left: 2px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    animation: slideIn 200ms ease;
+  }
+
+  @keyframes slideIn {
+    from { transform: translateX(100%); }
+    to { transform: translateX(0); }
+  }
+
+  .edit-header {
+    padding: 1rem 1.25rem;
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper-2);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+  }
+
+  .edit-header h2 {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    font-weight: 600;
+    flex: 1;
+  }
+
+  .edit-body {
+    flex: 1;
+    overflow-y: auto;
+    padding: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+
+  .form-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    color: var(--ink-3);
+  }
+
+  .form-input {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    background: white;
+    color: var(--ink);
+    outline: none;
+    transition: border-color var(--transition);
+  }
+
+  .form-input:focus { border-color: var(--accent); }
+
+  .form-input.mono { font-family: var(--font-mono); }
+
+  textarea.form-input {
+    resize: vertical;
+    min-height: 80px;
+    line-height: 1.5;
+  }
+
+  .form-select {
+    padding: 0.5rem 0.75rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.875rem;
+    background: white;
+    color: var(--ink);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%236b6760' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    padding-right: 2rem;
+  }
+
+  .tags-input-wrap {
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    background: white;
+    padding: 0.4rem 0.5rem;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+    cursor: text;
+    transition: border-color var(--transition);
+  }
+
+  .tags-input-wrap:focus-within { border-color: var(--accent); }
+
+  .tags-input-wrap .tag {
+    display: flex;
+    align-items: center;
+    gap: 0.25rem;
+    background: var(--paper-2);
+    border: 1px solid var(--rule);
+    padding: 0.1rem 0.4rem;
+  }
+
+  .tags-input-wrap .tag button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: var(--ink-4);
+    font-size: 0.7rem;
+    padding: 0;
+    line-height: 1;
+  }
+
+  .tags-input-wrap .tag button:hover { color: var(--ink); }
+
+  .tags-inner-input {
+    border: none;
+    outline: none;
+    font-family: var(--font-body);
+    font-size: 0.82rem;
+    color: var(--ink);
+    background: transparent;
+    flex: 1;
+    min-width: 100px;
+    padding: 0.15rem 0.25rem;
+  }
+
+  .edit-footer {
+    padding: 1rem 1.25rem;
+    border-top: 1px solid var(--rule);
+    background: var(--paper-2);
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+  }
+
+  /* ── Add entry button ── */
+  .fab {
+    position: fixed;
+    bottom: 1.5rem;
+    right: 1.5rem;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: white;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 150;
+    transition: background var(--transition), transform var(--transition), box-shadow var(--transition);
+  }
+
+  .fab:hover { background: var(--accent-2); transform: scale(1.05); box-shadow: 0 6px 24px rgba(0,0,0,0.25); }
+
+  /* ── Sandbox view ── */
+  .sandbox-view {
+    display: none;
+    flex: 1;
+    overflow: hidden;
+    flex-direction: row;
+  }
+
+  .sandbox-view.visible { display: flex; }
+
+  .sandbox-pane {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    min-width: 0;
+  }
+
+  .sandbox-pane + .sandbox-pane { border-left: 2px solid var(--rule); }
+
+  .pane-header {
+    padding: 0.6rem 1rem;
+    background: var(--paper-2);
+    border-bottom: 1px solid var(--rule);
+    font-size: 0.72rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--ink-4);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .pane-body { flex: 1; overflow: auto; }
+
+  /* CodeMirror overrides */
+  .CodeMirror {
+    height: 100%;
+    font-family: var(--font-mono);
+    font-size: 0.9rem;
+    line-height: 1.7;
+    background: white;
+    color: var(--ink);
+  }
+
+  .cm-sandbox-primitive { color: #8b4513; font-weight: 500; }
+  .cm-sandbox-modifier { color: #2c4a8b; }
+  .cm-sandbox-marker { color: #4a1a5c; font-style: italic; }
+  .cm-sandbox-vocab { color: #2d6b1a; }
+  .cm-sandbox-bracket { color: var(--ink-4); }
+
+  /* Render pane */
+  .render-output {
+    padding: 1.5rem;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 2.2;
+    color: var(--ink);
+    min-height: 100%;
+  }
+
+  .render-word {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    margin: 0 0.15em;
+    vertical-align: bottom;
+  }
+
+  .render-modifier-above {
+    font-size: 0.65em;
+    color: var(--c-modifier);
+    font-family: var(--font-mono);
+    line-height: 1;
+    position: relative;
+    text-align: center;
+    white-space: nowrap;
+  }
+
+  .render-modifier-above::after {
+    content: '';
+    display: block;
+    height: 1px;
+    background: var(--c-modifier);
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+  }
+
+  .render-glyph {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.1em;
+  }
+
+  .render-glyph-char {
+    font-size: 1.3em;
+    line-height: 1;
+  }
+
+  .render-glyph-gloss {
+    font-family: var(--font-mono);
+    font-size: 0.72em;
+    color: var(--ink-3);
+    font-style: normal;
+  }
+
+  .render-marker {
+    display: inline-block;
+    padding: 0.05em 0.4em;
+    background: var(--c-marker-bg);
+    color: var(--c-marker);
+    border-radius: 3px;
+    font-family: var(--font-mono);
+    font-size: 0.78em;
+    margin: 0 0.2em;
+    font-style: italic;
+  }
+
+  .render-vocab {
+    display: inline-block;
+    border-bottom: 2px solid var(--c-vocab);
+    color: var(--c-vocab);
+    font-family: var(--font-mono);
+    font-size: 0.85em;
+  }
+
+  /* ── Toast ── */
+  .toast {
+    position: fixed;
+    bottom: 1.5rem;
+    left: 50%;
+    transform: translateX(-50%) translateY(120%);
+    background: var(--ink);
+    color: var(--paper);
+    padding: 0.6rem 1.25rem;
+    border-radius: 99px;
+    font-size: 0.82rem;
+    z-index: 500;
+    transition: transform 250ms ease;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .toast.show { transform: translateX(-50%) translateY(0); }
+  .toast.success { background: #1a4a2a; }
+  .toast.error { background: #4a1a1a; }
+
+  /* ── Empty state ── */
+  .empty-state {
+    text-align: center;
+    padding: 4rem 2rem;
+    color: var(--ink-4);
+  }
+
+  .empty-state p { font-size: 0.9rem; margin-top: 0.5rem; }
+
+  /* ── Responsive ── */
+  @media (max-width: 640px) {
+    .header { padding: 0 0.875rem; gap: 0.75rem; }
+    .header-title { font-size: 1rem; }
+    .toolbar { padding: 0.5rem 0.875rem; }
+    .dict-view { padding: 0.875rem; }
+    .cards-grid { grid-template-columns: 1fr; }
+    .fab { bottom: 1rem; right: 1rem; }
+    .sandbox-view { flex-direction: column; }
+    .sandbox-pane + .sandbox-pane { border-left: none; border-top: 2px solid var(--rule); }
+    .search-wrap { max-width: none; }
+    .header-controls { gap: 0.5rem; }
+  }
+
+  @media (max-width: 480px) {
+    .mode-btn { padding: 0.3rem 0.6rem; font-size: 0.75rem; }
+    .btn-ghost { display: none; }
+  }
+
+  /* ── Loading screen & token modal ── */
+  .loading-screen, .token-modal {
+    position: fixed;
+    inset: 0;
+    background: var(--paper);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    z-index: 999;
+  }
+  .token-modal { background: rgba(0,0,0,0.85); backdrop-filter: blur(6px); z-index: 1000; }
+  .token-modal.hidden { display: none; }
+  .token-card {
+    background: var(--paper);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    width: 90%;
+    max-width: 480px;
+    box-shadow: var(--shadow-lg);
+    border: 1px solid var(--rule);
+  }
+  .token-card h3 { font-family: var(--font-serif); margin-bottom: 0.5rem; }
+  .token-card input { width: 100%; margin: 1rem 0; padding: 0.75rem; font-family: var(--font-mono); border: 1px solid var(--rule); border-radius: var(--radius); }
+  .token-card button { margin-top: 0.5rem; }
+  .loading-screen.hidden { display: none; }
+
+  .loading-title {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-style: italic;
+    color: var(--ink);
+  }
+
+  .loading-bar {
+    width: 200px;
+    height: 2px;
+    background: var(--rule);
+    border-radius: 99px;
+    overflow: hidden;
+  }
+
+  .loading-bar-inner {
+    height: 100%;
+    background: var(--accent);
+    border-radius: 99px;
+    animation: loadBar 1.5s ease infinite;
+  }
+
+  @keyframes loadBar {
+    0% { width: 0%; margin-left: 0; }
+    50% { width: 60%; margin-left: 20%; }
+    100% { width: 0%; margin-left: 100%; }
+  }
+
+  .loading-sub {
+    font-size: 0.8rem;
+    color: var(--ink-4);
+  }
+</style>
+</head>
+<body>
+
+<div class="loading-screen" id="loadingScreen">
+  <div class="loading-title">Loading...</div>
+  <div class="loading-bar"><div class="loading-bar-inner"></div></div>
+  <div class="loading-sub" id="loadingStatus">Fetching dictionary...</div>
+</div>
+
+<div class="token-modal" id="tokenModal">
+  <div class="token-card">
+    <h3>GitHub Access Required</h3>
+    <p style="font-size:0.85rem; color:var(--ink-3); margin-bottom:0.75rem">Enter a GitHub personal access token (with <strong>repo</strong> scope) to read/write dictionary data.</p>
+    <input type="password" id="tokenInput" placeholder="ghp_xxxxxxxxxxxx" autocomplete="off">
+    <div style="display:flex; gap:0.5rem; justify-content:flex-end">
+      <button class="btn-sm accent" id="confirmTokenBtn">Save & Continue</button>
+    </div>
+    <p style="font-size:0.7rem; margin-top:1rem; color:var(--ink-4)">Token will be stored in localStorage and never shared.</p>
+  </div>
+</div>
+
+<div class="app" style="display:none" id="mainApp">
+  <!-- header, toolbar, main content identical to original except placeholders -->
+  <header class="header">
+    <div class="header-title"><span>𐀪𐀣𐁒</span> Dictionary</div>
+    <div class="header-controls">
+      <div class="search-wrap">
+        <span class="search-icon">⌕</span>
+        <input type="text" id="searchInput" placeholder="Search gloss, definition, encapsulates…" autocomplete="off">
+      </div>
+      <div class="mode-toggle">
+        <button class="mode-btn active" data-mode="dict" onclick="setMode('dict')">Dictionary</button>
+        <button class="mode-btn" data-mode="sandbox" onclick="setMode('sandbox')">Sandbox</button>
+      </div>
+    </div>
+    <div class="header-actions">
+      <div class="status-dot" id="statusDot" title="Synced"></div>
+      <button class="btn btn-ghost" id="syncBtn" onclick="syncFromGitHub()">↻ Sync</button>
+      <button class="btn btn-primary" id="saveBtn" onclick="saveDictionary()" disabled>Save</button>
+    </div>
+  </header>
+
+  <!-- Toolbar -->
+  <div class="toolbar" id="dictToolbar">
+    <div class="filter-group" id="typeFilters">
+      <button class="filter-chip active" data-type="all" onclick="setFilter('all')">All</button>
+      <button class="filter-chip" data-type="first-class" onclick="setFilter('first-class')">First-class</button>
+      <button class="filter-chip" data-type="second-class" onclick="setFilter('second-class')">Second-class</button>
+      <button class="filter-chip" data-type="modifier" onclick="setFilter('modifier')">Modifier</button>
+      <button class="filter-chip" data-type="compound" onclick="setFilter('compound')">Compound</button>
+      <button class="filter-chip" data-type="marker" onclick="setFilter('marker')">Marker</button>
+      <button class="filter-chip" data-type="vocab" onclick="setFilter('vocab')">Vocab</button>
+    </div>
+    <div class="toolbar-sep"></div>
+    <span class="count-label" id="countLabel">— entries</span>
+    <div class="view-toggle">
+      <button class="view-btn active" data-view="cards" onclick="setView('cards')">⊞ Cards</button>
+      <button class="view-btn" data-view="table" onclick="setView('table')">☰ Table</button>
+    </div>
+  </div>
+
+  <!-- Main -->
+  <div class="main">
+    <!-- Dictionary view -->
+    <div class="dict-view" id="dictView">
+      <div class="cards-grid" id="cardsGrid"></div>
+      <div class="table-wrap" id="tableWrap" style="display:none">
+        <table class="dict-table" id="dictTable">
+          <thead>
+            <tr>
+              <th class="col-glyph">Glyph</th>
+              <th class="col-gloss" onclick="sortBy('gloss')">Gloss <span class="sort-arrow"></span></th>
+              <th class="col-type" onclick="sortBy('type')">Type <span class="sort-arrow"></span></th>
+              <th class="col-cat" onclick="sortBy('category')">Category <span class="sort-arrow"></span></th>
+              <th class="col-unicode">Unicode</th>
+              <th class="col-def">Definition</th>
+            </tr>
+          </thead>
+          <tbody id="tableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Sandbox view -->
+    <div class="sandbox-view" id="sandboxView">
+      <div class="sandbox-pane">
+        <div class="pane-header">
+          <span>Editor</span>
+          <span style="font-weight:400;text-transform:none;letter-spacing:0">/primitive (-mod)/ · (marker) · [vocab]</span>
+        </div>
+        <div class="pane-body" id="editorPane"></div>
+      </div>
+      <div class="sandbox-pane">
+        <div class="pane-header">
+          <span>Rendered</span>
+          <button class="btn-sm" onclick="clearSandbox()">Clear</button>
+        </div>
+        <div class="pane-body">
+          <div class="render-output" id="renderOutput"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Edit panel -->
+<div class="edit-overlay" id="editOverlay" onclick="closeEdit(event)">
+  <div class="edit-panel" id="editPanel">
+    <div class="edit-header">
+      <h2 id="editTitle">Edit entry</h2>
+      <button class="btn-sm" onclick="closeEditPanel()">✕</button>
+    </div>
+    <div class="edit-body" id="editBody"></div>
+    <div class="edit-footer">
+      <button class="btn-sm danger" id="deleteBtn" onclick="deleteEntry()">Delete</button>
+      <button class="btn-sm" onclick="closeEditPanel()">Cancel</button>
+      <button class="btn-sm accent" onclick="saveEntry()">Save entry</button>
+    </div>
+  </div>
+</div>
+
+<!-- FAB -->
+<button class="fab" id="fab" onclick="openNewEntry()" title="Add entry">+</button>
+
+<!-- Toast -->
+<div class="toast" id="toast"></div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script>
+// ── Config ──
+let GITHUB_TOKEN = null;
+const GITHUB_USERNAME = 'almost-jay';
+const GITHUB_REPO = 'conlang_dict';
+const GITHUB_FILE_PATH = 'data/dictionary.json';
+const GITHUB_BRANCH = 'main';
+const API_BASE = 'https://api.github.com';
+
+// ── State ──
+let dictionary = { meta: {}, entries: [] };
+let fileSha = null;
+let currentFilter = 'all';
+let currentView = 'cards';
+let currentSort = { field: 'gloss', dir: 'asc' };
+let currentSearch = '';
+let editingId = null;
+let isDirty = false;
+let currentMode = 'dict';
+let editor = null;
+let editTagsData = {};
+
+window.addEventListener('load', () => {
+  const savedToken = localStorage.getItem('github_dict_token');
+  if (savedToken) {
+    GITHUB_TOKEN = savedToken;
+    document.getElementById('tokenModal').classList.add('hidden');
+    startApp();
+  } else {
+    document.getElementById('loadingScreen').classList.add('hidden');
+    document.getElementById('tokenModal').classList.remove('hidden');
+  }
+  document.getElementById('confirmTokenBtn').addEventListener('click', () => {
+    const token = document.getElementById('tokenInput').value.trim();
+    if (!token) { showToast('Token required', 'error'); return; }
+    GITHUB_TOKEN = token;
+    localStorage.setItem('github_dict_token', token);
+    document.getElementById('tokenModal').classList.add('hidden');
+    startApp();
+  });
+});
+
+async function startApp() {
+  document.getElementById('loadingScreen').classList.remove('hidden');
+  document.getElementById('loadingStatus').innerText = 'Loading dictionary from GitHub...';
+  await init();
+  document.getElementById('loadingScreen').classList.add('hidden');
+  document.getElementById('mainApp').style.display = 'flex';
+}
+
+// ── Init ──
+async function init() {
+  setStatusLoading();
+  try {
+    const { data, sha } = await githubGet();
+    dictionary = data;
+    fileSha = sha;
+    setStatusOk();
+    showToast('Dictionary loaded', 'success');
+  } catch (e) {
+    // Fall back to local data if available
+    const local = localStorage.getItem('dict_local');
+    if (local) {
+      dictionary = JSON.parse(local);
+      showToast('Using local cache (offline?)', '');
+    } else {
+      setStatusError();
+      showToast('Could not load — check token & repo', 'error');
+    }
+  }
+  document.getElementById('loadingScreen').classList.add('hidden');
+  renderAll();
+  initSandbox();
+}
+// ── GitHub API ──
+async function githubGet() {
+  const url = `${API_BASE}/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}?ref=${GITHUB_BRANCH}&t=${Date.now()}`;
+  const res = await fetch(url, {
+    headers: { 'Authorization': `token ${GITHUB_TOKEN}`, 'Accept': 'application/vnd.github.v3+json' }
+  });
+  if (!res.ok) throw new Error(`GitHub GET failed: ${res.status}`);
+  const data = await res.json();
+  const content = decodeURIComponent(escape(atob(data.content.replace(/\n/g, ''))));
+  return { data: JSON.parse(content), sha: data.sha };
+}
+
+async function githubPut(dict, sha) {
+  const url = `${API_BASE}/repos/${GITHUB_USERNAME}/${GITHUB_REPO}/contents/${GITHUB_FILE_PATH}`;
+  const content = btoa(unescape(encodeURIComponent(JSON.stringify(dict, null, 2))));
+  const res = await fetch(url, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `token ${GITHUB_TOKEN}`,
+      'Accept': 'application/vnd.github.v3+json',
+      'Content-Type': 'application/json'
+    },
+    body: JSON.stringify({
+      message: `Update dictionary — ${new Date().toISOString()}`,
+      content, sha, branch: GITHUB_BRANCH
+    })
+  });
+  if (!res.ok) { const e = await res.json(); throw new Error(e.message); }
+  return await res.json();
+}
+async function syncFromGitHub() {
+  setStatusLoading();
+  try {
+    const { data, sha } = await githubGet();
+    dictionary = data;
+    fileSha = sha;
+    setDirty(false);
+    setStatusOk();
+    renderAll();
+    showToast('Synced from GitHub', 'success');
+  } catch (e) {
+    setStatusError();
+    showToast('Sync failed: ' + e.message, 'error');
+  }
+}
+
+async function saveDictionary() {
+  if (!isDirty) return;
+  setStatusLoading();
+  document.getElementById('saveBtn').disabled = true;
+  try {
+    dictionary.meta.last_updated = new Date().toISOString().split('T')[0];
+    const result = await githubPut(dictionary, fileSha);
+    fileSha = result.content.sha;
+    localStorage.setItem('dict_local', JSON.stringify(dictionary));
+    setDirty(false);
+    setStatusOk();
+    showToast('Saved to GitHub ✓', 'success');
+  } catch (e) {
+    setStatusError();
+    showToast('Save failed: ' + e.message, 'error');
+    document.getElementById('saveBtn').disabled = false;
+  }
+}
+
+// ── Status ──
+function setStatusOk() { const d = document.getElementById('statusDot'); d.className = 'status-dot'; d.title = 'Synced'; }
+function setStatusLoading() { const d = document.getElementById('statusDot'); d.className = 'status-dot loading'; d.title = 'Loading…'; }
+function setStatusError() { const d = document.getElementById('statusDot'); d.className = 'status-dot error'; d.title = 'Error'; }
+function setDirty(v) {
+  isDirty = v;
+  const d = document.getElementById('statusDot');
+  if (v) { d.className = 'status-dot dirty'; d.title = 'Unsaved changes'; }
+  else { d.className = 'status-dot'; }
+  document.getElementById('saveBtn').disabled = !v;
+}
+
+// ── Filtering & sorting ──
+function getFiltered() {
+  let entries = [...dictionary.entries];
+  if (currentFilter !== 'all') entries = entries.filter(e => e.type === currentFilter);
+  if (currentSearch) {
+    const q = currentSearch.toLowerCase();
+    entries = entries.filter(e =>
+      (e.gloss || '').toLowerCase().includes(q) ||
+      (e.definition || '').toLowerCase().includes(q) ||
+      (e.encapsulates || []).some(t => t.toLowerCase().includes(q)) ||
+      (e.category || '').toLowerCase().includes(q) ||
+      (e.composition || '').toLowerCase().includes(q)
+    );
+  }
+  entries.sort((a, b) => {
+    const av = (a[currentSort.field] || '').toString().toLowerCase();
+    const bv = (b[currentSort.field] || '').toString().toLowerCase();
+    return currentSort.dir === 'asc' ? av.localeCompare(bv) : bv.localeCompare(av);
+  });
+  return entries;
+}
+
+function setFilter(f) {
+  currentFilter = f;
+  document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.type === f));
+  renderAll();
+}
+
+function setView(v) {
+  currentView = v;
+  document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
+  document.getElementById('cardsGrid').style.display = v === 'cards' ? '' : 'none';
+  document.getElementById('tableWrap').style.display = v === 'table' ? '' : 'none';
+  renderAll();
+}
+
+function sortBy(field) {
+  if (currentSort.field === field) {
+    currentSort.dir = currentSort.dir === 'asc' ? 'desc' : 'asc';
+  } else {
+    currentSort = { field, dir: 'asc' };
+  }
+  document.querySelectorAll('.dict-table th').forEach(th => {
+    th.classList.remove('sort-asc', 'sort-desc');
+    if (th.textContent.trim().toLowerCase().startsWith(field)) {
+      th.classList.add(currentSort.dir === 'asc' ? 'sort-asc' : 'sort-desc');
+    }
+  });
+  renderAll();
+}
+
+document.getElementById('searchInput').addEventListener('input', e => {
+  currentSearch = e.target.value;
+  renderAll();
+});
+
+// ── Mode toggle ──
+function setMode(mode) {
+  currentMode = mode;
+  document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
+  document.getElementById('dictView').style.display = mode === 'dict' ? '' : 'none';
+  document.getElementById('dictToolbar').style.display = mode === 'dict' ? '' : 'none';
+  document.getElementById('fab').style.display = mode === 'dict' ? '' : 'none';
+  const sv = document.getElementById('sandboxView');
+  if (mode === 'sandbox') sv.classList.add('visible'); else sv.classList.remove('visible');
+}
+
+// ── Render dictionary ──
+function renderAll() {
+  const entries = getFiltered();
+  document.getElementById('countLabel').textContent = `${entries.length} entr${entries.length === 1 ? 'y' : 'ies'}`;
+  if (currentView === 'cards') renderCards(entries);
+  else renderTable(entries);
+}
+
+function typeBadge(type) {
+  return `<span class="badge badge-type" data-type="${type}">${type}</span>`;
+}
+
+function catBadge(cat) {
+  return cat ? `<span class="badge badge-cat">${cat}</span>` : '';
+}
+
+function glyphEl(entry, size = 36) {
+  if (entry.unicode_char) {
+    return `<div class="card-glyph" style="font-size:${size > 30 ? 1.1 : 0.9}rem">${entry.unicode_char}</div>`;
+  }
+  return `<div class="card-glyph empty">—</div>`;
+}
+
+function renderCards(entries) {
+  const grid = document.getElementById('cardsGrid');
+  if (!entries.length) {
+    grid.innerHTML = `<div class="empty-state" style="grid-column:1/-1"><div style="font-size:2rem">∅</div><p>No entries match your search.</p></div>`;
+    return;
+  }
+  grid.innerHTML = entries.map(e => `
+    <div class="entry-card" data-type="${e.type}" data-id="${e.id}" onclick="toggleCard(event, '${e.id}')">
+      <div class="card-header">
+        ${glyphEl(e)}
+        <div class="card-meta">
+          <div class="card-gloss">${formatGloss(e)}</div>
+          <div class="card-badges">
+            ${typeBadge(e.type)}
+            ${catBadge(e.category)}
+          </div>
+        </div>
+      </div>
+      <div class="card-definition">${e.definition || '<em style="color:var(--ink-4)">No definition</em>'}</div>
+      <div class="card-expanded">
+        ${e.composition ? `<div class="field-row"><span class="field-label">Composition</span><span class="field-value mono">${e.composition}</span></div>` : ''}
+        ${e.unicode_char ? `<div class="field-row"><span class="field-label">Unicode</span><span class="field-value mono">${e.unicode_char}</span></div>` : ''}
+        ${e.encapsulates && e.encapsulates.length ? `<div class="field-row"><span class="field-label">Encapsulates</span><div class="tags-list">${e.encapsulates.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>` : ''}
+        ${e.notes ? `<div class="field-row"><span class="field-label">Notes</span><span class="field-value">${e.notes}</span></div>` : ''}
+        <div class="card-actions">
+          <button class="btn-sm accent" onclick="openEdit(event, '${e.id}')">Edit</button>
+          <button class="btn-sm" onclick="usedInSandbox(event, '${e.id}')">Use in sandbox</button>
+        </div>
+      </div>
+    </div>
+  `).join('');
+}
+
+function formatGloss(e) {
+  if (e.type === 'first-class' || e.type === 'second-class') return `/${e.gloss}/`;
+  if (e.type === 'modifier') return `(-${e.gloss.replace(/^-/, '')})`;
+  if (e.type === 'marker') return `(${e.gloss})`;
+  if (e.type === 'vocab') return `[${e.gloss}]`;
+  return e.gloss;
+}
+
+function toggleCard(event, id) {
+  if (event.target.closest('button')) return;
+  const card = document.querySelector(`.entry-card[data-id="${id}"]`);
+  if (card) card.classList.toggle('expanded');
+}
+
+function renderTable(entries) {
+  const tbody = document.getElementById('tableBody');
+  if (!entries.length) {
+    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:3rem;color:var(--ink-4)">No entries match your search.</td></tr>`;
+    return;
+  }
+  tbody.innerHTML = entries.map(e => `
+    <tr data-id="${e.id}" onclick="openEdit(event, '${e.id}')" style="cursor:pointer">
+      <td class="col-glyph">
+        ${e.unicode_char ? `<div class="table-glyph">${e.unicode_char}</div>` : '<div class="table-glyph" style="color:var(--ink-4);font-size:0.7rem">—</div>'}
+      </td>
+      <td class="col-gloss">${formatGloss(e)}</td>
+      <td class="col-type">${typeBadge(e.type)}</td>
+      <td class="col-cat">${catBadge(e.category)}</td>
+      <td class="col-unicode" style="font-family:var(--font-mono);font-size:1rem">${e.unicode_char || ''}</td>
+      <td class="col-def">${(e.definition || '').substring(0, 100)}${e.definition && e.definition.length > 100 ? '…' : ''}</td>
+    </tr>
+  `).join('');
+}
+
+// ── Edit panel ──
+function openEdit(event, id) {
+  if (event) event.stopPropagation();
+  const entry = dictionary.entries.find(e => e.id === id);
+  if (!entry) return;
+  editingId = id;
+  document.getElementById('editTitle').textContent = `Edit: ${formatGloss(entry)}`;
+  document.getElementById('deleteBtn').style.display = '';
+  renderEditForm(entry);
+  document.getElementById('editOverlay').classList.add('open');
+}
+
+function openNewEntry() {
+  editingId = null;
+  document.getElementById('editTitle').textContent = 'New entry';
+  document.getElementById('deleteBtn').style.display = 'none';
+  renderEditForm({
+    id: '', gloss: '', type: 'first-class', category: '', unicode_char: '',
+    handwritten_char: null, definition: '', encapsulates: [], composition: '', notes: ''
+  });
+  document.getElementById('editOverlay').classList.add('open');
+}
+
+function renderEditForm(entry) {
+  editTagsData = { encapsulates: [...(entry.encapsulates || [])] };
+  const body = document.getElementById('editBody');
+  body.innerHTML = `
+    <div class="form-group">
+      <label class="form-label">ID (unique key)</label>
+      <input class="form-input mono" id="f-id" value="${entry.id || ''}" placeholder="e.g. system, mod-do, compound-aetiology">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Gloss</label>
+      <input class="form-input mono" id="f-gloss" value="${entry.gloss || ''}" placeholder="e.g. system, -do, aetiology">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Type</label>
+      <select class="form-select" id="f-type">
+        ${['first-class','second-class','modifier','compound','marker','vocab'].map(t =>
+          `<option value="${t}" ${entry.type === t ? 'selected' : ''}>${t}</option>`
+        ).join('')}
+      </select>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Category</label>
+      <input class="form-input" id="f-category" value="${entry.category || ''}" placeholder="e.g. structure, transformation, epistemic…">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Unicode character</label>
+      <input class="form-input mono" id="f-unicode" value="${entry.unicode_char || ''}" placeholder="e.g. ⬡ λ ≅">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Definition</label>
+      <textarea class="form-input" id="f-definition" rows="3">${entry.definition || ''}</textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Encapsulates (press Enter to add)</label>
+      <div class="tags-input-wrap" id="tagsWrap" onclick="document.getElementById('tagsInner').focus()">
+        <span id="tagsList"></span>
+        <input class="tags-inner-input" id="tagsInner" placeholder="Add concept…">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Composition</label>
+      <input class="form-input mono" id="f-composition" value="${entry.composition || ''}" placeholder="/trace/ + /cause/ + /path (-concept)/">
+    </div>
+    <div class="form-group">
+      <label class="form-label">Notes</label>
+      <textarea class="form-input" id="f-notes" rows="2">${entry.notes || ''}</textarea>
+    </div>
+  `;
+  renderTagsList();
+  document.getElementById('tagsInner').addEventListener('keydown', e => {
+    if (e.key === 'Enter' || e.key === ',') {
+      e.preventDefault();
+      const val = e.target.value.trim().replace(/,$/, '');
+      if (val) { editTagsData.encapsulates.push(val); e.target.value = ''; renderTagsList(); }
+    } else if (e.key === 'Backspace' && !e.target.value) {
+      editTagsData.encapsulates.pop(); renderTagsList();
+    }
+  });
+}
+
+function renderTagsList() {
+  const list = document.getElementById('tagsList');
+  list.innerHTML = editTagsData.encapsulates.map((t, i) => `
+    <span class="tag">${t}<button onclick="removeTag(${i})">✕</button></span>
+  `).join('');
+}
+
+function removeTag(i) { editTagsData.encapsulates.splice(i, 1); renderTagsList(); }
+
+function saveEntry() {
+  const id = document.getElementById('f-id').value.trim();
+  if (!id) { showToast('ID is required', 'error'); return; }
+  const entry = {
+    id,
+    gloss: document.getElementById('f-gloss').value.trim(),
+    type: document.getElementById('f-type').value,
+    category: document.getElementById('f-category').value.trim(),
+    unicode_char: document.getElementById('f-unicode').value.trim() || null,
+    handwritten_char: null,
+    definition: document.getElementById('f-definition').value.trim(),
+    encapsulates: [...editTagsData.encapsulates],
+    composition: document.getElementById('f-composition').value.trim() || null,
+    notes: document.getElementById('f-notes').value.trim()
+  };
+  if (editingId) {
+    const idx = dictionary.entries.findIndex(e => e.id === editingId);
+    if (idx >= 0) dictionary.entries[idx] = entry;
+  } else {
+    if (dictionary.entries.find(e => e.id === id)) { showToast('ID already exists', 'error'); return; }
+    dictionary.entries.push(entry);
+  }
+  setDirty(true);
+  closeEditPanel();
+  renderAll();
+  showToast(editingId ? 'Entry updated' : 'Entry added', 'success');
+}
+
+function deleteEntry() {
+  if (!editingId) return;
+  if (!confirm('Delete this entry?')) return;
+  dictionary.entries = dictionary.entries.filter(e => e.id !== editingId);
+  setDirty(true);
+  closeEditPanel();
+  renderAll();
+  showToast('Entry deleted');
+}
+
+function closeEdit(event) {
+  if (event.target === document.getElementById('editOverlay')) closeEditPanel();
+}
+
+function closeEditPanel() {
+  document.getElementById('editOverlay').classList.remove('open');
+  editingId = null;
+}
+
+// ── Sandbox ──
+function initSandbox() {
+  // Define CodeMirror mode
+  CodeMirror.defineMode('sandbox', function() {
+    return {
+      token: function(stream) {
+        // Primitive: /word (-mod)/
+        if (stream.match(/\/[^\/]+\//)) return 'sandbox-primitive';
+        // Vocab: [word]
+        if (stream.match(/\[[^\]]+\]/)) return 'sandbox-vocab';
+        // Marker: (word) — not a modifier
+        if (stream.match(/\([^)]+\)/)) return 'sandbox-marker';
+        stream.next();
+        return null;
+      }
+    };
+  });
+
+  CodeMirror.defineMIME('text/sandbox', 'sandbox');
+
+  const editorPane = document.getElementById('editorPane');
+  editor = CodeMirror(editorPane, {
+    mode: 'sandbox',
+    theme: 'default',
+    lineNumbers: true,
+    lineWrapping: true,
+    autofocus: false,
+    placeholder: '/system/ + /structure/ — aqueduct\n/cause (-mutual)/ — feedback loop\n[interoception] + /time/ — felt time',
+    extraKeys: { 'Ctrl-Enter': renderSandbox, 'Cmd-Enter': renderSandbox }
+  });
+
+  editor.on('change', () => renderSandbox());
+
+  // Style editor pane to fill height
+  editorPane.querySelector('.CodeMirror').style.height = '100%';
+}
+
+function renderSandbox() {
+  if (!editor) return;
+  const text = editor.getValue();
+  const output = document.getElementById('renderOutput');
+  output.innerHTML = parseInput(text);
+}
+
+function parseInput(text) {
+  const lines = text.split('\n');
+  return lines.map(line => {
+    if (!line.trim()) return '<div style="height:1.2em"></div>';
+    const tokens = tokeniseLine(line);
+    return `<div>${tokens.map(renderToken).join(' ')}</div>`;
+  }).join('');
+}
+
+function tokeniseLine(line) {
+  const tokens = [];
+  let i = 0;
+  while (i < line.length) {
+    // Skip whitespace
+    if (/\s/.test(line[i])) { i++; continue; }
+
+    // Primitive: /word (-mod)/ or /word/
+    if (line[i] === '/') {
+      let j = i + 1;
+      while (j < line.length && line[j] !== '/') j++;
+      if (j < line.length) {
+        const inner = line.slice(i + 1, j);
+        tokens.push({ type: 'primitive', raw: inner });
+        i = j + 1;
+        continue;
+      }
+    }
+
+    // Vocab: [word]
+    if (line[i] === '[') {
+      let j = i + 1;
+      while (j < line.length && line[j] !== ']') j++;
+      if (j < line.length) {
+        tokens.push({ type: 'vocab', raw: line.slice(i + 1, j) });
+        i = j + 1;
+        continue;
+      }
+    }
+
+    // Marker: (word)
+    if (line[i] === '(') {
+      let j = i + 1;
+      while (j < line.length && line[j] !== ')') j++;
+      if (j < line.length) {
+        tokens.push({ type: 'marker', raw: line.slice(i + 1, j) });
+        i = j + 1;
+        continue;
+      }
+    }
+
+    // Operators and plain text — collect until next special char
+    let j = i;
+    while (j < line.length && !/[\/\[\(]/.test(line[j])) j++;
+    const plain = line.slice(i, j).trim();
+    if (plain) tokens.push({ type: 'plain', raw: plain });
+    i = j;
+  }
+  return tokens;
+}
+
+function renderToken(token) {
+  if (token.type === 'primitive') {
+    // Parse: "word (-mod1) (-mod2)" from inner content
+    const inner = token.raw;
+    const modMatch = inner.match(/^([^(]+)(.*)/);
+    const gloss = modMatch ? modMatch[1].trim() : inner.trim();
+    const modsPart = modMatch ? modMatch[2].trim() : '';
+    const mods = [...modsPart.matchAll(/\((-[^)]+)\)/g)].map(m => m[1]);
+
+    // Look up entry
+    const entry = dictionary.entries.find(e =>
+      e.gloss === gloss && (e.type === 'first-class' || e.type === 'second-class')
+    );
+    const glyph = entry && entry.unicode_char ? entry.unicode_char : null;
+
+    const modHtml = mods.length ? `
+      <span class="render-modifier-above">${mods.join(' ')}</span>
+    ` : '';
+
+    const glyphHtml = `
+      <span class="render-glyph">
+        ${glyph ? `<span class="render-glyph-char">${glyph}</span>` : ''}
+        <span class="render-glyph-gloss">/${gloss}/</span>
+      </span>
+    `;
+
+    return `<span class="render-word">${modHtml}${glyphHtml}</span>`;
+  }
+
+  if (token.type === 'marker') {
+    return `<span class="render-marker">(${token.raw})</span>`;
+  }
+
+  if (token.type === 'vocab') {
+    const entry = dictionary.entries.find(e => e.gloss === token.raw && e.type === 'vocab');
+    return `<span class="render-vocab" title="${entry ? entry.definition : ''}">[${token.raw}]</span>`;
+  }
+
+  if (token.type === 'plain') {
+    // Render operators like + — as dim text
+    return `<span style="color:var(--ink-4);font-family:var(--font-mono);font-size:0.85em">${token.raw}</span>`;
+  }
+
+  return '';
+}
+
+function clearSandbox() { if (editor) editor.setValue(''); }
+
+function usedInSandbox(event, id) {
+  event.stopPropagation();
+  const entry = dictionary.entries.find(e => e.id === id);
+  if (!entry) return;
+  setMode('sandbox');
+  const notation = formatGloss(entry);
+  if (editor) {
+    const cur = editor.getCursor();
+    editor.replaceRange(notation + ' ', cur);
+    editor.focus();
+  }
+}
+
+// ── Toast ──
+let toastTimer;
+function showToast(msg, type = '') {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.className = 'toast show' + (type ? ' ' + type : '');
+  clearTimeout(toastTimer);
+  toastTimer = setTimeout(() => { t.className = 'toast'; }, 2800);
+}
+
+// ── Boot ──
+window.addEventListener('load', init);
+</script>
+</body>
+</html>
