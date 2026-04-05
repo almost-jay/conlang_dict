@@ -21,8 +21,8 @@
     --paper-3: #e2dfd7;
     --rule: #d4d0c8;
     --rule-2: #c5c1b8;
-    --accent: #8b4513;
-    --accent-2: #a0522d;
+    --accent: #a0522d;
+    --accent-2: #7f9d96;
     --accent-light: #f0e6dc;
 
     --c-first: #2c4a3e;
@@ -78,7 +78,7 @@
   .header-title {
     font-family: var(--font-serif);
     font-size: 1.2rem;
-    font-weight: 600;
+    font-weight: 500;
     letter-spacing: 0.02em;
     color: var(--paper);
     white-space: nowrap;
@@ -88,7 +88,7 @@
   .header-title span {
     color: var(--accent-2);
     font-style: normal;
-    font-weight: 500;
+    font-weight: 550;
   }
 
   .header-controls {
@@ -299,6 +299,7 @@
     cursor: pointer;
     transition: box-shadow var(--transition), border-color var(--transition);
     position: relative;
+    height: fit-content;
     overflow: hidden;
   }
 
@@ -354,6 +355,10 @@
     font-weight: 500;
     color: var(--ink);
     line-height: 1.3;
+  }
+
+  .italicised {
+    font-style: italic;
   }
 
   .card-badges {
@@ -511,31 +516,150 @@
   .dict-table th.sort-desc .sort-arrow::after { content: '▼'; opacity: 1; }
 
   .dict-table td {
-    padding: 0.55rem 0.875rem;
+    padding: 0;
     border-bottom: 1px solid var(--rule);
     vertical-align: middle;
+    position: relative;
+    height: 100%;
   }
 
-  .dict-table tr:hover td { background: var(--paper-2); }
-  .dict-table tr.expanded td { background: var(--accent-light); }
+  .dict-table tr:has(.cell-inner:hover) { background: var(--paper-2); }
+
+  /* Cell inner — shown when not editing */
+  .cell-inner {
+    padding: 0.55rem 0.875rem;
+    min-height: 36px;
+    height: 100%;
+    cursor: text;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    /* max-width: 320px; */
+  }
+
+  td.cell-editing .cell-inner { display: none; }
+
+  /* Inline cell editor */
+  .cell-editor {
+    display: none;
+    width: 100%;
+    padding: 0.45rem 0.875rem;
+    border: none;
+    border-top: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    background: var(--accent-light);
+    font-family: var(--font-body);
+    font-size: 0.83rem;
+    color: var(--ink);
+    outline: none;
+    box-sizing: border-box;
+    min-width: 120px;
+  }
+
+  .cell-editor.mono { font-family: var(--font-mono); }
+  td.cell-editing .cell-editor { display: block; }
+
+  .cell-select {
+    display: none;
+    width: 100%;
+    padding: 0.45rem 0.875rem;
+    border: none;
+    border-top: 2px solid var(--accent);
+    border-bottom: 2px solid var(--accent);
+    background: var(--accent-light);
+    font-family: var(--font-body);
+    font-size: 0.83rem;
+    color: var(--ink);
+    outline: none;
+    cursor: pointer;
+    appearance: none;
+  }
+
+  td.cell-editing .cell-select { display: block; }
+
+  .dict-table tr:hover td .cell-inner { background: var(--paper-2); }
+  .dict-table tr td.cell-editing { background: var(--accent-light); z-index: 5; }
+
+  /* Row delete button — appears on hover */
+  .row-del {
+    display: none;
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    background: none;
+    border: none;
+    color: #dc2626;
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 2px 5px;
+    border-radius: 3px;
+    opacity: 0.5;
+    z-index: 2;
+  }
+
+  .dict-table tr:hover .row-del { display: block; }
+  .row-del:hover { opacity: 1; background: #fef2f2; }
+
+  /* Keyboard nav hint */
+  .table-hint {
+    font-size: 0.72rem;
+    color: var(--ink-4);
+    padding: 0.4rem 0.875rem;
+    border-top: 1px solid var(--rule);
+    background: var(--paper-2);
+  }
 
   .dict-table .col-glyph { width: 48px; text-align: center; }
-  .dict-table .col-gloss { width: 160px; font-family: var(--font-mono); font-weight: 500; font-size: 0.82rem; }
-  .dict-table .col-type { width: 110px; }
-  .dict-table .col-cat { width: 110px; }
-  .dict-table .col-unicode { width: 72px; text-align: center; font-family: var(--font-mono); }
-  .dict-table .col-def { min-width: 200px; color: var(--ink-2); }
+  .dict-table .col-gloss { width: 150px; font-family: var(--font-mono); font-weight: 500; font-size: 0.82rem; }
+  .dict-table .col-type { width: 120px; }
+  .dict-table .col-cat { width: 120px; }
+  .dict-table .col-unicode { width: 80px; text-align: center; font-family: var(--font-mono); }
+  .dict-table .col-def { min-width: 340px; color: var(--ink-2); }
+  .dict-table .col-comp { min-width: 120px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+  .dict-table .col-enc { min-width: 180px; }
+  .dict-table .col-del { width: 36px; }
+
+  .col-def .cell-inner {
+    white-space: initial;
+  }
 
   .table-glyph {
-    width: 28px;
-    height: 28px;
+    width: 32px;
+    height: 32px;
     background: var(--paper-2);
     border: 1px solid var(--rule);
     border-radius: var(--radius);
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    font-size: 0.9rem;
+    font-size: 24px;
+  }
+
+  /* Compound glyph preview in table — scaled down render output */
+  .table-glyph-compound {
+    max-width: 120px;
+    overflow: hidden;
+    font-size: 10px;
+    line-height: 1.2;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0;
+    transform-origin: left center;
+  }
+
+  /* Override render-output padding inside table cells */
+  .table-glyph-compound .render-output {
+    padding: 0;
+    min-height: unset;
+    line-height: 1.2;
+  }
+
+  .table-glyph-compound div {
+    display: inline-flex;
+    align-items: center;
   }
 
   /* ── Edit panel (slide-in) ── */
@@ -770,13 +894,14 @@
   .cm-sandbox-marker { color: #4a1a5c; font-style: italic; }
   .cm-sandbox-vocab { color: #2d6b1a; }
   .cm-sandbox-bracket { color: var(--ink-4); }
+  .cm-sandbox-literal { color: #5a5a5a; font-style: italic; }
 
   /* Render pane */
   .render-output {
     padding: 1.5rem;
     font-family: var(--font-serif);
     font-size: 1rem;
-    line-height: 2.2;
+    line-height: 3.2;
     color: var(--ink);
     min-height: 100%;
   }
@@ -786,18 +911,52 @@
     flex-direction: column;
     align-items: center;
     position: relative;
-    margin: 0 0.15em;
+    margin: 0 0.25em;
     vertical-align: bottom;
   }
 
+  /* A compound is a row of render-glyphs with no gap between them, sharing a baseline */
+  .render-compound {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin: 0 0.25em;
+    vertical-align: bottom;
+  }
+
+  .render-compound-parts {
+    display: inline-flex;
+    flex-direction: row;
+    align-items: flex-end;
+    gap: 0;
+  }
+
+  .render-compound .render-word {
+    margin: 0;
+  }
+
+  .render-compound-label {
+    font-family: var(--font-mono);
+    font-size: 0.6em;
+    color: var(--accent);
+    text-align: center;
+    white-space: nowrap;
+    padding-top: 4px;
+    line-height: 0.75;
+    border-top: 1px solid var(--accent);
+    width: 100%;
+  }
+
   .render-modifier-above {
-    font-size: 0.65em;
+    font-size: 0.6em;
     color: var(--c-modifier);
     font-family: var(--font-mono);
     line-height: 1;
     position: relative;
     text-align: center;
     white-space: nowrap;
+    padding-bottom: 2px;
   }
 
   .render-modifier-above::after {
@@ -806,27 +965,45 @@
     height: 1px;
     background: var(--c-modifier);
     position: absolute;
-    bottom: -1px;
+    bottom: 0;
     left: 0;
     right: 0;
   }
 
   .render-glyph {
     display: inline-flex;
+    flex-direction: column;
     align-items: center;
     gap: 0.1em;
   }
 
   .render-glyph-char {
-    font-size: 1.3em;
+    font-size: 2em;
     line-height: 1;
   }
 
   .render-glyph-gloss {
     font-family: var(--font-mono);
-    font-size: 0.72em;
+    font-size: 0.42em;
     color: var(--ink-3);
     font-style: normal;
+    text-align: center;
+    letter-spacing: -0.5px;
+    white-space: nowrap;
+  }
+
+  /* Error state — primitive not found in dictionary */
+  .render-glyph.error .render-glyph-gloss {
+    color: #b91c1c;
+    text-decoration: underline wavy #b91c1c;
+  }
+
+  .render-glyph.error::before {
+    content: '?';
+    font-size: 0.55em;
+    color: #b91c1c;
+    font-family: var(--font-mono);
+    line-height: 1;
   }
 
   .render-marker {
@@ -854,7 +1031,7 @@
     position: fixed;
     bottom: 1.5rem;
     left: 50%;
-    transform: translateX(-50%) translateY(120%);
+    transform: translateX(-50%) translateY(160%);
     background: var(--ink);
     color: var(--paper);
     padding: 0.6rem 1.25rem;
@@ -1030,15 +1207,19 @@
           <thead>
             <tr>
               <th class="col-glyph">Glyph</th>
-              <th class="col-gloss" onclick="sortBy('gloss')">Gloss <span class="sort-arrow"></span></th>
-              <th class="col-type" onclick="sortBy('type')">Type <span class="sort-arrow"></span></th>
-              <th class="col-cat" onclick="sortBy('category')">Category <span class="sort-arrow"></span></th>
+              <th class="col-gloss" data-sort="gloss" onclick="sortBy('gloss')">Gloss <span class="sort-arrow"></span></th>
+              <th class="col-type" data-sort="type" onclick="sortBy('type')">Type <span class="sort-arrow"></span></th>
+              <th class="col-cat" data-sort="category" onclick="sortBy('category')">Category <span class="sort-arrow"></span></th>
               <th class="col-unicode">Unicode</th>
-              <th class="col-def">Definition</th>
+              <th class="col-def" data-sort="definition" onclick="sortBy('definition')">Definition <span class="sort-arrow"></span></th>
+              <th class="col-comp">Composition</th>
+              <th class="col-enc">Encapsulates</th>
+              <th class="col-del"></th>
             </tr>
           </thead>
           <tbody id="tableBody"></tbody>
         </table>
+        <div class="table-hint">Click any cell to edit &nbsp;·&nbsp; Tab / Shift+Tab to move &nbsp;·&nbsp; Enter to confirm &nbsp;·&nbsp; Escape to cancel</div>
       </div>
     </div>
 
@@ -1047,7 +1228,7 @@
       <div class="sandbox-pane">
         <div class="pane-header">
           <span>Editor</span>
-          <span style="font-weight:400;text-transform:none;letter-spacing:0">/primitive (-mod)/ · (marker) · [vocab]</span>
+          <span style="font-weight:400;text-transform:none;letter-spacing:0">/primitive (-mod)/ · (marker) · [second-class or compound] · "literal word"</span>
         </div>
         <div class="pane-body" id="editorPane"></div>
       </div>
@@ -1092,22 +1273,28 @@
 let GITHUB_TOKEN = null;
 const GITHUB_USERNAME = 'almost-jay';
 const GITHUB_REPO = 'conlang_dict';
-const GITHUB_FILE_PATH = 'data/dictionary.json';
+const GITHUB_FILE_PATH = 'dictionary.json';
 const GITHUB_BRANCH = 'main';
 const API_BASE = 'https://api.github.com';
 
 // ── State ──
 let dictionary = { meta: {}, entries: [] };
 let fileSha = null;
-let currentFilter = 'all';
-let currentView = 'cards';
-let currentSort = { field: 'gloss', dir: 'asc' };
-let currentSearch = '';
-let editingId = null;
 let isDirty = false;
-let currentMode = 'dict';
 let editor = null;
 let editTagsData = {};
+let editingId = null;
+
+// Persisted prefs — loaded from localStorage
+let currentFilter = localStorage.getItem('filter') || 'all';
+let currentView   = localStorage.getItem('view')   || 'cards';
+let currentMode   = localStorage.getItem('mode')   || 'dict';
+let currentSort   = JSON.parse(localStorage.getItem('sort') || '{"field":"gloss","dir":"asc"}');
+let currentSearch = '';
+
+function savePref(key, val) { localStorage.setItem(key, typeof val === 'string' ? val : JSON.stringify(val)); }
+
+
 
 window.addEventListener('load', () => {
   const savedToken = localStorage.getItem('github_dict_token');
@@ -1191,6 +1378,39 @@ async function githubPut(dict, sha) {
   if (!res.ok) { const e = await res.json(); throw new Error(e.message); }
   return await res.json();
 }
+
+// ── Init ──
+async function init() {
+  setStatusLoading();
+  try {
+    const { data, sha } = await githubGet();
+    dictionary = data;
+    fileSha = sha;
+    setStatusOk();
+    showToast('Dictionary loaded', 'success');
+  } catch (e) {
+    const local = localStorage.getItem('dict_local');
+    if (local) {
+      dictionary = JSON.parse(local);
+      showToast('Using local cache (offline?)', '');
+    } else {
+      setStatusError();
+      showToast('Could not load — check token & repo', 'error');
+    }
+  }
+  document.getElementById('loadingScreen').classList.add('hidden');
+
+  // Restore persisted UI state
+  applyFilter(currentFilter, false);
+  applyView(currentView, false);
+  applyMode(currentMode, false);
+  document.getElementById('searchInput').value = currentSearch;
+  // Restore sort indicator after headers are in the DOM
+  setTimeout(updateSortHeaders, 0);
+
+  renderAll();
+}
+
 async function syncFromGitHub() {
   setStatusLoading();
   try {
@@ -1260,19 +1480,23 @@ function getFiltered() {
   return entries;
 }
 
-function setFilter(f) {
+function applyFilter(f, save = true) {
   currentFilter = f;
+  if (save) savePref('filter', f);
   document.querySelectorAll('.filter-chip').forEach(c => c.classList.toggle('active', c.dataset.type === f));
-  renderAll();
 }
 
-function setView(v) {
+function setFilter(f) { applyFilter(f); renderAll(); }
+
+function applyView(v, save = true) {
   currentView = v;
+  if (save) savePref('view', v);
   document.querySelectorAll('.view-btn').forEach(b => b.classList.toggle('active', b.dataset.view === v));
   document.getElementById('cardsGrid').style.display = v === 'cards' ? '' : 'none';
   document.getElementById('tableWrap').style.display = v === 'table' ? '' : 'none';
-  renderAll();
 }
+
+function setView(v) { applyView(v); renderAll(); }
 
 function sortBy(field) {
   if (currentSort.field === field) {
@@ -1280,13 +1504,18 @@ function sortBy(field) {
   } else {
     currentSort = { field, dir: 'asc' };
   }
-  document.querySelectorAll('.dict-table th').forEach(th => {
+  savePref('sort', currentSort);
+  updateSortHeaders();
+  renderAll();
+}
+
+function updateSortHeaders() {
+  document.querySelectorAll('.dict-table th[data-sort]').forEach(th => {
     th.classList.remove('sort-asc', 'sort-desc');
-    if (th.textContent.trim().toLowerCase().startsWith(field)) {
+    if (th.dataset.sort === currentSort.field) {
       th.classList.add(currentSort.dir === 'asc' ? 'sort-asc' : 'sort-desc');
     }
   });
-  renderAll();
 }
 
 document.getElementById('searchInput').addEventListener('input', e => {
@@ -1295,14 +1524,46 @@ document.getElementById('searchInput').addEventListener('input', e => {
 });
 
 // ── Mode toggle ──
-function setMode(mode) {
+function applyMode(mode, save = true) {
   currentMode = mode;
+  if (save) savePref('mode', mode);
   document.querySelectorAll('.mode-btn').forEach(b => b.classList.toggle('active', b.dataset.mode === mode));
   document.getElementById('dictView').style.display = mode === 'dict' ? '' : 'none';
   document.getElementById('dictToolbar').style.display = mode === 'dict' ? '' : 'none';
   document.getElementById('fab').style.display = mode === 'dict' ? '' : 'none';
   const sv = document.getElementById('sandboxView');
-  if (mode === 'sandbox') sv.classList.add('visible'); else sv.classList.remove('visible');
+  if (mode === 'sandbox') {
+    sv.classList.add('visible');
+    if (!editor) {
+      // First time — init now that the container is visible and sized
+      initSandbox();
+    } else {
+      // Subsequent switches — CodeMirror 5 needs a refresh after being hidden
+      setTimeout(() => { editor.refresh(); }, 0);
+    }
+  } else {
+    sv.classList.remove('visible');
+  }
+}
+
+function setMode(mode) { applyMode(mode); }
+
+// ── Notation helpers ──
+// Updated notation:
+//   /gloss/           first-class primitive
+//   /gloss (-mod)/    primitive with modifier(s)
+//   [gloss]           second-class primitive OR compound
+//   (marker)          marker
+//   "word"            literal/conventional word
+
+function formatGloss(e) {
+  if (e.type === 'first-class') return `/${e.gloss}/`;
+  if (e.type === 'second-class') return `[${e.gloss}]`;
+  if (e.type === 'modifier') return `(-${e.gloss.replace(/^-/, '')})`;
+  if (e.type === 'marker') return `(${e.gloss})`;
+  if (e.type === 'compound') return `[${e.gloss}]`;
+  if (e.type === 'vocab') return `${e.gloss}`;
+  return e.gloss;
 }
 
 // ── Render dictionary ──
@@ -1321,10 +1582,8 @@ function catBadge(cat) {
   return cat ? `<span class="badge badge-cat">${cat}</span>` : '';
 }
 
-function glyphEl(entry, size = 36) {
-  if (entry.unicode_char) {
-    return `<div class="card-glyph" style="font-size:${size > 30 ? 1.1 : 0.9}rem">${entry.unicode_char}</div>`;
-  }
+function glyphEl(entry) {
+  if (entry.unicode_char) return `<div class="card-glyph">${entry.unicode_char}</div>`;
   return `<div class="card-glyph empty">—</div>`;
 }
 
@@ -1339,7 +1598,7 @@ function renderCards(entries) {
       <div class="card-header">
         ${glyphEl(e)}
         <div class="card-meta">
-          <div class="card-gloss">${formatGloss(e)}</div>
+          <div class="card-gloss ${e.type === 'vocab' ? 'card-gloss-vocab' : '' }">${formatGloss(e)}</div>
           <div class="card-badges">
             ${typeBadge(e.type)}
             ${catBadge(e.category)}
@@ -1349,7 +1608,6 @@ function renderCards(entries) {
       <div class="card-definition">${e.definition || '<em style="color:var(--ink-4)">No definition</em>'}</div>
       <div class="card-expanded">
         ${e.composition ? `<div class="field-row"><span class="field-label">Composition</span><span class="field-value mono">${e.composition}</span></div>` : ''}
-        ${e.unicode_char ? `<div class="field-row"><span class="field-label">Unicode</span><span class="field-value mono">${e.unicode_char}</span></div>` : ''}
         ${e.encapsulates && e.encapsulates.length ? `<div class="field-row"><span class="field-label">Encapsulates</span><div class="tags-list">${e.encapsulates.map(t => `<span class="tag">${t}</span>`).join('')}</div></div>` : ''}
         ${e.notes ? `<div class="field-row"><span class="field-label">Notes</span><span class="field-value">${e.notes}</span></div>` : ''}
         <div class="card-actions">
@@ -1361,41 +1619,192 @@ function renderCards(entries) {
   `).join('');
 }
 
-function formatGloss(e) {
-  if (e.type === 'first-class' || e.type === 'second-class') return `/${e.gloss}/`;
-  if (e.type === 'modifier') return `(-${e.gloss.replace(/^-/, '')})`;
-  if (e.type === 'marker') return `(${e.gloss})`;
-  if (e.type === 'vocab') return `[${e.gloss}]`;
-  return e.gloss;
-}
-
 function toggleCard(event, id) {
   if (event.target.closest('button')) return;
   const card = document.querySelector(`.entry-card[data-id="${id}"]`);
   if (card) card.classList.toggle('expanded');
 }
 
+// ── Inline table editing ──
+let activeCellTd = null;
+const TYPE_OPTIONS = ['first-class','second-class','modifier','compound','marker','vocab'];
+const EDITABLEDCOLS = ['gloss','type','category','unicode_char','definition','composition','encapsulates'];
+
 function renderTable(entries) {
   const tbody = document.getElementById('tableBody');
   if (!entries.length) {
-    tbody.innerHTML = `<tr><td colspan="6" style="text-align:center;padding:3rem;color:var(--ink-4)">No entries match your search.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:3rem;color:var(--ink-4)">No entries match your search.</td></tr>`;
     return;
   }
-  tbody.innerHTML = entries.map(e => `
-    <tr data-id="${e.id}" onclick="openEdit(event, '${e.id}')" style="cursor:pointer">
-      <td class="col-glyph">
-        ${e.unicode_char ? `<div class="table-glyph">${e.unicode_char}</div>` : '<div class="table-glyph" style="color:var(--ink-4);font-size:0.7rem">—</div>'}
-      </td>
-      <td class="col-gloss">${formatGloss(e)}</td>
-      <td class="col-type">${typeBadge(e.type)}</td>
-      <td class="col-cat">${catBadge(e.category)}</td>
-      <td class="col-unicode" style="font-family:var(--font-mono);font-size:1rem">${e.unicode_char || ''}</td>
-      <td class="col-def">${(e.definition || '').substring(0, 100)}${e.definition && e.definition.length > 100 ? '…' : ''}</td>
-    </tr>
-  `).join('');
+  tbody.innerHTML = entries.map(e => buildTableRow(e)).join('');
 }
 
-// ── Edit panel ──
+function buildGlyphCell(e) {
+  // If there's an explicit unicode char, always use that
+  if (e.unicode_char) {
+    return `<div class="table-glyph">${e.unicode_char}</div>`;
+  }
+  // For compound/vocab entries with a composition, render it inline at small scale
+  if ((e.type === 'compound' || e.type === 'vocab') && e.composition) {
+    const rendered = parseInput(e.composition);
+    return `<div class="table-glyph-compound" title="${esc(e.composition)}">${rendered}</div>`;
+  }
+  return `<div class="table-glyph" style="color:var(--ink-4);font-size:0.7rem">—</div>`;
+}
+
+function buildTableRow(e) {
+  const enc = (e.encapsulates || []).join(', ');
+  const glyphCell = buildGlyphCell(e);
+  return `
+    <tr data-id="${e.id}">
+      <td class="col-glyph">
+      ${e.type === 'vocab' ? '' : glyphCell}
+        </td>
+      <td class="col-gloss" data-field="gloss" onclick="startCellEdit(this)">
+        <div class="cell-inner" style="font-family:var(--font-mono)">${formatGloss(e)}</div>
+        <input class="cell-editor mono" value="${esc(e.gloss)}" data-orig="${esc(e.gloss)}">
+      </td>
+      <td class="col-type" data-field="type" onclick="startCellEdit(this)">
+        <div class="cell-inner">${typeBadge(e.type)}</div>
+        <select class="cell-select">${TYPE_OPTIONS.map(t => `<option value="${t}" ${e.type===t?'selected':''}>${t}</option>`).join('')}</select>
+      </td>
+      <td class="col-cat" data-field="category" onclick="startCellEdit(this)">
+        <div class="cell-inner">${e.category || ''}</div>
+        <input class="cell-editor" value="${esc(e.category||'')}">
+      </td>
+      <td class="col-unicode" data-field="unicode_char" ${ e.type === 'vocab' || e.type === 'compound' ? `` : `onclick="startCellEdit(this)`}">
+        <div class="cell-inner" style="font-size:1.1rem;text-align:center">${e.unicode_char || ''}</div>
+        ${e.type === 'vocab' || e.type === 'compound' ? `` :
+        `<input class="cell-editor mono" value="${esc(e.unicode_char||'')}">`
+      }
+      </td>
+      <td class="col-def" data-field="definition" onclick="startCellEdit(this)">
+        <div class="cell-inner">${esc(e.definition||'')}</div>
+        <input class="cell-editor" value="${esc(e.definition||'')}">
+      </td>
+      <td class="col-comp" data-field="composition" ${e.type === 'compound' ? `onclick="startCellEdit(this)"` : ``}>
+        ${e.type === 'compound' ? `
+        <div class="cell-inner">${esc(e.composition||'')}</div>
+        <input class="cell-editor mono" value="${esc(e.composition||'')}">
+        ` : ``}
+      </td>
+      <td class="col-enc" data-field="encapsulates" onclick="startCellEdit(this)">
+        <div class="cell-inner">${esc(enc)}</div>
+        <input class="cell-editor" value="${esc(enc)}" placeholder="comma-separated">
+      </td>
+      <td class="col-del" style="position:relative">
+        <button class="row-del" onclick="deleteRowById('${e.id}')" title="Delete entry">✕</button>
+      </td>
+    </tr>
+  `;
+}
+
+function esc(s) {
+  return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+
+function startCellEdit(td) {
+  if (activeCellTd && activeCellTd !== td) commitCell(activeCellTd);
+  activeCellTd = td;
+  td.classList.add('cell-editing');
+  const inp = td.querySelector('.cell-editor') || td.querySelector('.cell-select');
+  if (inp) {
+    inp.focus();
+    if (inp.tagName === 'INPUT') { inp.select(); }
+  }
+}
+
+function commitCell(td) {
+  if (!td) return;
+  td.classList.remove('cell-editing');
+  const field = td.dataset.field;
+  const row = td.closest('tr');
+  const id = row.dataset.id;
+  const entry = dictionary.entries.find(e => e.id === id);
+  if (!entry) return;
+
+  const inp = td.querySelector('.cell-editor');
+  const sel = td.querySelector('.cell-select');
+  let newVal = inp ? inp.value.trim() : (sel ? sel.value : '');
+
+  if (field === 'encapsulates') {
+    entry.encapsulates = newVal ? newVal.split(',').map(s => s.trim()).filter(Boolean) : [];
+  } else if (field === 'unicode_char') {
+    entry.unicode_char = newVal || null;
+  } else if (field === 'composition') {
+    entry.composition = newVal || null;
+  } else {
+    entry[field] = newVal;
+  }
+
+  // Refresh the row in place
+  const newRow = document.createElement('tbody');
+  newRow.innerHTML = buildTableRow(entry);
+  row.replaceWith(newRow.firstElementChild);
+
+  setDirty(true);
+  activeCellTd = null;
+}
+
+function cancelCell(td) {
+  if (!td) return;
+  td.classList.remove('cell-editing');
+  // Restore original value
+  const inp = td.querySelector('.cell-editor');
+  if (inp && inp.dataset.orig !== undefined) inp.value = inp.dataset.orig;
+  activeCellTd = null;
+}
+
+// Global keydown for table navigation
+document.addEventListener('keydown', e => {
+  if (!activeCellTd) return;
+  if (e.key === 'Enter') {
+    e.preventDefault();
+    commitCell(activeCellTd);
+  } else if (e.key === 'Escape') {
+    cancelCell(activeCellTd);
+  } else if (e.key === 'Tab') {
+    e.preventDefault();
+    const committed = activeCellTd;
+    commitCell(activeCellTd);
+    // Find next/prev editable cell
+    const row = committed.closest('tr');
+    const cells = [...row.querySelectorAll('td[data-field]')];
+    const idx = cells.indexOf(committed);
+    if (!e.shiftKey && idx < cells.length - 1) {
+      startCellEdit(cells[idx + 1]);
+    } else if (e.shiftKey && idx > 0) {
+      startCellEdit(cells[idx - 1]);
+    } else {
+      // Move to next/prev row
+      const rows = [...document.querySelectorAll('#tableBody tr[data-id]')];
+      const ri = rows.indexOf(row);
+      const targetRow = e.shiftKey ? rows[ri - 1] : rows[ri + 1];
+      if (targetRow) {
+        const targetCells = [...targetRow.querySelectorAll('td[data-field]')];
+        const ti = e.shiftKey ? targetCells.length - 1 : 0;
+        if (targetCells[ti]) startCellEdit(targetCells[ti]);
+      }
+    }
+  }
+});
+
+// Clicking outside table commits active cell
+document.addEventListener('click', e => {
+  if (activeCellTd && !activeCellTd.contains(e.target) && !e.target.closest('.dict-table')) {
+    commitCell(activeCellTd);
+  }
+});
+
+function deleteRowById(id) {
+  if (!confirm('Delete this entry?')) return;
+  dictionary.entries = dictionary.entries.filter(e => e.id !== id);
+  setDirty(true);
+  renderAll();
+  showToast('Entry deleted');
+}
+
+// ── Edit panel (cards mode) ──
 function openEdit(event, id) {
   if (event) event.stopPropagation();
   const entry = dictionary.entries.find(e => e.id === id);
@@ -1418,24 +1827,43 @@ function openNewEntry() {
   document.getElementById('editOverlay').classList.add('open');
 }
 
+function glossToId(gloss, type) {
+  // Normalise gloss to a safe ID segment
+  const slug = gloss
+    .toLowerCase()
+    .replace(/\s+/g, '-')
+    .replace(/[^a-z0-9\-]/g, '')
+    .replace(/-+/g, '-')
+    .replace(/^-|-$/g, '');
+  // Prefix by type for clarity
+  if (type === 'modifier') return `mod-${slug}`;
+  if (type === 'compound') return `compound-${slug}`;
+  if (type === 'marker') return `marker-${slug}`;
+  if (type === 'vocab') return `vocab-${slug}`;
+  if (type === 'second-class') return `sc-${slug}`;
+  return slug;
+}
+
 function renderEditForm(entry) {
   editTagsData = { encapsulates: [...(entry.encapsulates || [])] };
+  const isNew = !entry.id;
   const body = document.getElementById('editBody');
   body.innerHTML = `
-    <div class="form-group">
-      <label class="form-label">ID (unique key)</label>
-      <input class="form-input mono" id="f-id" value="${entry.id || ''}" placeholder="e.g. system, mod-do, compound-aetiology">
-    </div>
     <div class="form-group">
       <label class="form-label">Gloss</label>
       <input class="form-input mono" id="f-gloss" value="${entry.gloss || ''}" placeholder="e.g. system, -do, aetiology">
     </div>
     <div class="form-group">
+      <label class="form-label" style="display:flex;justify-content:space-between">
+        <span>ID (unique key)</span>
+        <span id="id-status" style="font-weight:400;font-size:0.7rem"></span>
+      </label>
+      <input class="form-input mono" id="f-id" value="${entry.id || ''}" placeholder="auto-generated from gloss">
+    </div>
+    <div class="form-group">
       <label class="form-label">Type</label>
       <select class="form-select" id="f-type">
-        ${['first-class','second-class','modifier','compound','marker','vocab'].map(t =>
-          `<option value="${t}" ${entry.type === t ? 'selected' : ''}>${t}</option>`
-        ).join('')}
+        ${TYPE_OPTIONS.map(t => `<option value="${t}" ${entry.type === t ? 'selected' : ''}>${t}</option>`).join('')}
       </select>
     </div>
     <div class="form-group">
@@ -1451,7 +1879,7 @@ function renderEditForm(entry) {
       <textarea class="form-input" id="f-definition" rows="3">${entry.definition || ''}</textarea>
     </div>
     <div class="form-group">
-      <label class="form-label">Encapsulates (press Enter to add)</label>
+      <label class="form-label">Encapsulates</label>
       <div class="tags-input-wrap" id="tagsWrap" onclick="document.getElementById('tagsInner').focus()">
         <span id="tagsList"></span>
         <input class="tags-inner-input" id="tagsInner" placeholder="Add concept…">
@@ -1467,6 +1895,46 @@ function renderEditForm(entry) {
     </div>
   `;
   renderTagsList();
+
+  const glossEl = document.getElementById('f-gloss');
+  const idEl = document.getElementById('f-id');
+  const typeEl = document.getElementById('f-type');
+  const statusEl = document.getElementById('id-status');
+
+  function updateIdFromGloss() {
+    // Only auto-populate if editing a new entry, or if the ID field is empty,
+    // or if the ID currently looks auto-generated (matches what we'd generate)
+    const currentId = idEl.value.trim();
+    const wouldGenerate = glossToId(glossEl.value, typeEl.value);
+    const isAutoId = !currentId || currentId === glossToId(entry.gloss, entry.type || typeEl.value);
+    if (isNew || isAutoId) {
+      idEl.value = wouldGenerate;
+    }
+    validateId();
+  }
+
+  function validateId() {
+    const id = idEl.value.trim();
+    if (!id) { statusEl.textContent = ''; idEl.style.borderColor = ''; return; }
+    const collision = dictionary.entries.find(e => e.id === id && e.id !== editingId);
+    if (collision) {
+      statusEl.textContent = `⚠ conflicts with "${collision.gloss}"`;
+      statusEl.style.color = '#b91c1c';
+      idEl.style.borderColor = '#b91c1c';
+    } else {
+      statusEl.textContent = '✓ available';
+      statusEl.style.color = '#166534';
+      idEl.style.borderColor = '#16a34a';
+    }
+  }
+
+  glossEl.addEventListener('input', updateIdFromGloss);
+  typeEl.addEventListener('change', updateIdFromGloss);
+  idEl.addEventListener('input', validateId);
+
+  // Trigger initial validation on existing entries
+  if (entry.id) validateId();
+
   document.getElementById('tagsInner').addEventListener('keydown', e => {
     if (e.key === 'Enter' || e.key === ',') {
       e.preventDefault();
@@ -1479,8 +1947,7 @@ function renderEditForm(entry) {
 }
 
 function renderTagsList() {
-  const list = document.getElementById('tagsList');
-  list.innerHTML = editTagsData.encapsulates.map((t, i) => `
+  document.getElementById('tagsList').innerHTML = editTagsData.encapsulates.map((t, i) => `
     <span class="tag">${t}<button onclick="removeTag(${i})">✕</button></span>
   `).join('');
 }
@@ -1489,7 +1956,21 @@ function removeTag(i) { editTagsData.encapsulates.splice(i, 1); renderTagsList()
 
 function saveEntry() {
   const id = document.getElementById('f-id').value.trim();
-  if (!id) { showToast('ID is required', 'error'); return; }
+  const idEl = document.getElementById('f-id');
+  if (!id) {
+    showToast('ID is required', 'error');
+    idEl.style.borderColor = '#b91c1c';
+    idEl.focus();
+    return;
+  }
+  // Block if ID collides with a different entry
+  const collision = dictionary.entries.find(e => e.id === id && e.id !== editingId);
+  if (collision) {
+    showToast(`ID conflicts with "${collision.gloss}"`, 'error');
+    idEl.style.borderColor = '#b91c1c';
+    idEl.focus();
+    return;
+  }
   const entry = {
     id,
     gloss: document.getElementById('f-gloss').value.trim(),
@@ -1506,7 +1987,6 @@ function saveEntry() {
     const idx = dictionary.entries.findIndex(e => e.id === editingId);
     if (idx >= 0) dictionary.entries[idx] = entry;
   } else {
-    if (dictionary.entries.find(e => e.id === id)) { showToast('ID already exists', 'error'); return; }
     dictionary.entries.push(entry);
   }
   setDirty(true);
@@ -1534,17 +2014,22 @@ function closeEditPanel() {
   editingId = null;
 }
 
+let sandboxInitialised = false;
 // ── Sandbox ──
 function initSandbox() {
-  // Define CodeMirror mode
+  if (sandboxInitialised) return;
+  
+  sandboxInitialised = true;
+  // Updated CodeMirror mode — new notation:
+  //   /word (-mod)/   primitive
+  //   [word]          second-class or compound
+  //   (word)          marker
+  //   "word"          literal/conventional
   CodeMirror.defineMode('sandbox', function() {
     return {
       token: function(stream) {
-        // Primitive: /word (-mod)/
         if (stream.match(/\/[^\/]+\//)) return 'sandbox-primitive';
-        // Vocab: [word]
-        if (stream.match(/\[[^\]]+\]/)) return 'sandbox-vocab';
-        // Marker: (word) — not a modifier
+        if (stream.match(/\[[^\]]+\]/)) return 'sandbox-bracket';
         if (stream.match(/\([^)]+\)/)) return 'sandbox-marker';
         stream.next();
         return null;
@@ -1561,11 +2046,11 @@ function initSandbox() {
     lineNumbers: true,
     lineWrapping: true,
     autofocus: false,
-    placeholder: '/system/ + /structure/ — aqueduct\n/cause (-mutual)/ — feedback loop\n[interoception] + /time/ — felt time',
+    placeholder: '/system/ + /structure/ — aqueduct\n/cause (-mutual)/ — feedback loop\n[aetiology] — compound\n"water" — literal word',
     extraKeys: { 'Ctrl-Enter': renderSandbox, 'Cmd-Enter': renderSandbox }
   });
 
-  editor.on('change', () => renderSandbox());
+  editor.on('blur', () => renderSandbox());
 
   // Style editor pane to fill height
   editorPane.querySelector('.CodeMirror').style.height = '100%';
@@ -1573,24 +2058,26 @@ function initSandbox() {
 
 function renderSandbox() {
   if (!editor) return;
-  const text = editor.getValue();
-  const output = document.getElementById('renderOutput');
-  output.innerHTML = parseInput(text);
+  const parsed = parseInput(editor.getValue());
+  document.getElementById('renderOutput').innerHTML = parsed;
 }
 
 function parseInput(text) {
-  const lines = text.split('\n');
-  return lines.map(line => {
+  return text.split('\n').map(line => {
     if (!line.trim()) return '<div style="height:1.2em"></div>';
     const tokens = tokeniseLine(line);
-    return `<div>${tokens.map(renderToken).join(' ')}</div>`;
+    const groups = groupByPlus(tokens);
+    return `<div style="line-height:3.5">${groups.map(renderGroup).join('')}</div>`;
   }).join('');
 }
 
 function tokeniseLine(line) {
   const tokens = [];
+
+  let k = 0;
   let i = 0;
-  while (i < line.length) {
+  while (i < line.length && k < 5000) {
+    k++;
     // Skip whitespace
     if (/\s/.test(line[i])) { i++; continue; }
 
@@ -1599,21 +2086,18 @@ function tokeniseLine(line) {
       let j = i + 1;
       while (j < line.length && line[j] !== '/') j++;
       if (j < line.length) {
-        const inner = line.slice(i + 1, j);
-        tokens.push({ type: 'primitive', raw: inner });
-        i = j + 1;
-        continue;
+        tokens.push({ type: 'primitive', raw: line.slice(i + 1, j) });
+        i = j + 1; continue;
       }
     }
 
-    // Vocab: [word]
+    // Second-class / compound: [word]
     if (line[i] === '[') {
       let j = i + 1;
       while (j < line.length && line[j] !== ']') j++;
       if (j < line.length) {
-        tokens.push({ type: 'vocab', raw: line.slice(i + 1, j) });
-        i = j + 1;
-        continue;
+        tokens.push({ type: 'bracket', raw: line.slice(i + 1, j) });
+        i = j + 1; continue;
       }
     }
 
@@ -1623,65 +2107,235 @@ function tokeniseLine(line) {
       while (j < line.length && line[j] !== ')') j++;
       if (j < line.length) {
         tokens.push({ type: 'marker', raw: line.slice(i + 1, j) });
-        i = j + 1;
-        continue;
+        i = j + 1; continue;
       }
     }
 
-    // Operators and plain text — collect until next special char
+    // Collect plain text until next special character
     let j = i;
-    while (j < line.length && !/[\/\[\(]/.test(line[j])) j++;
+    while (j < line.length && !/[\/\[\("']/.test(line[j])) j++;
     const plain = line.slice(i, j).trim();
     if (plain) tokens.push({ type: 'plain', raw: plain });
     i = j;
   }
+
   return tokens;
 }
 
-function renderToken(token) {
+// Group tokens into words: adjacent combinable tokens separated by '+' become
+// a compound group. Whitespace between tokens (no '+') starts a new group.
+// Markers, literals, and unrecognised plain text are always their own group.
+function groupByPlus(tokens) {
+  const COMBINABLE = new Set(['primitive', 'bracket']);
+  const groups = [];
+  let i = 0;
+
+  while (i < tokens.length) {
+    const tok = tokens[i];
+
+    // Markers are always standalone
+    if (tok.type === 'marker') {
+      groups.push({ type: 'single', token: tok });
+      i++; continue;
+    }
+
+    // Plain text: check if it's purely a '+' operator
+    if (tok.type === 'plain') {
+      // A plain token that is only '+' characters and whitespace is a combiner —
+      // it attaches the next token to the previous group
+      if (/^\++$/.test(tok.raw)) {
+        // The '+' itself is consumed — next token will be caught by the
+        // look-ahead in the compound-building loop below
+        i++; continue;
+      }
+      // Otherwise it's a separator/annotation — standalone
+      groups.push({ type: 'single', token: tok });
+      i++; continue;
+    }
+
+    // Combinable token — start a compound group, greedily consume '+' and
+    // the next combinable token
+    if (COMBINABLE.has(tok.type)) {
+      const compound = [tok];
+      let j = i + 1;
+      while (j < tokens.length) {
+        const next = tokens[j];
+        // Skip a pure-plus plain token
+        if (next.type === 'plain' && /^\++$/.test(next.raw)) {
+          // Only continue if there's a combinable token after the '+'
+          if (j + 1 < tokens.length && COMBINABLE.has(tokens[j + 1].type)) {
+            j++; // consume '+'
+            compound.push(tokens[j]); // consume next combinable
+            j++; continue;
+          }
+        }
+        break;
+      }
+      if (compound.length === 1) {
+        groups.push({ type: 'single', token: compound[0] });
+      } else {
+        groups.push({ type: 'compound', tokens: compound });
+      }
+      i = j; continue;
+    }
+
+    // Fallthrough
+    groups.push({ type: 'single', token: tok });
+    i++;
+  }
+
+  return groups;
+}
+
+// Derive a normalised gloss string from a token for composition matching
+function tokenGloss(tok) {
+  if (tok.type === 'primitive') {
+    const modMatch = tok.raw.match(/^([^(]+)(.*)/);
+    const gloss = modMatch ? modMatch[1].trim() : tok.raw.trim();
+    const modsPart = modMatch ? modMatch[2].trim() : '';
+    const mods = [...modsPart.matchAll(/\((-[^)]+)\)/g)].map(m => m[1]);
+    return mods.length ? `/${gloss} ${mods.join(' ')}/` : `/${gloss}/`;
+  }
+  if (tok.type === 'bracket') return `[${tok.raw}]`;
+  return tok.raw;
+}
+
+// Try to find a compound or vocab entry whose composition matches this group
+function findMatchingEntry(group) {
+  let glosses;
+  if (group.type === 'compound') {
+    glosses = group.tokens.map(tokenGloss);
+  } else {
+    glosses = [tokenGloss(group.token)];
+  }
+
+  // Build candidate composition strings — try both ' + ' and '+' joins
+  const candidate = glosses.join(' + ');
+  const norm = s => s.replace(/\s*\+\s*/g, ' + ').replace(/\s+/g, ' ').trim().toLowerCase();
+
+  return dictionary.entries.find(e => {
+    if (group.type === 'single' && group.token.type === 'bracket') if (e.gloss === group.token.raw) return true;
+    if (!e.composition) return false;
+    // Normalise both sides: collapse whitespace around +, remove extra spaces
+    return norm(e.composition) === norm(candidate);
+  }) || null;
+}
+
+// Render a group (single token or compound)
+function renderGroup(group) {
+  if (group.type === 'compound') {
+    const parts = group.tokens.map(tok => renderAtom(tok)).join('');
+    const match = findMatchingEntry(group);
+    const label = match
+      ? `<span class="render-compound-label" title="${match.definition || ''}">[${match.gloss}]</span>`
+      : '';
+    return `<span class="render-compound"><span class="render-compound-parts">${parts}</span>${label}</span>`;
+  }
+
+  // Single token — also check if it matches a compound entry (e.g. a single bracket
+  // that is itself a named compound)
+  const match = findMatchingEntry(group);
+  const rendered = renderAtom(group.token);
+  if (match && group.token.type !== 'bracket') {
+    // Wrap in a compound shell to show the label underneath
+    return `<span class="render-compound"><span class="render-compound-parts">${rendered}</span><span class="render-compound-label" title="${match.definition || ''}">[${match.gloss}]</span></span>`;
+  } else if (match && group.token.type == 'bracket') {
+    return parseInput(match.composition);
+  }
+  return rendered;
+}
+
+// Render a single token into HTML
+function renderAtom(token) {
   if (token.type === 'primitive') {
-    // Parse: "word (-mod1) (-mod2)" from inner content
-    const inner = token.raw;
-    const modMatch = inner.match(/^([^(]+)(.*)/);
-    const gloss = modMatch ? modMatch[1].trim() : inner.trim();
+    const modMatch = token.raw.match(/^([^(]+)(.*)/);
+    const gloss = modMatch ? modMatch[1].trim() : token.raw.trim();
     const modsPart = modMatch ? modMatch[2].trim() : '';
     const mods = [...modsPart.matchAll(/\((-[^)]+)\)/g)].map(m => m[1]);
 
-    // Look up entry
     const entry = dictionary.entries.find(e =>
       e.gloss === gloss && (e.type === 'first-class' || e.type === 'second-class')
     );
+    const found = !!entry;
     const glyph = entry && entry.unicode_char ? entry.unicode_char : null;
+    const title = entry
+      ? `/${gloss}/`
+      : `Unknown primitive: /${gloss}/`;
+    const errorClass = found ? '' : ' error';
 
-    const modHtml = mods.length ? `
-      <span class="render-modifier-above">${mods.join(' ')}</span>
-    ` : '';
+    const modHtml = mods.length
+      ? `<span class="render-modifier-above">${renderMods(mods)}</span>`
+      : '';
 
-    const glyphHtml = `
-      <span class="render-glyph">
-        ${glyph ? `<span class="render-glyph-char">${glyph}</span>` : ''}
-        <span class="render-glyph-gloss">/${gloss}/</span>
-      </span>
-    `;
+    // Gloss text shown below only when no unicode glyph exists
+    const glyphHtml = `<span class="render-glyph${errorClass}" title="${esc(title)}">
+      ${glyph
+        ? `<span class="render-glyph-char">${glyph}</span>`
+        : `<span class="render-glyph-gloss">/${gloss}/</span>`}
+    </span>`;
 
     return `<span class="render-word">${modHtml}${glyphHtml}</span>`;
   }
 
-  if (token.type === 'marker') {
-    return `<span class="render-marker">(${token.raw})</span>`;
+  if (token.type === 'bracket') {
+    const entry = dictionary.entries.find(e =>
+      e.gloss === token.raw && (e.type === 'second-class' || e.type === 'compound')
+    );
+    const found = !!entry;
+    const glyph = entry && entry.unicode_char ? entry.unicode_char : null;
+    const title = entry
+      ? `[${token.raw}] — ${entry.definition}`
+      : `Unknown: [${token.raw}]`;
+    const errorClass = found ? '' : ' error';
+    const glossColor = found ? 'var(--c-second)' : '#b91c1c';
+
+    return `<span class="render-word">
+      <span class="render-glyph${errorClass}" title="${esc(title)}">
+        ${glyph
+          ? `<span class="render-glyph-char">${glyph}</span>`
+          : `<span class="render-glyph-gloss" style="color:${glossColor}">[${token.raw}]</span>`}
+      </span>
+    </span>`;
   }
 
-  if (token.type === 'vocab') {
-    const entry = dictionary.entries.find(e => e.gloss === token.raw && e.type === 'vocab');
-    return `<span class="render-vocab" title="${entry ? entry.definition : ''}">[${token.raw}]</span>`;
+  if (token.type === 'marker') {
+    // Look up by gloss — markers stored with gloss like "and", "but", "if" etc.
+    const entry = dictionary.entries.find(e =>
+      e.gloss === token.raw && e.type === 'marker'
+    );
+    const glyph = entry && entry.unicode_char ? entry.unicode_char : null;
+    const title = entry
+      ? `(${token.raw}) — ${entry.definition}`
+      : `(${token.raw})`;
+
+    return `<span class="render-marker" title="${esc(title)}">
+      ${glyph ? glyph : `(${token.raw})`}
+    </span>`;
   }
 
   if (token.type === 'plain') {
-    // Render operators like + — as dim text
-    return `<span style="color:var(--ink-4);font-family:var(--font-mono);font-size:0.85em">${token.raw}</span>`;
+    // Render non-operator plain text as a dim annotation
+    return `<span style="color:var(--ink-4);font-family:var(--font-mono);font-size:0.8em;margin:0 0.2em">${token.raw}</span>`;
   }
 
   return '';
+}
+
+// Render a modifier stack — each modifier looks up its glyph from the dictionary
+function renderMods(mods) {
+  return mods.map(mod => {
+    // Modifiers stored with gloss like "-do", "-be", "-not" etc.
+    const normalised = mod.replace(/^-/, '');
+    const entry = dictionary.entries.find(e =>
+      (e.gloss === mod || e.gloss === `-${normalised}` || e.gloss === normalised) &&
+      e.type === 'modifier'
+    );
+    const glyph = entry && entry.unicode_char ? entry.unicode_char : null;
+    const title = entry ? `${mod} — ${entry.definition}` : mod;
+    return glyph
+      ? `<span title="${esc(title)}">${glyph}</span>`
+      : `<span title="${esc(title)}">${mod}</span>`;
+  }).join(' ');
 }
 
 function clearSandbox() { if (editor) editor.setValue(''); }
@@ -1693,8 +2347,7 @@ function usedInSandbox(event, id) {
   setMode('sandbox');
   const notation = formatGloss(entry);
   if (editor) {
-    const cur = editor.getCursor();
-    editor.replaceRange(notation + ' ', cur);
+    editor.replaceRange(notation + ' ', editor.getCursor());
     editor.focus();
   }
 }
