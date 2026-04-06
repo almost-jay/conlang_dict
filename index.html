@@ -17,6 +17,7 @@
     --ink-3: #6b6760;
     --ink-4: #9a9790;
     --paper: #f5f2ec;
+    --paper-alt: #f1eee8;
     --paper-2: #eceae3;
     --paper-3: #e2dfd7;
     --rule: #d4d0c8;
@@ -35,8 +36,6 @@
     --c-compound-bg: #ddeaf5;
     --c-marker: #4a1a40;
     --c-marker-bg: #f0e0ee;
-    --c-vocab: #2d4a1a;
-    --c-vocab-bg: #e5f0da;
 
     --font-body: 'Instrument Sans', sans-serif;
     --font-serif: 'Noto Serif', serif;
@@ -248,7 +247,6 @@
   .filter-chip[data-type="modifier"].active { background: var(--c-modifier-bg); color: var(--c-modifier); }
   .filter-chip[data-type="compound"].active { background: var(--c-compound-bg); color: var(--c-compound); }
   .filter-chip[data-type="marker"].active { background: var(--c-marker-bg); color: var(--c-marker); }
-  .filter-chip[data-type="vocab"].active { background: var(--c-vocab-bg); color: var(--c-vocab); }
   .filter-chip[data-type="all"].active { background: var(--ink); color: var(--paper); border-color: var(--ink); }
 
   .toolbar-sep { width: 1px; height: 20px; background: var(--rule-2); flex-shrink: 0; }
@@ -318,7 +316,6 @@
   .entry-card[data-type="modifier"]::before { background: var(--c-modifier); }
   .entry-card[data-type="compound"]::before { background: var(--c-compound); }
   .entry-card[data-type="marker"]::before { background: var(--c-marker); }
-  .entry-card[data-type="vocab"]::before { background: var(--c-vocab); }
 
   .entry-card:hover { box-shadow: var(--shadow-lg); border-color: var(--rule-2); }
   .entry-card.expanded { border-color: var(--accent); }
@@ -347,7 +344,44 @@
 
   .card-glyph.empty { color: var(--ink-4); font-size: 0.7rem; }
 
+  .card-glyph.card-glyph-svg {
+    padding: 3px;
+    background: white;
+  }
+
+  .card-glyph.card-glyph-svg svg {
+    width: 100%;
+    height: 100%;
+    color: var(--ink);
+  }
+
+  .table-glyph-svg {
+    width: 28px;
+    height: 28px;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+  }
+
+  .table-glyph-svg svg {
+    width: 100%;
+    height: 100%;
+    color: var(--ink);
+  }
+
   .card-meta { flex: 1; min-width: 0; }
+
+  /* Gloss + pronunciation on the same baseline row */
+  .card-gloss-row {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+  }
 
   .card-gloss {
     font-family: var(--font-mono);
@@ -355,6 +389,85 @@
     font-weight: 500;
     color: var(--ink);
     line-height: 1.3;
+  }
+
+  .card-pron {
+    font-family: var(--font-mono);
+    font-size: 0.75rem;
+    color: var(--ink-4);
+    font-weight: 400;
+    letter-spacing: 0.01em;
+  }
+
+  /* Inline pronunciation cell widget */
+  .pron-cell-widget {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 2px 0;
+  }
+
+  .pron-cell-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .pron-cell-input {
+    flex: 1;
+    min-width: 0;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    padding: 0.15rem 0.3rem;
+    border: 1px solid var(--rule);
+    border-left: 3px solid transparent;
+    border-radius: var(--radius);
+    background: white;
+    color: var(--ink);
+    outline: none;
+    transition: border-left-color 150ms ease;
+  }
+
+  .pron-cell-input:focus { border-color: var(--accent); }
+  .pron-cell-input.pron-cell-valid   { border-left-color: #16a34a; }
+  .pron-cell-input.pron-cell-warning { border-left-color: #d97706; }
+  .pron-cell-input.pron-cell-invalid { border-left-color: #dc2626; }
+
+  .pron-cell-gen {
+    flex-shrink: 0;
+    background: none;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.75rem;
+    padding: 0.15rem 0.3rem;
+    line-height: 1;
+    color: var(--ink-3);
+    transition: border-color var(--transition), color var(--transition);
+  }
+
+  .pron-cell-gen:hover { border-color: var(--accent); color: var(--ink); }
+
+  .pron-cell-detail {
+    font-size: 0.68rem;
+    color: #92400e;
+    padding: 0 2px;
+    line-height: 1.3;
+  }
+
+  .pron-cell-detail.is-error { color: #991b1b; }
+
+  /* Popover anchored to the cell — inherits .pron-popover styles, just narrower */
+  .pron-cell-popover {
+    position: fixed;
+    z-index: 600;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 0.6rem;
+    min-width: 180px;
+    max-width: 260px;
   }
 
   .italicised {
@@ -383,7 +496,6 @@
   .badge-type[data-type="modifier"] { background: var(--c-modifier-bg); color: var(--c-modifier); }
   .badge-type[data-type="compound"] { background: var(--c-compound-bg); color: var(--c-compound); }
   .badge-type[data-type="marker"] { background: var(--c-marker-bg); color: var(--c-marker); }
-  .badge-type[data-type="vocab"] { background: var(--c-vocab-bg); color: var(--c-vocab); }
 
   .badge-cat {
     background: var(--paper-3);
@@ -489,8 +601,10 @@
     text-align: left;
     padding: 0.5rem 0.875rem;
     font-size: 0.7rem;
+    font-family: var(--font-mono);
     font-weight: 600;
     text-transform: uppercase;
+    vertical-align: middle;
     letter-spacing: 0.06em;
     color: var(--ink-4);
     border-bottom: 2px solid var(--rule);
@@ -577,6 +691,7 @@
 
   td.cell-editing .cell-select { display: block; }
 
+  .dict-table tr:nth-child(2n) { background-color: var(--paper-alt); }
   .dict-table tr:hover td .cell-inner { background: var(--paper-2); }
   .dict-table tr td.cell-editing { background: var(--accent-light); z-index: 5; }
 
@@ -611,12 +726,13 @@
   }
 
   .dict-table .col-glyph { width: 48px; text-align: center; }
-  .dict-table .col-gloss { width: 150px; font-family: var(--font-mono); font-weight: 500; font-size: 0.82rem; }
+  .dict-table .col-gloss { max-width: 150px; font-weight: 500; }
   .dict-table .col-type { width: 120px; }
   .dict-table .col-cat { width: 120px; }
-  .dict-table .col-unicode { width: 80px; text-align: center; font-family: var(--font-mono); }
+  .dict-table .col-unicode { width: 80px; text-align: center; }
+  .dict-table .col-pron { width: 110px; }
   .dict-table .col-def { min-width: 340px; color: var(--ink-2); }
-  .dict-table .col-comp { min-width: 120px; font-family: var(--font-mono); font-size: 0.78rem; color: var(--accent); }
+  .dict-table .col-comp { min-width: 120px; color: var(--accent); }
   .dict-table .col-enc { min-width: 180px; }
   .dict-table .col-del { width: 36px; }
 
@@ -811,6 +927,132 @@
     padding: 0.15rem 0.25rem;
   }
 
+  /* ── Pronunciation field ── */
+  /* #f-pronunciation {
+    border-left-style: solid;
+    border-left-width: 3px;
+    border-left-color: transparent;
+    transition: border-left-color 200ms ease;
+  } */
+
+  .pron-pill {
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.1rem 0.4rem;
+    border-radius: 99px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+
+  .pron-detail {
+    margin-top: 0.3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.2rem;
+  }
+
+  .pron-msg {
+    font-size: 0.75rem;
+    padding: 0.2rem 0.4rem;
+    border-radius: var(--radius);
+  }
+
+  .pron-msg-error   { background: #fef2f2; color: #991b1b; }
+  .pron-msg-warning { background: #fffbeb; color: #92400e; }
+
+  .pron-conflict {
+    font-size: 0.75rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: var(--radius);
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .pron-conflict-entry {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    background: rgba(0,0,0,0.05);
+    padding: 0.1rem 0.4rem;
+    border-radius: 99px;
+  }
+
+  .pron-conflict-entry code {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    color: var(--ink-2);
+  }
+
+  .pron-conflict-dist {
+    font-size: 0.65rem;
+    color: var(--ink-4);
+    font-family: var(--font-mono);
+  }
+
+  /* Generator popover */
+  .pron-popover {
+    position: absolute;
+    z-index: 500;
+    background: var(--paper);
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    padding: 0.75rem;
+    width: 100%;
+    margin-top: 0.25rem;
+  }
+
+  .pron-popover-title {
+    font-size: 0.72rem;
+    color: var(--ink-4);
+    margin-bottom: 0.5rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    font-weight: 600;
+  }
+
+  .pron-candidates {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .pron-candidate {
+    font-family: var(--font-mono);
+    font-size: 0.82rem;
+    padding: 0.25rem 0.65rem;
+    border: 1.5px solid var(--rule);
+    border-radius: 99px;
+    background: white;
+    cursor: pointer;
+    color: var(--ink);
+    transition: border-color var(--transition), background var(--transition);
+  }
+
+  .pron-candidate:hover {
+    border-color: var(--accent);
+    background: var(--accent-light);
+    color: var(--accent);
+  }
+
+  .pron-dist-summary {
+    font-size: 0.68rem;
+    color: var(--ink-4);
+    font-family: var(--font-mono);
+    display: flex;
+    gap: 1rem;
+    border-top: 1px solid var(--rule);
+    padding-top: 0.4rem;
+    margin-top: 0.25rem;
+  }
+
   .edit-footer {
     padding: 1rem 1.25rem;
     border-top: 1px solid var(--rule);
@@ -892,7 +1134,6 @@
   .cm-sandbox-primitive { color: #8b4513; font-weight: 500; }
   .cm-sandbox-modifier { color: #2c4a8b; }
   .cm-sandbox-marker { color: #4a1a5c; font-style: italic; }
-  .cm-sandbox-vocab { color: #2d6b1a; }
   .cm-sandbox-bracket { color: var(--ink-4); }
   .cm-sandbox-literal { color: #5a5a5a; font-style: italic; }
 
@@ -1018,14 +1259,6 @@
     font-style: italic;
   }
 
-  .render-vocab {
-    display: inline-block;
-    border-bottom: 2px solid var(--c-vocab);
-    color: var(--c-vocab);
-    font-family: var(--font-mono);
-    font-size: 0.85em;
-  }
-
   /* ── Toast ── */
   .toast {
     position: fixed;
@@ -1135,6 +1368,284 @@
     font-size: 0.8rem;
     color: var(--ink-4);
   }
+  /* ── Character Editor ── */
+  .char-editor-view {
+    display: none;
+    flex: 1;
+    overflow: hidden;
+    flex-direction: row;
+    gap: 0;
+  }
+  .char-editor-view.visible { display: flex; }
+
+  /* Sidebar — library + layout */
+  .ce-sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    background: var(--paper-2);
+    border-right: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .ce-section-head {
+    font-size: 0.68rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.07em;
+    color: var(--ink-4);
+    padding: 0.6rem 0.875rem 0.3rem;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    flex-shrink: 0;
+  }
+  .ce-layout-picker {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 0 0.875rem 0.5rem;
+    flex-shrink: 0;
+  }
+  .ce-layout-thumb {
+    width: 36px;
+    height: 36px;
+    border: 1.5px solid var(--rule);
+    border-radius: var(--radius);
+    cursor: pointer;
+    padding: 3px;
+    background: white;
+    transition: border-color var(--transition);
+  }
+  .ce-layout-thumb svg rect { fill: var(--paper-3); stroke: none; }
+  .ce-layout-thumb:hover { border-color: var(--accent); }
+  .ce-layout-thumb.active { border-color: var(--accent); background: var(--accent-light); }
+  .ce-layout-thumb.active svg rect { fill: var(--accent); }
+
+  .ce-search {
+    width: 100%;
+    padding: 0.3rem 0.6rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    font-family: var(--font-body);
+    font-size: 0.78rem;
+    background: white;
+    color: var(--ink);
+    outline: none;
+  }
+  .ce-section-head .ce-search { flex: 1; }
+
+  .ce-library {
+    flex: 1;
+    overflow-y: auto;
+    padding: 0.25rem 0.5rem 0.5rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4px;
+    align-content: start;
+  }
+  .ce-lib-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    padding: 4px;
+    border: 1.5px solid var(--rule);
+    border-radius: var(--radius);
+    cursor: grab;
+    background: white;
+    transition: border-color var(--transition), background var(--transition);
+  }
+  .ce-lib-item:hover { border-color: var(--accent); }
+  .ce-lib-item.active { border-color: var(--accent); background: var(--accent-light); }
+  .ce-lib-item svg { width: 100%; aspect-ratio: 1; color: var(--ink-2); }
+  .ce-lib-item span { font-size: 0.6rem; color: var(--ink-4); text-align: center; line-height: 1.2; }
+
+  /* Centre — canvas */
+  .ce-center {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    overflow: hidden;
+    background: var(--paper);
+  }
+  .ce-canvas-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.75rem;
+  }
+  .ce-canvas {
+    width: min(320px, calc(100vw - 420px));
+    aspect-ratio: 1;
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-lg);
+    overflow: hidden;
+    position: relative;
+  }
+  .ce-canvas svg { display: block; }
+  .ce-canvas g:not(:has(.ce-path-selected)) {
+    cursor: pointer;
+  }
+  .ce-slot-rect { cursor: pointer; transition: stroke 0.1s; }
+  .ce-path-selected { 
+    stroke: var(--accent) !important;
+    fill: var(--accent) !important;
+  }
+  .ce-canvas-actions { display: flex; gap: 0.5rem; }
+  .ce-entry-label {
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink-3);
+  }
+
+  /* Inspector — right panel */
+  .ce-inspector {
+    width: 200px;
+    flex-shrink: 0;
+    background: var(--paper-2);
+    border-left: 1px solid var(--rule);
+    display: flex;
+    flex-direction: column;
+    overflow-y: auto;
+    padding-bottom: 1rem;
+  }
+  .ce-inspector-body { padding: 0 0.75rem; }
+  .ce-inspector-slot {
+    font-size: 0.78rem;
+    color: var(--ink-3);
+    margin-bottom: 0.5rem;
+    padding: 0.25rem 0;
+    border-bottom: 1px solid var(--rule);
+  }
+  .ce-layer-list { display: flex; flex-direction: column; gap: 3px; margin-bottom: 0.5rem; }
+  .ce-layer-row {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 5px;
+    border-radius: var(--radius);
+    cursor: pointer;
+    border: 1px solid transparent;
+    font-size: 0.75rem;
+    background: white;
+  }
+  .ce-layer-row:hover { border-color: var(--rule); }
+  .ce-layer-row.active { border-color: var(--accent); background: var(--accent-light); }
+  .ce-layer-drop-target {
+    border-color: var(--accent) !important;
+    background: var(--accent-light) !important;
+    outline: 2px dashed var(--accent);
+    outline-offset: -2px;
+  }
+  .ce-icon-btn {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    padding: 2px;
+    opacity: 0.5;
+    line-height: 1;
+  }
+  .ce-icon-btn:hover { opacity: 1; }
+
+  /* Offset controls */
+  .ce-offset-row {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    padding: 0.25rem 0 0.5rem;
+  }
+  .ce-offset-label {
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--ink-4);
+    width: 10px;
+    flex-shrink: 0;
+  }
+  .ce-offset-input {
+    width: 52px;
+    padding: 0.2rem 0.3rem;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    color: var(--ink);
+    background: white;
+    text-align: center;
+    -moz-appearance: textfield;
+  }
+  .ce-offset-input::-webkit-inner-spin-button,
+  .ce-offset-input::-webkit-outer-spin-button { opacity: 0.4; }
+  .ce-offset-input:focus { outline: none; border-color: var(--accent); }
+  .ce-transform-row {
+    display: flex;
+    gap: 4px;
+    flex-wrap: wrap;
+    margin-bottom: 0.5rem;
+  }
+  .ce-transform-row .btn-sm { flex: 1; min-width: 0; padding: 0.25rem; font-size: 1rem; }
+  .ce-port-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3px;
+    width: 90px;
+    margin: 0.25rem auto 0.5rem;
+  }
+  .ce-port-btn {
+    background: white;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius);
+    cursor: pointer;
+    font-size: 0.65rem;
+    padding: 4px;
+    line-height: 1;
+    transition: all var(--transition);
+  }
+  .ce-port-btn:hover { border-color: var(--accent); }
+  .ce-port-btn.active { background: var(--accent); color: white; border-color: var(--accent); }
+  .ce-port-centre { background: var(--paper-3); border-radius: 50%; }
+  .ce-preview-wrap { padding: 0 0.75rem 0.5rem; display: flex; justify-content: center; }
+
+  /* Mobile drawer */
+  .ce-drawer {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--paper-2);
+    border-top: 2px solid var(--rule);
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    z-index: 300;
+    max-height: 40vh;
+    transform: translateY(calc(100% - 24px));
+    transition: transform 250ms ease;
+  }
+  .ce-drawer.open { transform: translateY(0); max-height: 55vh; }
+  .ce-drawer-handle {
+    width: 36px;
+    height: 4px;
+    background: var(--rule-2);
+    border-radius: 99px;
+    margin: 10px auto 8px;
+    cursor: pointer;
+  }
+  .ce-drawer-content { padding: 0 0.875rem 1rem; overflow-y: auto; max-height: calc(55vh - 40px); }
+  .ce-drawer-library { grid-template-columns: repeat(4, 1fr); }
+
+  @media (max-width: 640px) {
+    .ce-sidebar { display: none; }
+    .ce-inspector { display: none; }
+    .ce-drawer { display: block; }
+    .ce-canvas { width: min(280px, calc(100vw - 2rem)); }
+  }
 </style>
 </head>
 <body>
@@ -1169,12 +1680,13 @@
       <div class="mode-toggle">
         <button class="mode-btn active" data-mode="dict" onclick="setMode('dict')">Dictionary</button>
         <button class="mode-btn" data-mode="sandbox" onclick="setMode('sandbox')">Sandbox</button>
+        <button class="mode-btn" data-mode="design" onclick="setMode('design')">Design</button>
       </div>
     </div>
     <div class="header-actions">
       <div class="status-dot" id="statusDot" title="Synced"></div>
-      <button class="btn btn-ghost" id="syncBtn" onclick="syncFromGitHub()">↻ Sync</button>
-      <button class="btn btn-primary" id="saveBtn" onclick="saveDictionary()" disabled>Save</button>
+      <button class="btn btn-ghost" id="syncBtn" onclick="syncFromGitHub()">Pull</button>
+      <button class="btn btn-primary" id="saveBtn" onclick="saveDictionary()" disabled>Push</button>
     </div>
   </header>
 
@@ -1187,7 +1699,6 @@
       <button class="filter-chip" data-type="modifier" onclick="setFilter('modifier')">Modifier</button>
       <button class="filter-chip" data-type="compound" onclick="setFilter('compound')">Compound</button>
       <button class="filter-chip" data-type="marker" onclick="setFilter('marker')">Marker</button>
-      <button class="filter-chip" data-type="vocab" onclick="setFilter('vocab')">Vocab</button>
     </div>
     <div class="toolbar-sep"></div>
     <span class="count-label" id="countLabel">— entries</span>
@@ -1211,6 +1722,7 @@
               <th class="col-type" data-sort="type" onclick="sortBy('type')">Type <span class="sort-arrow"></span></th>
               <th class="col-cat" data-sort="category" onclick="sortBy('category')">Category <span class="sort-arrow"></span></th>
               <th class="col-unicode">Unicode</th>
+              <th class="col-pron" data-sort="pronunciation" onclick="sortBy('pronunciation')">Pronunciation <span class="sort-arrow"></span></th>
               <th class="col-def" data-sort="definition" onclick="sortBy('definition')">Definition <span class="sort-arrow"></span></th>
               <th class="col-comp">Composition</th>
               <th class="col-enc">Encapsulates</th>
@@ -1267,7 +1779,17 @@
 <!-- Toast -->
 <div class="toast" id="toast"></div>
 
+<script type="module">
+  // Import the ESM version directly from unpkg
+  import * as Flatten from 'https://unpkg.com/@flatten-js/core@1.6.10/dist/main.mjs';
+  
+  // Explicitly attach it to the window so your other scripts can see it
+  window.Flatten = Flatten;
+  
+  console.log("Flatten.js (ESM) loaded and attached to window.");
+</script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.js"></script>
+<script src="character-editor.js"></script>
 <script>
 // ── Config ──
 let GITHUB_TOKEN = null;
@@ -1345,8 +1867,16 @@ async function init() {
     }
   }
   document.getElementById('loadingScreen').classList.add('hidden');
+
+  // Restore persisted UI state
+  applyFilter(currentFilter, false);
+  applyView(currentView, false);
+  setTimeout(updateSortHeaders, 0);
   renderAll();
-  initSandbox();
+  if (typeof buildSkeletonCache === 'function') buildSkeletonCache();
+
+  // Restore mode last — sandbox/design init lazily when first shown
+  applyMode(currentMode, false);
 }
 // ── GitHub API ──
 async function githubGet() {
@@ -1544,9 +2074,284 @@ function applyMode(mode, save = true) {
   } else {
     sv.classList.remove('visible');
   }
+  const cev = document.getElementById('charEditorView');
+  if (mode === 'design') {
+    if (cev) {
+      cev.classList.add('visible');
+      // Refresh entry select in case dictionary changed
+      if (typeof populateEntrySelect === 'function') populateEntrySelect();
+    } else {
+      // First time — initCharEditor builds the DOM, then show it
+      initCharEditor().then(() => {
+        const built = document.getElementById('charEditorView');
+        if (built) built.classList.add('visible');
+      });
+    }
+  } else {
+    if (cev) cev.classList.remove('visible');
+  }
 }
 
 function setMode(mode) { applyMode(mode); }
+
+// ── Pronunciation validator (inlined from validate-word.js) ──
+
+const PRON_VOWELS          = new Set(['a', 'e', 'i', 'í', 'o', 'ö', 'u']);
+const PRON_CONSONANTS_MULTI  = ['ng', 'ch', 'th'];
+const PRON_CONSONANTS_SINGLE = ['b', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'm', 'n', 'r', 's', 't', 'w'];
+const PRON_FRONT_VOWELS    = new Set(['e', 'i', 'í']);
+const PRON_BACK_VOWELS     = new Set(['o', 'ö', 'u']);
+const PRON_BANNED_FINAL_C  = new Set(['f', 'h']);
+const PRON_BANNED_FINAL_V  = new Set(['i']);
+const PRON_BANNED_INITIAL_C= new Set(['w', 'ng', 'r', 'm']);
+const PRON_BANNED_INITIAL_V= new Set(['ö', 'u']);
+const PRON_INITIAL_ONLY_C  = new Set(['l', 'n']);
+
+// Parse a pronunciation string into mora objects [{c, v}, ...]
+// Returns null if unparseable.
+function pronTokenise(word) {
+  const mora = [], w = word.trim().toLowerCase();
+  let i = 0;
+  while (i < w.length) {
+    let consonant = null;
+    for (const mc of PRON_CONSONANTS_MULTI) {
+      if (w.slice(i, i + mc.length) === mc) { consonant = mc; i += mc.length; break; }
+    }
+    if (!consonant) {
+      const sc = w[i];
+      if (PRON_CONSONANTS_SINGLE.includes(sc)) { consonant = sc; i++; }
+      else return null;
+    }
+    if (i >= w.length) return null;
+    // Handle í (single codepoint)
+    const nextTwo = w.slice(i, i + 2);
+    if (nextTwo === 'í') { mora.push({ c: consonant, v: 'í' }); i += 2; continue; }
+    const v = w[i];
+    if (PRON_VOWELS.has(v)) { mora.push({ c: consonant, v }); i++; }
+    else return null;
+  }
+  return mora;
+}
+
+function pronMoraDistance(moraA, moraB) {
+  function multisetDiff(a, b) {
+    const cb = [...b]; let shared = 0;
+    for (const x of a) { const i = cb.indexOf(x); if (i !== -1) { shared++; cb.splice(i, 1); } }
+    return Math.max(a.length, b.length) - shared;
+  }
+  function vowelDist(v1, v2) {
+    if (v1 === v2) return 0;
+    if ((['í','i'].includes(v1) && ['í','i'].includes(v2)) ||
+        (['ö','o'].includes(v1) && ['ö','o'].includes(v2))) return 0.5;
+    return 1;
+  }
+  const cDiff = multisetDiff(moraA.map(m => m.c).sort(), moraB.map(m => m.c).sort());
+  const vA = moraA.map(m => m.v), vB = moraB.map(m => m.v);
+  let vDiff = 0;
+  for (let i = 0; i < Math.max(vA.length, vB.length); i++) {
+    if (i >= vA.length || i >= vB.length) { vDiff += 1; continue; }
+    vDiff += vowelDist(vA[i], vB[i]);
+  }
+  return { consonants: cDiff, vowels: vDiff };
+}
+
+// Returns { status: 'valid'|'warning'|'invalid', errors: [], warnings: [], conflicts: [] }
+// conflicts: array of { gloss, pronunciation, reason } for entries that are identical or too close
+function validatePronunciation(word, currentEntryId) {
+  const errors = [], warnings = [], conflicts = [];
+  const w = word.trim().toLowerCase();
+  if (!w) return { status: 'empty', errors, warnings, conflicts };
+
+  // Collect existing pronunciations (exclude the entry being edited)
+  const existing = dictionary.entries
+    .filter(e => e.pronunciation && e.id !== currentEntryId)
+    .map(e => ({ gloss: e.gloss, pronunciation: e.pronunciation.toLowerCase() }));
+
+  // ── INVALID ──
+  // Identity: exact match
+  const identicalEntry = existing.find(e => e.pronunciation === w);
+  if (identicalEntry) {
+    errors.push(`Already used by "${identicalEntry.gloss}".`);
+    conflicts.push({ ...identicalEntry, reason: 'identical' });
+  }
+
+  // Word-initial vowel
+  if (PRON_VOWELS.has([...w][0])) {
+    errors.push('Must begin with a consonant.');
+  }
+
+  // Word-final consonant
+  const lastCp = [...w].at(-1);
+  if (!PRON_VOWELS.has(lastCp)) {
+    errors.push('Must end with a vowel (base form).');
+  }
+
+  // Parse mora
+  const mora = pronTokenise(w);
+  if (!mora) {
+    errors.push('Invalid characters or structure (must be CV syllables).');
+  } else {
+    if (mora.length < 2) errors.push(`Too short: ${mora.length} mora (minimum 2).`);
+    if (mora.length > 3) errors.push(`Too long: ${mora.length} mora (maximum 3).`);
+
+    if (mora.length >= 2) {
+      const ini = mora[0], fin = mora[mora.length - 1];
+
+      // ── WARNING ──
+      if (PRON_BANNED_INITIAL_C.has(ini.c))
+        warnings.push(`"${ini.c}" is middle/final only — avoid in first syllable.`);
+      if (PRON_BANNED_INITIAL_V.has(ini.v))
+        warnings.push(`"${ini.v}" is middle/final only — avoid in first syllable.`);
+      if (PRON_BANNED_FINAL_C.has(fin.c))
+        warnings.push(`"${fin.c}" is initial/middle only — avoid in final syllable.`);
+      if (PRON_BANNED_FINAL_V.has(fin.v))
+        warnings.push(`"${fin.v}" in final syllable — use "í" instead.`);
+      for (let i = 1; i < mora.length; i++) {
+        if (PRON_INITIAL_ONLY_C.has(mora[i].c))
+          warnings.push(`"${mora[i].c}" is initial-only — appears in syllable ${i + 1}.`);
+      }
+
+      // Vowel harmony
+      const vs = mora.map(m => m.v);
+      if (vs.some(v => PRON_FRONT_VOWELS.has(v)) && vs.some(v => PRON_BACK_VOWELS.has(v)))
+        warnings.push('Vowel harmony: mixes front and back vowels.');
+
+      // Minimal distance
+      for (const ex of existing) {
+        const exMora = pronTokenise(ex.pronunciation);
+        if (!exMora) continue;
+        const dist = pronMoraDistance(mora, exMora);
+        if (dist.consonants < 1 || dist.vowels < 1) {
+          warnings.push(`Too close to "${ex.gloss}" (${ex.pronunciation}) — Δ consonants=${dist.consonants}, vowels=${dist.vowels}.`);
+          conflicts.push({ ...ex, reason: 'too-close', dist });
+        }
+      }
+    }
+  }
+
+  const status = errors.length ? 'invalid' : warnings.length ? 'warning' : 'valid';
+  return { status, errors, warnings, conflicts };
+}
+
+// ── Pronunciation generator ──
+// Generates candidate pronunciations weighted toward sounds underrepresented
+// in the current category relative to global distribution.
+
+const GEN_INITIAL_C = ['b', 'd', 'f', 'g', 'h', 'j', 'k', 'l', 'n', 's', 't', 'ch', 'th'];
+const GEN_MIDDLE_C  = ['b', 'd', 'g', 'j', 'k', 'm', 'r', 's', 't', 'w', 'ch', 'ng', 'th'];
+const GEN_VOWELS_FRONT = ['e', 'i', 'í'];
+const GEN_VOWELS_BACK  = ['o', 'ö', 'u'];
+const GEN_VOWELS_NEUTRAL = ['a'];
+const GEN_ALL_VOWELS = [...GEN_VOWELS_FRONT, ...GEN_VOWELS_BACK, ...GEN_VOWELS_NEUTRAL];
+
+function generatePronunciations(currentEntryId, category, count = 5) {
+  // Build frequency tables from existing pronunciations
+  const allProns = dictionary.entries
+    .filter(e => e.pronunciation && e.id !== currentEntryId)
+    .map(e => ({ pron: e.pronunciation.toLowerCase(), cat: e.category || '' }));
+
+  const catProns = allProns.filter(p => p.cat === category);
+
+  function freqMap(prons, extractor) {
+    const map = {};
+    for (const p of prons) {
+      const mora = pronTokenise(p.pron);
+      if (!mora) continue;
+      for (const item of extractor(mora)) {
+        map[item] = (map[item] || 0) + 1;
+      }
+    }
+    return map;
+  }
+
+  const globalInitC = freqMap(allProns, m => [m[0].c]);
+  const catInitC    = freqMap(catProns, m => [m[0].c]);
+  const globalVowels= freqMap(allProns, m => m.map(x => x.v));
+  const catVowels   = freqMap(catProns, m => m.map(x => x.v));
+
+  // Score: underrepresented in category relative to global
+  // Higher score = more "due" in this category
+  function score(item, catF, globalF, pool) {
+    const total = pool.length;
+    const gFreq = (globalF[item] || 0) / Math.max(Object.values(globalF).reduce((a,b)=>a+b,0), 1);
+    const cFreq = (catF[item]    || 0) / Math.max(Object.values(catF).reduce((a,b)=>a+b,0), 1);
+    return gFreq - cFreq + Math.random() * 0.15; // small jitter for variety
+  }
+
+  function weightedPick(pool, catF, globalF) {
+    const scored = pool.map(item => ({ item, s: score(item, catF, globalF, pool) }));
+    scored.sort((a, b) => b.s - a.s);
+    // Pick from top half with probability weighting
+    const top = scored.slice(0, Math.max(3, Math.floor(scored.length / 2)));
+    return top[Math.floor(Math.random() * top.length)].item;
+  }
+
+  // Determine vowel harmony group for this candidate
+  function pickVowelGroup() {
+    // Weight: which group is underrepresented in category?
+    const catFront = GEN_VOWELS_FRONT.reduce((s,v)=>(s+(catVowels[v]||0)),0);
+    const catBack  = GEN_VOWELS_BACK.reduce((s,v)=>(s+(catVowels[v]||0)),0);
+    const r = Math.random();
+    if (r < 0.15) return 'neutral';         // always allow some neutral-only words
+    if (catFront <= catBack) return 'front';
+    return 'back';
+  }
+
+  const candidates = [];
+  let attempts = 0;
+
+  while (candidates.length < count && attempts < 200) {
+    attempts++;
+    const nMora = Math.random() < 0.6 ? 2 : 3;
+    const harmGroup = pickVowelGroup();
+    const vowelPool = harmGroup === 'front' ? [...GEN_VOWELS_FRONT, 'a']
+                    : harmGroup === 'back'  ? [...GEN_VOWELS_BACK, 'a']
+                    : ['a'];
+
+    const mora = [];
+    for (let i = 0; i < nMora; i++) {
+      const cPool = i === 0 ? GEN_INITIAL_C : GEN_MIDDLE_C;
+      const cFreq = i === 0 ? catInitC : freqMap(catProns, m => m.slice(1).map(x=>x.c));
+      const gFreq = i === 0 ? globalInitC : freqMap(allProns, m => m.slice(1).map(x=>x.c));
+      const c = weightedPick(cPool, cFreq, gFreq);
+      const v = weightedPick(vowelPool, catVowels, globalVowels);
+      mora.push({ c, v });
+    }
+
+    // Apply positional rules: fix l/n to initial if needed
+    for (let i = 1; i < mora.length; i++) {
+      if (PRON_INITIAL_ONLY_C.has(mora[i].c)) {
+        const alt = GEN_MIDDLE_C.filter(c => !PRON_INITIAL_ONLY_C.has(c));
+        mora[i].c = alt[Math.floor(Math.random() * alt.length)];
+      }
+    }
+    // Fix banned initial C/V
+    if (PRON_BANNED_INITIAL_C.has(mora[0].c)) {
+      const alt = GEN_INITIAL_C.filter(c => !PRON_BANNED_INITIAL_C.has(c));
+      mora[0].c = alt[Math.floor(Math.random() * alt.length)];
+    }
+    if (PRON_BANNED_INITIAL_V.has(mora[0].v)) {
+      mora[0].v = 'a';
+    }
+    // Fix banned final C/V
+    const last = mora[mora.length - 1];
+    if (PRON_BANNED_FINAL_C.has(last.c)) {
+      const alt = GEN_MIDDLE_C.filter(c => !PRON_BANNED_FINAL_C.has(c));
+      last.c = alt[Math.floor(Math.random() * alt.length)];
+    }
+    if (PRON_BANNED_FINAL_V.has(last.v)) {
+      last.v = harmGroup === 'front' ? 'í' : 'a';
+    }
+
+    const word = mora.map(m => m.c + m.v).join('');
+    const result = validatePronunciation(word, currentEntryId);
+    if (result.status !== 'invalid' && !candidates.includes(word)) {
+      candidates.push(word);
+    }
+  }
+
+  return candidates;
+}
 
 // ── Notation helpers ──
 // Updated notation:
@@ -1562,7 +2367,6 @@ function formatGloss(e) {
   if (e.type === 'modifier') return `(-${e.gloss.replace(/^-/, '')})`;
   if (e.type === 'marker') return `(${e.gloss})`;
   if (e.type === 'compound') return `[${e.gloss}]`;
-  if (e.type === 'vocab') return `${e.gloss}`;
   return e.gloss;
 }
 
@@ -1583,8 +2387,24 @@ function catBadge(cat) {
 }
 
 function glyphEl(entry) {
+  if (entry.skeleton_svg) {
+    return `<div class="card-glyph card-glyph-svg" title="Designed glyph">${entry.skeleton_svg}</div>`;
+  }
   if (entry.unicode_char) return `<div class="card-glyph">${entry.unicode_char}</div>`;
   return `<div class="card-glyph empty">—</div>`;
+}
+
+function openDesignForEntry(event, id) {
+  event.stopPropagation();
+  setMode('design');
+  const tryOpen = () => {
+    if (typeof openCharEditor === 'function') {
+      openCharEditor(id);
+    } else {
+      setTimeout(tryOpen, 100);
+    }
+  };
+  setTimeout(tryOpen, 50);
 }
 
 function renderCards(entries) {
@@ -1598,7 +2418,10 @@ function renderCards(entries) {
       <div class="card-header">
         ${glyphEl(e)}
         <div class="card-meta">
-          <div class="card-gloss ${e.type === 'vocab' ? 'card-gloss-vocab' : '' }">${formatGloss(e)}</div>
+          <div class="card-gloss-row">
+            <div class="card-gloss">${formatGloss(e)}</div>
+            ${e.pronunciation ? `<div class="card-pron">${esc(e.pronunciation)}</div>` : ''}
+          </div>
           <div class="card-badges">
             ${typeBadge(e.type)}
             ${catBadge(e.category)}
@@ -1613,6 +2436,7 @@ function renderCards(entries) {
         <div class="card-actions">
           <button class="btn-sm accent" onclick="openEdit(event, '${e.id}')">Edit</button>
           <button class="btn-sm" onclick="usedInSandbox(event, '${e.id}')">Use in sandbox</button>
+          <button class="btn-sm" onclick="openDesignForEntry(event, '${e.id}')">Design glyph</button>
         </div>
       </div>
     </div>
@@ -1627,25 +2451,27 @@ function toggleCard(event, id) {
 
 // ── Inline table editing ──
 let activeCellTd = null;
-const TYPE_OPTIONS = ['first-class','second-class','modifier','compound','marker','vocab'];
+const TYPE_OPTIONS = ['first-class','second-class','modifier','compound','marker'];
 const EDITABLEDCOLS = ['gloss','type','category','unicode_char','definition','composition','encapsulates'];
 
 function renderTable(entries) {
   const tbody = document.getElementById('tableBody');
   if (!entries.length) {
-    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:3rem;color:var(--ink-4)">No entries match your search.</td></tr>`;
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;padding:3rem;color:var(--ink-4)" tabindex="0">No entries match your search.</td></tr>`;
     return;
   }
   tbody.innerHTML = entries.map(e => buildTableRow(e)).join('');
 }
 
 function buildGlyphCell(e) {
-  // If there's an explicit unicode char, always use that
+  if (e.skeleton_svg) {
+    return `<div class="table-glyph table-glyph-svg" title="Designed glyph">${e.skeleton_svg}</div>`;
+  }
   if (e.unicode_char) {
     return `<div class="table-glyph">${e.unicode_char}</div>`;
   }
-  // For compound/vocab entries with a composition, render it inline at small scale
-  if ((e.type === 'compound' || e.type === 'vocab') && e.composition) {
+  // For compound entries with a composition, render it inline at small scale
+  if ((e.type === 'compound') && e.composition) {
     const rendered = parseInput(e.composition);
     return `<div class="table-glyph-compound" title="${esc(e.composition)}">${rendered}</div>`;
   }
@@ -1657,42 +2483,48 @@ function buildTableRow(e) {
   const glyphCell = buildGlyphCell(e);
   return `
     <tr data-id="${e.id}">
-      <td class="col-glyph">
-      ${e.type === 'vocab' ? '' : glyphCell}
+      <td class="col-glyph" tabindex="0">
+      ${glyphCell}
         </td>
-      <td class="col-gloss" data-field="gloss" onclick="startCellEdit(this)">
+      <td class="col-gloss" data-field="gloss" onclick="startCellEdit(this)" tabindex="0">
         <div class="cell-inner" style="font-family:var(--font-mono)">${formatGloss(e)}</div>
         <input class="cell-editor mono" value="${esc(e.gloss)}" data-orig="${esc(e.gloss)}">
       </td>
-      <td class="col-type" data-field="type" onclick="startCellEdit(this)">
+      <td class="col-type" data-field="type" onclick="startCellEdit(this)" tabindex="0">
         <div class="cell-inner">${typeBadge(e.type)}</div>
         <select class="cell-select">${TYPE_OPTIONS.map(t => `<option value="${t}" ${e.type===t?'selected':''}>${t}</option>`).join('')}</select>
       </td>
-      <td class="col-cat" data-field="category" onclick="startCellEdit(this)">
+      <td class="col-cat" data-field="category" onclick="startCellEdit(this)" tabindex="0">
         <div class="cell-inner">${e.category || ''}</div>
         <input class="cell-editor" value="${esc(e.category||'')}">
       </td>
-      <td class="col-unicode" data-field="unicode_char" ${ e.type === 'vocab' || e.type === 'compound' ? `` : `onclick="startCellEdit(this)`}">
+      <td class="col-unicode" data-field="unicode_char" ${e.type === 'compound' ? `` : `onclick="startCellEdit(this)`}" tabindex="0">
         <div class="cell-inner" style="font-size:1.1rem;text-align:center">${e.unicode_char || ''}</div>
-        ${e.type === 'vocab' || e.type === 'compound' ? `` :
+        ${e.type === 'compound' ? `` :
         `<input class="cell-editor mono" value="${esc(e.unicode_char||'')}">`
       }
       </td>
-      <td class="col-def" data-field="definition" onclick="startCellEdit(this)">
+      <td class="col-pron" data-field="pronunciation" data-entry-id="${e.id}"
+          onclick="startPronCellEdit(this)" tabindex="0">
+        <div class="cell-inner" style="color:${e.pronunciation ? 'inherit' : 'var(--ink-4)'}">
+          ${e.pronunciation ? esc(e.pronunciation) : '—'}
+        </div>
+      </td>
+      <td class="col-def" data-field="definition" onclick="startCellEdit(this)" tabindex="0">
         <div class="cell-inner">${esc(e.definition||'')}</div>
         <input class="cell-editor" value="${esc(e.definition||'')}">
       </td>
-      <td class="col-comp" data-field="composition" ${e.type === 'compound' ? `onclick="startCellEdit(this)"` : ``}>
+      <td class="col-comp" data-field="composition" ${e.type === 'compound' ? `onclick="startCellEdit(this)"` : ``} tabindex="0">
         ${e.type === 'compound' ? `
         <div class="cell-inner">${esc(e.composition||'')}</div>
         <input class="cell-editor mono" value="${esc(e.composition||'')}">
         ` : ``}
       </td>
-      <td class="col-enc" data-field="encapsulates" onclick="startCellEdit(this)">
+      <td class="col-enc" data-field="encapsulates" onclick="startCellEdit(this)" tabindex="0">
         <div class="cell-inner">${esc(enc)}</div>
         <input class="cell-editor" value="${esc(enc)}" placeholder="comma-separated">
       </td>
-      <td class="col-del" style="position:relative">
+      <td class="col-del" style="position:relative" tabindex="0">
         <button class="row-del" onclick="deleteRowById('${e.id}')" title="Delete entry">✕</button>
       </td>
     </tr>
@@ -1714,6 +2546,7 @@ function startCellEdit(td) {
   }
 }
 
+const validationRe = /^(?:\[?\/[\w\s\-\/\[\]\(\)]+\/\]?(?:\([\w-]+\))?|(?:\[[\w-]+\]|\([\w-]+\))(?:\s*(?:\[[\w-]+\]|\([\w-]+\)))*)$/;
 function commitCell(td) {
   if (!td) return;
   td.classList.remove('cell-editing');
@@ -1732,6 +2565,10 @@ function commitCell(td) {
   } else if (field === 'unicode_char') {
     entry.unicode_char = newVal || null;
   } else if (field === 'composition') {
+    const valid = validationRe.test(newVal);
+    if (!valid) {
+      alert('Not a valid composition! (Will save anyway, but warning you)')
+    }
     entry.composition = newVal || null;
   } else {
     entry[field] = newVal;
@@ -1753,6 +2590,189 @@ function cancelCell(td) {
   const inp = td.querySelector('.cell-editor');
   if (inp && inp.dataset.orig !== undefined) inp.value = inp.dataset.orig;
   activeCellTd = null;
+}
+
+// ── Inline pronunciation cell ──
+// A bespoke cell editor that renders the validation widget inside the table cell.
+let activePronTd = null;
+let pronCellPopoverEl = null;
+
+function startPronCellEdit(td) {
+  // Close any other active cell first
+  if (activeCellTd) commitCell(activeCellTd);
+  if (activePronTd && activePronTd !== td) commitPronCell(activePronTd);
+  if (activePronTd === td) return; // toggle off
+
+  activePronTd = td;
+  const entryId = td.dataset.entryId;
+  const entry   = dictionary.entries.find(e => e.id === entryId);
+  if (!entry) return;
+
+  const current = entry.pronunciation || '';
+
+  td.innerHTML = `
+    <div class="pron-cell-widget">
+      <div class="pron-cell-row">
+        <input class="pron-cell-input" id="pron-cell-inp" type="text"
+               value="${esc(current)}" autocomplete="off" spellcheck="false"
+               placeholder="e.g. sema">
+        <button class="pron-cell-gen" id="pron-cell-gen-btn"
+                onclick="openPronCellGen()" title="Suggest">🎲</button>
+      </div>
+      <div class="pron-cell-detail" id="pron-cell-detail"></div>
+    </div>
+  `;
+
+  const inp = td.querySelector('#pron-cell-inp');
+  inp.focus();
+  inp.select();
+
+  // Live validation
+  inp.addEventListener('input', () => updatePronCellValidation(entryId));
+  // Commit on Enter, cancel on Escape
+  inp.addEventListener('keydown', ev => {
+    if (ev.key === 'Enter')  { ev.preventDefault(); commitPronCell(td); }
+    if (ev.key === 'Escape') { ev.preventDefault(); cancelPronCell(td, entry); }
+    if (ev.key === 'Tab')    { ev.preventDefault(); commitPronCell(td); }
+  });
+
+  // Run initial validation if there's already a value
+  if (current) updatePronCellValidation(entryId);
+
+  // Close on outside click (after this tick so the click that opened it doesn't immediately close it)
+  setTimeout(() => {
+    document.addEventListener('click', pronCellOutsideClick);
+  }, 0);
+}
+
+function pronCellOutsideClick(e) {
+  if (!activePronTd) { document.removeEventListener('click', pronCellOutsideClick); return; }
+  // Ignore clicks inside the active cell or its popover
+  if (activePronTd.contains(e.target)) return;
+  if (pronCellPopoverEl && pronCellPopoverEl.contains(e.target)) return;
+  commitPronCell(activePronTd);
+}
+
+function updatePronCellValidation(entryId) {
+  const inp    = document.getElementById('pron-cell-inp');
+  const detail = document.getElementById('pron-cell-detail');
+  if (!inp || !detail) return;
+  const word = inp.value.trim();
+
+  inp.classList.remove('pron-cell-valid', 'pron-cell-warning', 'pron-cell-invalid');
+  if (!word) { detail.textContent = ''; return; }
+
+  const result = validatePronunciation(word, entryId);
+
+  if (result.status === 'valid')   inp.classList.add('pron-cell-valid');
+  if (result.status === 'warning') inp.classList.add('pron-cell-warning');
+  if (result.status === 'invalid') inp.classList.add('pron-cell-invalid');
+
+  // Show the first error or conflict as a single compact line
+  let msg = '';
+  if (result.errors.length)   { msg = result.errors[0]; detail.className = 'pron-cell-detail is-error'; }
+  else if (result.conflicts.length) {
+    const c = result.conflicts[0];
+    msg = `${c.reason === 'identical' ? '✗' : '⚠'} ${c.reason} to "${c.gloss}" (${c.pronunciation})`;
+    detail.className = 'pron-cell-detail';
+  } else if (result.warnings.length) {
+    msg = result.warnings[0];
+    detail.className = 'pron-cell-detail';
+  }
+  detail.textContent = msg;
+}
+
+function commitPronCell(td) {
+  closePronCellPopover();
+  document.removeEventListener('click', pronCellOutsideClick);
+  if (!td) { activePronTd = null; return; }
+
+  const entryId = td.dataset.entryId;
+  const entry   = dictionary.entries.find(e => e.id === entryId);
+  const inp     = td.querySelector('#pron-cell-inp');
+  if (!entry || !inp) { activePronTd = null; return; }
+
+  const word = inp.value.trim();
+
+  // Block invalid
+  if (word) {
+    const result = validatePronunciation(word, entryId);
+    if (result.status === 'invalid') {
+      // Flash the input and stay open
+      inp.classList.add('pron-cell-invalid');
+      inp.focus();
+      return;
+    }
+  }
+
+  entry.pronunciation = word || null;
+  setDirty(true);
+  activePronTd = null;
+
+  // Rebuild just this cell
+  td.innerHTML = `
+    <div class="cell-inner" style="color:${word ? 'inherit' : 'var(--ink-4)'}">
+      ${word ? esc(word) : '—'}
+    </div>
+  `;
+}
+
+function cancelPronCell(td, entry) {
+  closePronCellPopover();
+  document.removeEventListener('click', pronCellOutsideClick);
+  activePronTd = null;
+  const word = entry.pronunciation || '';
+  td.innerHTML = `
+    <div class="cell-inner" style="color:${word ? 'inherit' : 'var(--ink-4)'}">
+      ${word ? esc(word) : '—'}
+    </div>
+  `;
+}
+
+// Generator popover for the inline cell — same logic as the slide-out, different anchor
+function openPronCellGen() {
+  closePronCellPopover();
+  const btn     = document.getElementById('pron-cell-gen-btn');
+  const entryId = activePronTd && activePronTd.dataset.entryId;
+  if (!btn || !entryId) return;
+
+  const entry      = dictionary.entries.find(e => e.id === entryId);
+  const category   = entry ? (entry.category || '') : '';
+  const candidates = generatePronunciations(entryId, category, 5);
+
+  const pop = document.createElement('div');
+  pop.className = 'pron-cell-popover';
+  pop.innerHTML = `
+    <div class="pron-popover-title">Suggestions<em style="font-weight:400"> ${esc(category || '—')}</em></div>
+    <div class="pron-candidates">
+      ${candidates.length
+        ? candidates.map(w =>
+            `<button class="pron-candidate" onclick="selectPronCellCandidate('${w}')">${w}</button>`
+          ).join('')
+        : `<span style="color:var(--ink-4);font-size:0.78rem">None found</span>`}
+    </div>
+  `;
+
+  // Position the popover below the gen button
+  document.body.appendChild(pop);
+  pronCellPopoverEl = pop;
+  const r = btn.getBoundingClientRect();
+  pop.style.left = r.left + 'px';
+  pop.style.top  = (r.bottom + 4) + 'px';
+}
+
+function selectPronCellCandidate(word) {
+  const inp = document.getElementById('pron-cell-inp');
+  if (inp) {
+    inp.value = word;
+    const entryId = activePronTd && activePronTd.dataset.entryId;
+    if (entryId) updatePronCellValidation(entryId);
+  }
+  closePronCellPopover();
+}
+
+function closePronCellPopover() {
+  if (pronCellPopoverEl) { pronCellPopoverEl.remove(); pronCellPopoverEl = null; }
 }
 
 // Global keydown for table navigation
@@ -1839,7 +2859,6 @@ function glossToId(gloss, type) {
   if (type === 'modifier') return `mod-${slug}`;
   if (type === 'compound') return `compound-${slug}`;
   if (type === 'marker') return `marker-${slug}`;
-  if (type === 'vocab') return `vocab-${slug}`;
   if (type === 'second-class') return `sc-${slug}`;
   return slug;
 }
@@ -1887,11 +2906,27 @@ function renderEditForm(entry) {
     </div>
     <div class="form-group">
       <label class="form-label">Composition</label>
-      <input class="form-input mono" id="f-composition" value="${entry.composition || ''}" placeholder="/trace/ + /cause/ + /path (-concept)/">
+      <input class="form-input mono" id="f-composition" value="${entry.composition || ''}" placeholder="[/trace/cause/path (-concept)/]">
     </div>
     <div class="form-group">
       <label class="form-label">Notes</label>
       <textarea class="form-input" id="f-notes" rows="2">${entry.notes || ''}</textarea>
+    </div>
+    <div class="form-group">
+      <label class="form-label" style="display:flex;justify-content:space-between;align-items:center">
+        <span>Pronunciation</span>
+        <button type="button" class="btn-sm" id="pronGenBtn" onclick="openPronGen()" title="Suggest pronunciations" style="padding:0.15rem 0.5rem;font-size:0.8rem">🎲</button>
+      </label>
+      <div style="position:relative">
+        <input class="form-input mono" id="f-pronunciation"
+               value="${entry.pronunciation || ''}"
+               placeholder="e.g. sema, nare, chibo"
+               autocomplete="off"
+               style="padding-right:2.5rem">
+        <span id="pron-status-pill" class="pron-pill" style="display:none"></span>
+      </div>
+      <div id="pron-detail" class="pron-detail"></div>
+      <div id="pron-popover" class="pron-popover" style="display:none"></div>
     </div>
   `;
   renderTagsList();
@@ -1944,6 +2979,13 @@ function renderEditForm(entry) {
       editTagsData.encapsulates.pop(); renderTagsList();
     }
   });
+
+  // Pronunciation field wiring
+  const pronEl = document.getElementById('f-pronunciation');
+  pronEl.addEventListener('input', () => updatePronValidation(editingId));
+  pronEl.addEventListener('focus', () => closePronPopover());
+  // Run initial validation if editing an existing entry that already has a pronunciation
+  if (entry.pronunciation) updatePronValidation(editingId);
 }
 
 function renderTagsList() {
@@ -1953,6 +2995,147 @@ function renderTagsList() {
 }
 
 function removeTag(i) { editTagsData.encapsulates.splice(i, 1); renderTagsList(); }
+
+// ── Pronunciation validation UI ──
+function updatePronValidation(currentEntryId) {
+  const pronEl  = document.getElementById('f-pronunciation');
+  const pill    = document.getElementById('pron-status-pill');
+  const detail  = document.getElementById('pron-detail');
+  if (!pronEl || !pill || !detail) return;
+
+  const word = pronEl.value.trim();
+  if (!word) {
+    pill.style.display = 'none';
+    detail.innerHTML   = '';
+    pronEl.style.borderLeftColor = '';
+    return;
+  }
+
+  const result = validatePronunciation(word, currentEntryId);
+
+  // Pill
+  const pillCfg = {
+    valid:   { text: '✓ valid',   bg: '#166534', fg: 'white' },
+    warning: { text: '⚠ warning', bg: '#92400e', fg: 'white' },
+    invalid: { text: '✗ invalid', bg: '#991b1b', fg: 'white' },
+  }[result.status] || { text: '', bg: 'transparent', fg: 'inherit' };
+
+  pill.textContent         = pillCfg.text;
+  pill.style.display       = 'inline-block';
+  pill.style.background    = pillCfg.bg;
+  pill.style.color         = pillCfg.fg;
+
+  // Left border colour on input
+  const borderColor = { valid: '#16a34a', warning: '#d97706', invalid: '#dc2626' }[result.status] || '';
+  pronEl.style.borderLeftColor  = borderColor;
+  pronEl.style.borderLeftWidth  = borderColor ? '3px' : '';
+
+  // Detail panel: errors first, then warnings, then conflicts
+  const parts = [];
+
+  result.errors.forEach(e => {
+    parts.push(`<div class="pron-msg pron-msg-error">✗ ${esc(e)}</div>`);
+  });
+  result.warnings.filter(w => !result.conflicts.some(c => w.includes(c.gloss))).forEach(w => {
+    parts.push(`<div class="pron-msg pron-msg-warning">⚠ ${esc(w)}</div>`);
+  });
+
+  // Conflict entries — shown as mini-cards with gloss + pronunciation
+  result.conflicts.forEach(c => {
+    const icon  = c.reason === 'identical' ? '✗' : '⚠';
+    const cls   = c.reason === 'identical' ? 'pron-msg-error' : 'pron-msg-warning';
+    const label = c.reason === 'identical' ? 'identical to' : 'too close to';
+    parts.push(`
+      <div class="pron-conflict ${cls}">
+        ${icon} ${label}
+        <span class="pron-conflict-entry">
+          <strong>${esc(c.gloss)}</strong>
+          <code>${esc(c.pronunciation)}</code>
+          ${c.dist ? `<span class="pron-conflict-dist">Δc=${c.dist.consonants} Δv=${c.dist.vowels}</span>` : ''}
+        </span>
+      </div>`);
+  });
+
+  detail.innerHTML = parts.join('');
+}
+
+// ── Pronunciation generator popover ──
+function openPronGen() {
+  const popover = document.getElementById('pron-popover');
+  const catEl   = document.getElementById('f-category');
+  if (!popover) return;
+
+  // Close if already open
+  if (popover.style.display !== 'none') { closePronPopover(); return; }
+
+  const category = catEl ? catEl.value.trim() : '';
+  const candidates = generatePronunciations(editingId, category, 5);
+
+  // Build distribution summary for the category
+  const catProns = dictionary.entries
+    .filter(e => e.pronunciation && e.category === category && e.id !== editingId)
+    .map(e => e.pronunciation.toLowerCase());
+
+  function initCFreq() {
+    const f = {};
+    catProns.forEach(p => { const m = pronTokenise(p); if (m) { f[m[0].c] = (f[m[0].c]||0)+1; } });
+    return Object.entries(f).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([c,n])=>`${c}(${n})`).join(' ');
+  }
+  function vowelFreq() {
+    const f = {};
+    catProns.forEach(p => { const m = pronTokenise(p); if (m) m.forEach(x=>{ f[x.v]=(f[x.v]||0)+1; }); });
+    return Object.entries(f).sort((a,b)=>b[1]-a[1]).slice(0,5).map(([v,n])=>`${v}(${n})`).join(' ');
+  }
+
+  const cSummary = initCFreq() || '—';
+  const vSummary = vowelFreq() || '—';
+
+  popover.innerHTML = `
+    <div class="pron-popover-title">Suggestions for <em>${esc(category || 'all')}</em></div>
+    <div class="pron-candidates">
+      ${candidates.length
+        ? candidates.map(w => `
+            <button class="pron-candidate" onclick="selectPronCandidate('${w}')">
+              ${w}
+            </button>`).join('')
+        : '<span style="color:var(--ink-4);font-size:0.8rem">No valid candidates found</span>'
+      }
+    </div>
+    <div class="pron-dist-summary">
+      <span title="Initial consonants in this category">C: ${esc(cSummary)}</span>
+      <span title="Vowels in this category">V: ${esc(vSummary)}</span>
+    </div>
+  `;
+  popover.style.display = 'block';
+
+  // Close on outside click
+  setTimeout(() => {
+    document.addEventListener('click', closePronPopoverOutside, { once: true });
+  }, 0);
+}
+
+function selectPronCandidate(word) {
+  const pronEl = document.getElementById('f-pronunciation');
+  if (pronEl) {
+    pronEl.value = word;
+    updatePronValidation(editingId);
+  }
+  closePronPopover();
+}
+
+function closePronPopover() {
+  const p = document.getElementById('pron-popover');
+  if (p) p.style.display = 'none';
+  document.removeEventListener('click', closePronPopoverOutside);
+}
+
+function closePronPopoverOutside(e) {
+  const popover = document.getElementById('pron-popover');
+  const btn     = document.getElementById('pronGenBtn');
+  if (popover && !popover.contains(e.target) && e.target !== btn) {
+    closePronPopover();
+  }
+}
 
 function saveEntry() {
   const id = document.getElementById('f-id').value.trim();
@@ -1971,6 +3154,16 @@ function saveEntry() {
     idEl.focus();
     return;
   }
+  // Block on invalid pronunciation
+  const pronRaw = document.getElementById('f-pronunciation').value.trim();
+  if (pronRaw) {
+    const pronResult = validatePronunciation(pronRaw, editingId);
+    if (pronResult.status === 'invalid') {
+      showToast('Pronunciation is invalid — fix before saving', 'error');
+      document.getElementById('f-pronunciation').focus();
+      return;
+    }
+  }
   const entry = {
     id,
     gloss: document.getElementById('f-gloss').value.trim(),
@@ -1978,14 +3171,20 @@ function saveEntry() {
     category: document.getElementById('f-category').value.trim(),
     unicode_char: document.getElementById('f-unicode').value.trim() || null,
     handwritten_char: null,
-    definition: document.getElementById('f-definition').value.trim(),
+    definition:   document.getElementById('f-definition').value.trim(),
     encapsulates: [...editTagsData.encapsulates],
-    composition: document.getElementById('f-composition').value.trim() || null,
-    notes: document.getElementById('f-notes').value.trim()
+    composition:  document.getElementById('f-composition').value.trim() || null,
+    notes:        document.getElementById('f-notes').value.trim(),
+    pronunciation: pronRaw || null,
   };
   if (editingId) {
     const idx = dictionary.entries.findIndex(e => e.id === editingId);
-    if (idx >= 0) dictionary.entries[idx] = entry;
+    if (idx >= 0) {
+      // Preserve skeleton fields from existing entry
+      entry.skeleton     = dictionary.entries[idx].skeleton     || null;
+      entry.skeleton_svg = dictionary.entries[idx].skeleton_svg || null;
+      dictionary.entries[idx] = entry;
+    }
   } else {
     dictionary.entries.push(entry);
   }
@@ -2200,7 +3399,7 @@ function tokenGloss(tok) {
   return tok.raw;
 }
 
-// Try to find a compound or vocab entry whose composition matches this group
+// Try to find a compound entry whose composition matches this group
 function findMatchingEntry(group) {
   let glosses;
   if (group.type === 'compound') {
@@ -2210,7 +3409,7 @@ function findMatchingEntry(group) {
   }
 
   // Build candidate composition strings — try both ' + ' and '+' joins
-  const candidate = glosses.join(' + ');
+  const candidate = glosses.join('/');
   const norm = s => s.replace(/\s*\+\s*/g, ' + ').replace(/\s+/g, ' ').trim().toLowerCase();
 
   return dictionary.entries.find(e => {
@@ -2361,9 +3560,6 @@ function showToast(msg, type = '') {
   clearTimeout(toastTimer);
   toastTimer = setTimeout(() => { t.className = 'toast'; }, 2800);
 }
-
-// ── Boot ──
-window.addEventListener('load', init);
 </script>
 </body>
 </html>
