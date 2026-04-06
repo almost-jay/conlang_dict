@@ -2330,7 +2330,7 @@
         "unset",
         "unassigned"
       ],
-      "composition": "/state (-not)/ + /emergent/",
+      "composition": "/state (-not)/emergent/",
       "notes": ""
     },
     {
@@ -2399,7 +2399,7 @@
         "causal history",
         "provenance"
       ],
-      "composition": "/trace/ + /cause/ + /path (-concept)/",
+      "composition": "/trace/cause/path (-concept)/",
       "notes": ""
     },
     {
@@ -2567,7 +2567,7 @@
         "garbage collection",
         "programmed death"
       ],
-      "composition": "/end/ + /self/",
+      "composition": "/end/self/",
       "notes": ""
     },
     {
@@ -2612,7 +2612,7 @@
         " baseline neural activity",
         " resting state"
       ],
-      "composition": "/field/ + /figure (-exclude)/",
+      "composition": "/field/figure (-exclude)/",
       "notes": ""
     },
     {
