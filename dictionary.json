@@ -20,7 +20,8 @@
         "node graph (edge-oriented)"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sema"
     },
     {
       "id": "structure",
@@ -37,7 +38,8 @@
         "skeleton"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "tara"
     },
     {
       "id": "form",
@@ -55,7 +57,8 @@
         "substrate"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "tade"
     },
     {
       "id": "group",
@@ -73,7 +76,8 @@
         "taxon"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "tabo"
     },
     {
       "id": "layer",
@@ -91,7 +95,8 @@
         "abstraction level"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "dase"
     },
     {
       "id": "grain",
@@ -107,7 +112,8 @@
         "fine vs coarse"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "dachí"
     },
     {
       "id": "self",
@@ -187,7 +193,8 @@
         "protocol"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gibe"
     },
     {
       "id": "function",
@@ -205,7 +212,8 @@
         "transform"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gife"
     },
     {
       "id": "change",
@@ -224,7 +232,8 @@
         "化"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "kire"
     },
     {
       "id": "map",
@@ -241,7 +250,8 @@
         "encoding"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "kiba"
     },
     {
       "id": "resolve",
@@ -258,7 +268,8 @@
         "precipitate"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "kísa"
     },
     {
       "id": "increase",
@@ -275,7 +286,8 @@
         "expand"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gíra"
     },
     {
       "id": "decrease",
@@ -293,7 +305,8 @@
         "reduce"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gíse"
     },
     {
       "id": "exhaust",
@@ -310,7 +323,8 @@
         "terminate"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gíbo"
     },
     {
       "id": "recurse",
@@ -328,7 +342,8 @@
         "self-similar growth"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "kireba"
     },
     {
       "id": "corecurse",
@@ -346,7 +361,8 @@
         "top-down"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "kirebo"
     },
     {
       "id": "interpolate",
@@ -362,7 +378,8 @@
         "inferring within bounds"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "kibíra"
     },
     {
       "id": "extrapolate",
@@ -379,7 +396,8 @@
         "extending a trend"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "kibíse"
     },
     {
       "id": "trace",
@@ -395,7 +413,8 @@
         "provenance"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "keda"
     },
     {
       "id": "begin",
@@ -416,7 +435,8 @@
         "trigger"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gase"
     },
     {
       "id": "end",
@@ -435,7 +455,8 @@
         "collapse into non-existence"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gaso"
     },
     {
       "id": "path",
@@ -455,7 +476,8 @@
         "narrative arc"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "feda"
     },
     {
       "id": "congruent",
@@ -473,7 +495,8 @@
         "archetype"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "fese"
     },
     {
       "id": "compose",
@@ -490,7 +513,8 @@
         "independent"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "feba"
     },
     {
       "id": "depend",
@@ -507,7 +531,8 @@
         "downstream"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "heda"
     },
     {
       "id": "cause",
@@ -524,7 +549,8 @@
         "drives"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "hese"
     },
     {
       "id": "same",
@@ -540,7 +566,8 @@
         "equivalent"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "heba"
     },
     {
       "id": "link",
@@ -557,7 +584,8 @@
         "tied to"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "fona"
     },
     {
       "id": "prescribe",
@@ -574,7 +602,8 @@
         "stipulated"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "thíra"
     },
     {
       "id": "pattern",
@@ -591,7 +620,8 @@
         "signal"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "síba"
     },
     {
       "id": "model",
@@ -609,7 +639,8 @@
         "map-of-territory"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "síra"
     },
     {
       "id": "idea",
@@ -626,7 +657,8 @@
         "gestalt"
       ],
       "composition": null,
-      "notes": "Placeholder primitive — use when no other primitive fits"
+      "notes": "Placeholder primitive — use when no other primitive fits",
+      "pronunciation": "thíba"
     },
     {
       "id": "meaning",
@@ -643,7 +675,8 @@
         "denotation"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "thíse"
     },
     {
       "id": "reference",
@@ -660,7 +693,8 @@
         "call site"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "síge"
     },
     {
       "id": "origin",
@@ -678,7 +712,8 @@
         "seed"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "síde"
     },
     {
       "id": "scope",
@@ -695,7 +730,8 @@
         "domain of applicability"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "thobe"
     },
     {
       "id": "valence",
@@ -712,7 +748,8 @@
         "feeling good or bad"
       ],
       "composition": null,
-      "notes": "One of two axes of the circumplex model of affect. Not a judgment — a raw felt quality."
+      "notes": "One of two axes of the circumplex model of affect. Not a judgment — a raw felt quality.",
+      "pronunciation": "chöba"
     },
     {
       "id": "arousal",
@@ -731,7 +768,8 @@
         "lethargic"
       ],
       "composition": null,
-      "notes": "One of two axes of the circumplex model of affect."
+      "notes": "One of two axes of the circumplex model of affect.",
+      "pronunciation": "chöge"
     },
     {
       "id": "attention",
@@ -749,7 +787,8 @@
         "transformer attention"
       ],
       "composition": null,
-      "notes": "Applies equally to cognitive attention, ML attention mechanisms, and social attention."
+      "notes": "Applies equally to cognitive attention, ML attention mechanisms, and social attention.",
+      "pronunciation": "thíwa"
     },
     {
       "id": "time",
@@ -766,7 +805,8 @@
         "sequence"
       ],
       "composition": null,
-      "notes": "Felt time = /time/ + /interoception/. Clock time = /time/ + /dimension/."
+      "notes": "Felt time = /time/ + /interoception/. Clock time = /time/ + /dimension/.",
+      "pronunciation": "jura"
     },
     {
       "id": "above",
@@ -784,7 +824,8 @@
         "over"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "bade"
     },
     {
       "id": "below",
@@ -802,7 +843,8 @@
         "under"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "bado"
     },
     {
       "id": "lateral",
@@ -819,7 +861,8 @@
         "horizontal (social)"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "bare"
     },
     {
       "id": "toward",
@@ -835,7 +878,8 @@
         "directed at"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "bíra"
     },
     {
       "id": "away",
@@ -851,7 +895,8 @@
         "directed from"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "bíse"
     },
     {
       "id": "inside",
@@ -868,7 +913,8 @@
         "encased"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "bona"
     },
     {
       "id": "outside",
@@ -885,7 +931,8 @@
         "excluded from"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "bone"
     },
     {
       "id": "contains",
@@ -902,7 +949,8 @@
         "includes"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "boga"
     },
     {
       "id": "surface",
@@ -919,7 +967,8 @@
         "skin"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "basa"
     },
     {
       "id": "around",
@@ -936,7 +985,8 @@
         "ambient"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "dabo"
     },
     {
       "id": "centre",
@@ -953,7 +1003,8 @@
         "core"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "dabe"
     },
     {
       "id": "edge",
@@ -971,7 +1022,8 @@
         "cortex"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "daso"
     },
     {
       "id": "between",
@@ -987,7 +1039,8 @@
         "transitional"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sabo"
     },
     {
       "id": "next-to",
@@ -1003,7 +1056,8 @@
         "adjacent"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sabe"
     },
     {
       "id": "overlap",
@@ -1019,7 +1073,8 @@
         "Venn intersection"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sabí"
     },
     {
       "id": "parallel",
@@ -1034,7 +1089,8 @@
         "co-directional"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sare"
     },
     {
       "id": "perpendicular",
@@ -1049,7 +1105,8 @@
         "orthogonal (geometric)"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sarö"
     },
     {
       "id": "tangent",
@@ -1064,7 +1121,8 @@
         "just-touching"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sado"
     },
     {
       "id": "dimension",
@@ -1080,7 +1138,8 @@
         "parameter space"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jurö"
     },
     {
       "id": "order",
@@ -1097,7 +1156,8 @@
         "degree of removal"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "tasa"
     },
     {
       "id": "before",
@@ -1114,7 +1174,8 @@
         "upstream in sequence"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "joba"
     },
     {
       "id": "after",
@@ -1131,7 +1192,8 @@
         "trailing"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jobe"
     },
     {
       "id": "state",
@@ -1149,7 +1211,8 @@
         "status"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jora"
     },
     {
       "id": "effect",
@@ -1167,7 +1230,8 @@
         "return value"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jore"
     },
     {
       "id": "interval",
@@ -1185,7 +1249,8 @@
         "timeout"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jorö"
     },
     {
       "id": "motion",
@@ -1203,7 +1268,8 @@
         "trajectory"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gera"
     },
     {
       "id": "continue",
@@ -1220,7 +1286,8 @@
         "sustain"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gero"
     },
     {
       "id": "rotate",
@@ -1238,12 +1305,13 @@
         "circulate"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "gerö"
     },
     {
       "id": "real",
       "gloss": "real",
-      "type": "second-class",
+      "type": "first-class",
       "category": "epistemic",
       "unicode_char": "✓",
       "handwritten_char": null,
@@ -1255,12 +1323,13 @@
         "not illusory"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "thore"
     },
     {
       "id": "fake",
       "gloss": "fake",
-      "type": "second-class",
+      "type": "first-class",
       "category": "epistemic",
       "unicode_char": "✗",
       "handwritten_char": null,
@@ -1271,12 +1340,13 @@
         "epiphenomenal"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "thöre"
     },
     {
       "id": "intentional",
       "gloss": "intentional",
-      "type": "second-class",
+      "type": "first-class",
       "category": "epistemic",
       "unicode_char": "⊛",
       "handwritten_char": null,
@@ -1288,12 +1358,13 @@
         "on purpose"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "síwa"
     },
     {
       "id": "intrinsic",
       "gloss": "intrinsic",
-      "type": "second-class",
+      "type": "first-class",
       "category": "structure",
       "unicode_char": "⬤",
       "handwritten_char": null,
@@ -1305,12 +1376,13 @@
         "constitutive"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "tíba"
     },
     {
       "id": "extrinsic",
       "gloss": "extrinsic",
-      "type": "second-class",
+      "type": "first-class",
       "category": "structure",
       "unicode_char": "○",
       "handwritten_char": null,
@@ -1322,12 +1394,13 @@
         "separable"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "tíbo"
     },
     {
       "id": "emergent",
       "gloss": "emergent",
-      "type": "second-class",
+      "type": "first-class",
       "category": "epistemic",
       "unicode_char": "↟",
       "handwritten_char": null,
@@ -1338,12 +1411,13 @@
         "undesigned"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "geba"
     },
     {
       "id": "prescribed",
       "gloss": "prescribed",
-      "type": "second-class",
+      "type": "first-class",
       "category": "epistemic",
       "unicode_char": "↡",
       "handwritten_char": null,
@@ -1355,12 +1429,13 @@
         "conventional"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "thíge"
     },
     {
       "id": "immediate",
       "gloss": "immediate",
-      "type": "second-class",
+      "type": "first-class",
       "category": "spatial",
       "unicode_char": "‖",
       "handwritten_char": null,
@@ -1371,12 +1446,13 @@
         "without intermediary"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "jíba"
     },
     {
       "id": "proximal",
       "gloss": "proximal",
-      "type": "second-class",
+      "type": "first-class",
       "category": "spatial",
       "unicode_char": "·",
       "handwritten_char": null,
@@ -1387,12 +1463,13 @@
         "neighbouring"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "jíse"
     },
     {
       "id": "distal",
       "gloss": "distal",
-      "type": "second-class",
+      "type": "first-class",
       "category": "spatial",
       "unicode_char": "…",
       "handwritten_char": null,
@@ -1404,12 +1481,13 @@
         "removed"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "jíbo"
     },
     {
       "id": "strong",
       "gloss": "strong",
-      "type": "second-class",
+      "type": "first-class",
       "category": "scalar",
       "unicode_char": "‼",
       "handwritten_char": null,
@@ -1421,12 +1499,13 @@
         "strongly"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "koda"
     },
     {
       "id": "weak",
       "gloss": "weak",
-      "type": "second-class",
+      "type": "first-class",
       "category": "scalar",
       "unicode_char": "¿",
       "handwritten_char": null,
@@ -1438,12 +1517,13 @@
         "barely"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "",
+      "pronunciation": "kose"
     },
     {
       "id": "full",
       "gloss": "full",
-      "type": "second-class",
+      "type": "first-class",
       "category": "scalar",
       "unicode_char": "■",
       "handwritten_char": null,
@@ -1455,12 +1535,12 @@
         "exhaustively"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": ""
     },
     {
       "id": "partial",
       "gloss": "partial",
-      "type": "second-class",
+      "type": "first-class",
       "category": "scalar",
       "unicode_char": "▪",
       "handwritten_char": null,
@@ -1471,12 +1551,13 @@
         "in part"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "Second-class: usable inline or as superscript modifier",
+      "pronunciation": "gobe"
     },
     {
       "id": "once",
       "gloss": "once",
-      "type": "second-class",
+      "type": "first-class",
       "category": "scalar",
       "unicode_char": "¹",
       "handwritten_char": null,
@@ -1487,12 +1568,13 @@
         "stable under repetition"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "Second-class: usable inline or as superscript modifier",
+      "pronunciation": "díba"
     },
     {
       "id": "repeat",
       "gloss": "repeat",
-      "type": "second-class",
+      "type": "first-class",
       "category": "scalar",
       "unicode_char": "∞",
       "handwritten_char": null,
@@ -1503,12 +1585,13 @@
         "accumulating"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "Second-class: usable inline or as superscript modifier",
+      "pronunciation": "díbo"
     },
     {
       "id": "up",
       "gloss": "up",
-      "type": "second-class",
+      "type": "first-class",
       "category": "directional",
       "unicode_char": "△",
       "handwritten_char": null,
@@ -1519,12 +1602,13 @@
         "increasing in rank"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "Second-class: usable inline or as superscript modifier",
+      "pronunciation": "bíde"
     },
     {
       "id": "down",
       "gloss": "down",
-      "type": "second-class",
+      "type": "first-class",
       "category": "directional",
       "unicode_char": "▽",
       "handwritten_char": null,
@@ -1535,12 +1619,13 @@
         "decreasing in rank"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "Second-class: usable inline or as superscript modifier",
+      "pronunciation": "bído"
     },
     {
       "id": "in",
       "gloss": "in",
-      "type": "second-class",
+      "type": "first-class",
       "category": "directional",
       "unicode_char": "◁",
       "handwritten_char": null,
@@ -1550,12 +1635,13 @@
         "centripetal"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "Second-class: usable inline or as superscript modifier",
+      "pronunciation": "bína"
     },
     {
       "id": "out",
       "gloss": "out",
-      "type": "second-class",
+      "type": "first-class",
       "category": "directional",
       "unicode_char": "▷",
       "handwritten_char": null,
@@ -1565,7 +1651,8 @@
         "centrifugal"
       ],
       "composition": null,
-      "notes": "Second-class: usable inline or as superscript modifier"
+      "notes": "Second-class: usable inline or as superscript modifier",
+      "pronunciation": "bíne"
     },
     {
       "id": "lit",
@@ -1581,7 +1668,8 @@
         "verbatim"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "cha"
     },
     {
       "id": "fig",
@@ -1597,7 +1685,8 @@
         "so to speak"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "thí"
     },
     {
       "id": "etc",
@@ -1612,7 +1701,8 @@
         "and so on"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "cho"
     },
     {
       "id": "mod-do",
@@ -1628,7 +1718,8 @@
         "performing X"
       ],
       "composition": null,
-      "notes": "Grammatical modifier — no standalone meaning. Written as superscript."
+      "notes": "Grammatical modifier — no standalone meaning. Written as superscript.",
+      "pronunciation": "goda"
     },
     {
       "id": "mod-be",
@@ -1644,7 +1735,8 @@
         "characterised by X"
       ],
       "composition": null,
-      "notes": "Grammatical modifier — no standalone meaning."
+      "notes": "Grammatical modifier — no standalone meaning.",
+      "pronunciation": "jöra"
     },
     {
       "id": "mod-thing",
@@ -1660,7 +1752,8 @@
         "a thing that X's"
       ],
       "composition": null,
-      "notes": "Grammatical modifier — no standalone meaning."
+      "notes": "Grammatical modifier — no standalone meaning.",
+      "pronunciation": "basö"
     },
     {
       "id": "mod-become",
@@ -1677,7 +1770,8 @@
         "to make into X"
       ],
       "composition": null,
-      "notes": "Grammatical modifier — no standalone meaning."
+      "notes": "Grammatical modifier — no standalone meaning.",
+      "pronunciation": "gítha"
     },
     {
       "id": "mod-concept",
@@ -1693,7 +1787,8 @@
         "X-ness as a domain"
       ],
       "composition": null,
-      "notes": "Grammatical modifier — no standalone meaning."
+      "notes": "Grammatical modifier — no standalone meaning.",
+      "pronunciation": "thígo"
     },
     {
       "id": "mod-of",
@@ -1710,7 +1805,8 @@
         "derived from"
       ],
       "composition": null,
-      "notes": "Grammatical modifier — no standalone meaning."
+      "notes": "Grammatical modifier — no standalone meaning.",
+      "pronunciation": "feno"
     },
     {
       "id": "mod-not",
@@ -1727,7 +1823,8 @@
         "absence of"
       ],
       "composition": null,
-      "notes": "Logical modifier."
+      "notes": "Logical modifier.",
+      "pronunciation": "kothe"
     },
     {
       "id": "mod-exclude",
@@ -1743,7 +1840,8 @@
         "incompatible with"
       ],
       "composition": null,
-      "notes": "(-not)(-exclude) = does not exclude = compatible"
+      "notes": "(-not)(-exclude) = does not exclude = compatible",
+      "pronunciation": "kosí"
     },
     {
       "id": "mod-mutual",
@@ -1760,7 +1858,8 @@
         "mutual"
       ],
       "composition": null,
-      "notes": "/cause (-mutual)/ = feedback loop"
+      "notes": "/cause (-mutual)/ = feedback loop",
+      "pronunciation": "dawo"
     },
     {
       "id": "mod-self",
@@ -1777,7 +1876,8 @@
         "self-referential"
       ],
       "composition": null,
-      "notes": "Derives from /self/ primitive"
+      "notes": "Derives from /self/ primitive",
+      "pronunciation": "nöse"
     },
     {
       "id": "mod-ever",
@@ -1794,7 +1894,8 @@
         "过"
       ],
       "composition": null,
-      "notes": "From Mandarin 过 (experiential aspect)"
+      "notes": "From Mandarin 过 (experiential aspect)",
+      "pronunciation": "sítha"
     },
     {
       "id": "mod-witnessed",
@@ -1810,7 +1911,8 @@
         "first-hand"
       ],
       "composition": null,
-      "notes": "Evidential modifier"
+      "notes": "Evidential modifier",
+      "pronunciation": "dore"
     },
     {
       "id": "mod-inferred",
@@ -1826,7 +1928,8 @@
         "inferred"
       ],
       "composition": null,
-      "notes": "Evidential modifier"
+      "notes": "Evidential modifier",
+      "pronunciation": "dorí"
     },
     {
       "id": "mod-reported",
@@ -1843,7 +1946,8 @@
         "according to"
       ],
       "composition": null,
-      "notes": "Evidential modifier"
+      "notes": "Evidential modifier",
+      "pronunciation": "dorö"
     },
     {
       "id": "mod-remembered",
@@ -1859,7 +1963,8 @@
         "possibly unreliable"
       ],
       "composition": null,
-      "notes": "Evidential modifier"
+      "notes": "Evidential modifier",
+      "pronunciation": "dobí"
     },
     {
       "id": "mod-unexpected",
@@ -1876,7 +1981,8 @@
         "!"
       ],
       "composition": null,
-      "notes": "Mirative modifier — marks moments where evidence contradicts the model"
+      "notes": "Mirative modifier — marks moments where evidence contradicts the model",
+      "pronunciation": "chage"
     },
     {
       "id": "marker-and",
@@ -1892,7 +1998,8 @@
         "furthermore"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jo"
     },
     {
       "id": "marker-plus",
@@ -1908,7 +2015,8 @@
         "on top of that"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jola"
     },
     {
       "id": "marker-but",
@@ -1925,7 +2033,8 @@
         "yet"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "tho"
     },
     {
       "id": "marker-then",
@@ -1942,7 +2051,8 @@
         "so"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "je"
     },
     {
       "id": "marker-vs",
@@ -1958,7 +2068,8 @@
         "as opposed to"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "thele"
     },
     {
       "id": "marker-think",
@@ -1974,7 +2085,8 @@
         "analytically"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "lethí"
     },
     {
       "id": "marker-feel",
@@ -1990,7 +2102,8 @@
         "I prefer"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "chöbí"
     },
     {
       "id": "marker-near",
@@ -2006,7 +2119,8 @@
         "in the vicinity of"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jelo"
     },
     {
       "id": "marker-relate",
@@ -2022,7 +2136,8 @@
         "cf."
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "thela"
     },
     {
       "id": "marker-example",
@@ -2039,7 +2154,8 @@
         "for instance"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "líge"
     },
     {
       "id": "marker-if",
@@ -2055,7 +2171,8 @@
         "given that"
       ],
       "composition": null,
-      "notes": "(if)(-partial) = hypothetical / counterfactual"
+      "notes": "(if)(-partial) = hypothetical / counterfactual",
+      "pronunciation": "jí"
     },
     {
       "id": "marker-when",
@@ -2071,7 +2188,8 @@
         "at the same time as"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "thí"
     },
     {
       "id": "marker-cause",
@@ -2087,7 +2205,8 @@
         "due to"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "jotha"
     },
     {
       "id": "marker-same-agent",
@@ -2102,7 +2221,8 @@
         "switch reference — same"
       ],
       "composition": null,
-      "notes": "From Papuan/Navajo switch reference systems"
+      "notes": "From Papuan/Navajo switch reference systems",
+      "pronunciation": "lona"
     },
     {
       "id": "marker-new-agent",
@@ -2117,7 +2237,8 @@
         "switch reference — different"
       ],
       "composition": null,
-      "notes": "From Papuan/Navajo switch reference systems"
+      "notes": "From Papuan/Navajo switch reference systems",
+      "pronunciation": "luse"
     },
     {
       "id": "marker-now",
@@ -2133,7 +2254,8 @@
         "at this moment"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "le"
     },
     {
       "id": "marker-past",
@@ -2149,7 +2271,8 @@
         "formerly"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "la"
     },
     {
       "id": "marker-future",
@@ -2165,7 +2288,8 @@
         "will"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "lí"
     },
     {
       "id": "pron-i",
@@ -2181,7 +2305,8 @@
         "my (with -of)"
       ],
       "composition": null,
-      "notes": "Gender, number, possession via superscript modifiers"
+      "notes": "Gender, number, possession via superscript modifiers",
+      "pronunciation": "na"
     },
     {
       "id": "pron-you",
@@ -2196,7 +2321,8 @@
         "your (with -of)"
       ],
       "composition": null,
-      "notes": ""
+      "notes": "",
+      "pronunciation": "sa"
     },
     {
       "id": "pron-they",
@@ -2214,7 +2340,8 @@
         "them"
       ],
       "composition": null,
-      "notes": "Gender added via /male/, /female/, /other/ as superscript. Number via /group/ superscript."
+      "notes": "Gender added via /male/, /female/, /other/ as superscript. Number via /group/ superscript.",
+      "pronunciation": "ta"
     },
     {
       "id": "compound-promotion",
@@ -2281,7 +2408,7 @@
         "is",
         "==="
       ],
-      "composition": "/self/ + /same/",
+      "composition": "/self/same/",
       "notes": ""
     },
     {
@@ -2297,7 +2424,7 @@
         "equivalent content",
         "=="
       ],
-      "composition": "/same (-of)/ + /state/",
+      "composition": "/same (-of)/state/",
       "notes": ""
     },
     {
@@ -2314,7 +2441,7 @@
         "nil",
         "intentional empty"
       ],
-      "composition": "/state (-not)/ + /intentional/",
+      "composition": "/state (-not)/intentional/",
       "notes": ""
     },
     {
@@ -2347,7 +2474,7 @@
         "edge case",
         "out of bounds"
       ],
-      "composition": "/state/ + /outside/ + /scope (-of)/ + /system/",
+      "composition": "/state/outside/scope (-of)/system/",
       "notes": ""
     },
     {
@@ -2365,7 +2492,7 @@
         "Hofstadter",
         "metacognition"
       ],
-      "composition": "/self/ + /reference/",
+      "composition": "/self/reference/",
       "notes": ""
     },
     {
@@ -2382,7 +2509,7 @@
         "ex nihilo",
         "autocatalysis"
       ],
-      "composition": "/self/ + /cause/",
+      "composition": "/self/cause/",
       "notes": ""
     },
     {
@@ -2416,7 +2543,7 @@
         "interpretive frame",
         "methodology"
       ],
-      "composition": "/reference/ + /model/",
+      "composition": "/reference/model/",
       "notes": ""
     },
     {
@@ -2432,7 +2559,7 @@
         "referentially transparent",
         "no side effects"
       ],
-      "composition": "/function/ + /cause (-not)/ + /extrinsic/",
+      "composition": "/function/cause (-not)/extrinsic/",
       "notes": ""
     },
     {
@@ -2449,7 +2576,7 @@
         "IO",
         "observable effect"
       ],
-      "composition": "/effect/ + /extrinsic (-of)/ + /function/",
+      "composition": "/effect/extrinsic (-of)/function/",
       "notes": ""
     },
     {
@@ -2465,7 +2592,7 @@
         "information hiding",
         "private state"
       ],
-      "composition": "/scope/ + /intrinsic/ + /contains/",
+      "composition": "/scope/intrinsic/contains/",
       "notes": ""
     },
     {
@@ -2482,7 +2609,7 @@
         "emergent convention",
         "habit"
       ],
-      "composition": "/path (-become)/ + /emergent/",
+      "composition": "/path (-become)/emergent/",
       "notes": ""
     },
     {
@@ -2499,7 +2626,7 @@
         "self-reference",
         "Gödel"
       ],
-      "composition": "/recurse/ + /self/ + /contains/",
+      "composition": "/recurse/self/contains/",
       "notes": ""
     },
     {
@@ -2516,7 +2643,7 @@
         "deliberate misrepresentation",
         "falsehood"
       ],
-      "composition": "/state/ + /fake/ + /intentional/",
+      "composition": "/state/fake/intentional/",
       "notes": ""
     },
     {
@@ -2533,7 +2660,7 @@
         "confabulation",
         "honest error"
       ],
-      "composition": "/state/ + /fake/ + /intentional (-not)/",
+      "composition": "/state/fake/intentional (-not)/",
       "notes": "Applies to both clinical hallucination and LLM confabulation"
     },
     {
@@ -2550,7 +2677,7 @@
         "autocreation",
         "self-starting"
       ],
-      "composition": "/begin/ + /self/",
+      "composition": "/begin/self/",
       "notes": ""
     },
     {
@@ -2584,7 +2711,7 @@
         "arc",
         "bounded existence"
       ],
-      "composition": "/begin/ + /end/",
+      "composition": "/begin/end/",
       "notes": ""
     },
     {
@@ -2596,21 +2723,12 @@
       "handwritten_char": null,
       "definition": "The complement of /figure/ within a /field/ or /system/. The undifferentiated substrate against which /figure/ stands out.",
       "encapsulates": [
-        "ground (Gestalt)",
-        " background",
-        " vacuum state",
-        " ground state",
-        " zero field",
-        " background radiation",
-        " solvent",
-        " catalyst support",
-        " matrix",
-        " extracellular matrix",
-        " soil",
-        " culture medium",
-        " biofilm substrate",
-        " baseline neural activity",
-        " resting state"
+        "ground (Gestalt)", "background","vacuum state",
+        "ground state",
+        "zero field",
+        "background radiation",
+        "solvent",
+        "catalyst support"
       ],
       "composition": "/field/figure (-exclude)/",
       "notes": ""
@@ -2618,7 +2736,7 @@
     {
       "id": "vocab-perspective",
       "gloss": "perspective",
-      "type": "compound",
+      "type": "second-class",
       "category": "epistemic",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2630,13 +2748,13 @@
         "take",
         "angle"
       ],
-      "composition": "/reference/ + /origin/ + /scope/",
+      "composition": "/reference/origin/scope/",
       "notes": "Promoted to vocab due to frequency"
     },
     {
       "id": "vocab-variable",
       "gloss": "variable",
-      "type": "compound",
+      "type": "second-class",
       "category": "epistemic",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2647,13 +2765,13 @@
         "quantity",
         "unknown"
       ],
-      "composition": "/state (-concept)/ + /dimension/",
+      "composition": null,
       "notes": ""
     },
     {
       "id": "vocab-parameter",
       "gloss": "parameter",
-      "type": "compound",
+      "type": "second-class",
       "category": "epistemic",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2664,11 +2782,11 @@
         "argument (formal)",
         "knob"
       ],
-      "composition": "/prescribed (-concept)/ + /dimension/",
+      "composition": null,
       "notes": ""
     },
     {
-      "id": "vocab-measure",
+      "id": "compound-measure",
       "gloss": "measure",
       "type": "compound",
       "category": "epistemic",
@@ -2681,11 +2799,11 @@
         "measurement",
         "reading"
       ],
-      "composition": "/function/ + /state/ + /dimension/",
+      "composition": "/function/state/dimension/",
       "notes": ""
     },
     {
-      "id": "vocab-basin",
+      "id": "compound-basin",
       "gloss": "basin",
       "type": "compound",
       "category": "spatial",
@@ -2700,7 +2818,7 @@
         "anatomical cistern",
         "attractor basin"
       ],
-      "composition": "/below/ + /intrinsic/ + /around/",
+      "composition": "/below/intrinsic/around/",
       "notes": ""
     },
     {
@@ -2814,6 +2932,123 @@
       ],
       "composition": null,
       "notes": "Core sensory vocabulary. /time/ + /interoception/ = felt time."
+    },
+    {
+      "id": "marker-complete",
+      "gloss": "complete",
+      "type": "marker",
+      "category": "aspectual",
+      "unicode_char": null,
+      "definition": "Completed action — marks that an action is finished; attaches immediately after the verb/verb phrase. Equivalent to Chinese 了 (le).",
+      "pronunciation": "latu"
+    },
+    {
+      "id": "marker-ongoing",
+      "gloss": "ongoing",
+      "type": "marker",
+      "category": "aspectual",
+      "unicode_char": null,
+      "definition": "Ongoing action — marks that an action is in progress at the reference time. Equivalent to Chinese 在/正在 (zài/zhèngzài).",
+      "pronunciation": "lenö"
+    },
+    {
+      "id": "marker-result",
+      "gloss": "result",
+      "type": "marker",
+      "category": "aspectual",
+      "unicode_char": null,
+      "definition": "Resulting state — marks that a completed action has left a persistent state. Equivalent to Chinese 着 (zhe).",
+      "pronunciation": "letu"
+    },
+    {
+      "id": "marker-intent",
+      "gloss": "intent",
+      "type": "marker",
+      "category": "aspectual",
+      "unicode_char": null,
+      "definition": "Volitional future — marks intended or planned action. Equivalent to Chinese 要 (yào). Attaches after the verb, before unaffected objects.",
+      "pronunciation": "lanu"
+    },
+    {
+      "id": "marker-possible",
+      "gloss": "possible",
+      "type": "marker",
+      "category": "aspectual",
+      "unicode_char": null,
+      "definition": "Epistemic possibility — marks that an action or state may occur. Equivalent to Chinese 会 (huì).",
+      "pronunciation": "linu"
+    },
+    {
+      "id": "who",
+      "gloss": "who",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: which person/agent. Placed in the position of the unknown constituent. \"Comes from who?\" = [/who/] (from) [/cause (-of)/]",
+      "pronunciation": "telo"
+    },
+    {
+      "id": "what",
+      "gloss": "what",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: which thing/concept. Placed in the position of the unknown constituent.",
+      "pronunciation": "lebo"
+    },
+    {
+      "id": "where",
+      "gloss": "where",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: which location. Placed in the position of the unknown constituent. \"Comes from where?\" = [/where (-of)/] [/come (-do)/]",
+      "pronunciation": "lasa"
+    },
+    {
+      "id": "when-q",
+      "gloss": "when-q",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: which time. Placed in the position of the unknown time constituent. Distinct from the marker (when) which introduces temporal clauses.",
+      "pronunciation": "leme"
+    },
+    {
+      "id": "how",
+      "gloss": "how",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: by what means or manner.",
+      "pronunciation": "neme"
+    },
+    {
+      "id": "why",
+      "gloss": "why",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: for what reason/cause. Compositionally equivalent to [/cause (-thing)/] but lexicalised for convenience.",
+      "pronunciation": "jebo"
+    },
+    {
+      "id": "which",
+      "gloss": "which",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: which one from a set. Used when selecting from known candidates.",
+      "pronunciation": "loge"
+    },
+    {
+      "id": "how-much",
+      "gloss": "how-much",
+      "type": "first-class",
+      "category": "interrogative",
+      "unicode_char": null,
+      "definition": "Interrogative: to what degree or quantity.",
+      "pronunciation": "nesa"
     }
   ]
 }

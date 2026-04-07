@@ -2191,8 +2191,10 @@ function validatePronunciation(word, currentEntryId) {
   if (!mora) {
     errors.push('Invalid characters or structure (must be CV syllables).');
   } else {
-    if (mora.length < 2) errors.push(`Too short: ${mora.length} mora (minimum 2).`);
-    if (mora.length > 3) errors.push(`Too long: ${mora.length} mora (maximum 3).`);
+    if (word.type == 'first-class' || word.type == 'second-class') {
+      if (mora.length < 2) errors.push(`Too short: ${mora.length} mora (minimum 2).`);
+      if (mora.length > 3) errors.push(`Too long: ${mora.length} mora (maximum 3).`);
+    }
 
     if (mora.length >= 2) {
       const ini = mora[0], fin = mora[mora.length - 1];
@@ -2221,7 +2223,7 @@ function validatePronunciation(word, currentEntryId) {
         const exMora = pronTokenise(ex.pronunciation);
         if (!exMora) continue;
         const dist = pronMoraDistance(mora, exMora);
-        if (dist.consonants < 1 || dist.vowels < 1) {
+        if (dist.consonants < 1 && dist.vowels < 1) {
           warnings.push(`Too close to "${ex.gloss}" (${ex.pronunciation}) — Δ consonants=${dist.consonants}, vowels=${dist.vowels}.`);
           conflicts.push({ ...ex, reason: 'too-close', dist });
         }
