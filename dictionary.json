@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "0.1",
-    "last_updated": "2026-04-06",
+    "last_updated": "2026-04-11",
     "language": "??"
   },
   "entries": [
@@ -2723,7 +2723,9 @@
       "handwritten_char": null,
       "definition": "The complement of /figure/ within a /field/ or /system/. The undifferentiated substrate against which /figure/ stands out.",
       "encapsulates": [
-        "ground (Gestalt)", "background","vacuum state",
+        "ground (Gestalt)",
+        "background",
+        "vacuum state",
         "ground state",
         "zero field",
         "background radiation",
@@ -2824,7 +2826,7 @@
     {
       "id": "vocab-sight",
       "gloss": "sight",
-      "type": "compound",
+      "type": "second-class",
       "category": "sensory",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2840,7 +2842,7 @@
     {
       "id": "vocab-sound",
       "gloss": "sound",
-      "type": "compound",
+      "type": "second-class",
       "category": "sensory",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2856,7 +2858,7 @@
     {
       "id": "vocab-touch",
       "gloss": "touch",
-      "type": "compound",
+      "type": "second-class",
       "category": "sensory",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2872,7 +2874,7 @@
     {
       "id": "vocab-taste",
       "gloss": "taste",
-      "type": "compound",
+      "type": "second-class",
       "category": "sensory",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2888,7 +2890,7 @@
     {
       "id": "vocab-smell",
       "gloss": "smell",
-      "type": "compound",
+      "type": "second-class",
       "category": "sensory",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2904,7 +2906,7 @@
     {
       "id": "vocab-proprioception",
       "gloss": "proprioception",
-      "type": "compound",
+      "type": "second-class",
       "category": "sensory",
       "unicode_char": null,
       "handwritten_char": null,
@@ -2920,7 +2922,7 @@
     {
       "id": "vocab-interoception",
       "gloss": "interoception",
-      "type": "compound",
+      "type": "second-class",
       "category": "sensory",
       "unicode_char": null,
       "handwritten_char": null,
@@ -3049,6 +3051,105 @@
       "unicode_char": null,
       "definition": "Interrogative: to what degree or quantity.",
       "pronunciation": "nesa"
+    },
+    {
+      "id": "compound-input",
+      "gloss": "input",
+      "type": "compound",
+      "category": "relational",
+      "unicode_char": null,
+      "handwritten_char": null,
+      "definition": "",
+      "encapsulates": [],
+      "composition": "/before/function/(-thing)",
+      "notes": "",
+      "pronunciation": null
+    },
+    {
+      "id": "compound-output",
+      "gloss": "output",
+      "type": "compound",
+      "category": "",
+      "unicode_char": null,
+      "handwritten_char": null,
+      "definition": "",
+      "encapsulates": [],
+      "composition": "/after/function/(-thing)",
+      "notes": "",
+      "pronunciation": null
+    },
+    {
+      "id": "set",
+      "gloss": "set",
+      "type": "first-class",
+      "category": "structure",
+      "unicode_char": "ℝ",
+      "handwritten_char": null,
+      "definition": "",
+      "encapsulates": [],
+      "composition": null,
+      "notes": "",
+      "pronunciation": "samo"
+    },
+    {
+      "id": "element",
+      "gloss": "element",
+      "type": "first-class",
+      "category": "structure",
+      "unicode_char": "∊",
+      "handwritten_char": null,
+      "definition": "",
+      "encapsulates": [
+        "element",
+        "member"
+      ],
+      "composition": null,
+      "notes": "",
+      "pronunciation": "nasö"
+    },
+    {
+      "id": "compound-predicate",
+      "gloss": "predicate",
+      "type": "compound",
+      "category": "",
+      "unicode_char": null,
+      "handwritten_char": null,
+      "definition": "",
+      "encapsulates": [],
+      "composition": "/if (-concept)(-thing)/",
+      "notes": "",
+      "pronunciation": null
+    },
+    {
+      "id": "compound-tuple",
+      "gloss": "tuple",
+      "type": "compound",
+      "category": "",
+      "unicode_char": null,
+      "handwritten_char": null,
+      "definition": "Any ordered grouping or list of elements",
+      "encapsulates": [],
+      "composition": "/sequence/set/",
+      "notes": "",
+      "pronunciation": null
+    },
+    {
+      "id": "sequence",
+      "gloss": "sequence",
+      "type": "first-class",
+      "category": "",
+      "unicode_char": "∀",
+      "handwritten_char": null,
+      "definition": "To have a particular order or sequence of items; to have an arrangement or index",
+      "encapsulates": [
+        "organise",
+        "order",
+        "arrange",
+        "alphabet"
+      ],
+      "composition": null,
+      "notes": "",
+      "pronunciation": null
     }
   ]
 }
