@@ -1780,10 +1780,8 @@
 <div class="toast" id="toast"></div>
 
 <script type="module">
-  // Import the ESM version directly from unpkg
   import * as Flatten from 'https://unpkg.com/@flatten-js/core@1.6.10/dist/main.mjs';
   
-  // Explicitly attach it to the window so your other scripts can see it
   window.Flatten = Flatten;
   
   console.log("Flatten.js (ESM) loaded and attached to window.");
@@ -1855,6 +1853,7 @@ async function init() {
     fileSha = sha;
     setStatusOk();
     showToast('Dictionary loaded', 'success');
+    console.log(data);
   } catch (e) {
     // Fall back to local data if available
     const local = localStorage.getItem('dict_local');
